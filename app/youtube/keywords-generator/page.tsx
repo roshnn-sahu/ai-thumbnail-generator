@@ -1,6 +1,6 @@
 import HeroSection from "@/components/hero-section";
 import HeroGridPattern from "@/components/mui/HeroGridPattern";
-import TagInput from "@/components/tag-genarator/tag-input";
+import KeywordForm from "@/components/keywords/keyword-from";
 import { Feature43 } from "@/components/feature43";
 import { Feature1 } from "@/components/feature1";
 import Faq from "@/components/faq";
@@ -16,7 +16,7 @@ const page = () => {
             title="Discover High-Ranking YouTube Keywords in Seconds"
             subTitle="Enter your video idea and get powerful keywords with search volume, competition score, and ranking difficulty — optimized to grow your channel."
           />
-          <TagInput />
+          <KeywordForm />
           <Feature43 />
         </HeroGridPattern>
         <Feature1
@@ -33,7 +33,7 @@ const page = () => {
           }}
         />
         <Faq />
-        <CallToAction/>
+        <CallToAction />
       </div>
     </main>
   );

@@ -4,10 +4,10 @@ import React, { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { IconUpload, IconX } from "@tabler/icons-react";
 import { useDropzone } from "react-dropzone";
-import ImagePreview from "./image-preview";
-import GridPattern from "./mui/GridPattern";
+import ImagePreview from "@/components/thumbnail-generator/image-preview";
+import GridPattern from "@/components/mui/GridPattern";
 import { Lock } from "lucide-react";
-import Dialog from "./alert-dialog-comp";
+
 
 const mainVariant = {
   initial: {

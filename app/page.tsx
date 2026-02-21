@@ -14,6 +14,7 @@ import HowItWorks from "@/components/how-works";
 import Heading from "@/components/heading";
 import SubHeading from "@/components/sub-heading";
 import { CallToAction } from "@/components/cta";
+import { Feature1 } from "@/components/feature1";
 
 export default function Home() {
   const testimonials = [
@@ -102,8 +103,9 @@ export default function Home() {
         </motion.div>
 
         <Stats />
+        <Feature1/>
       </HeroGridPattern>
-      <Demo />
+
       <HowItWorks />
 
       <GridFeatureCards />
@@ -123,7 +125,7 @@ export default function Home() {
                 strokeWidth={1}
               />
               <PlusIcon
-                className="absolute top-[-12.5px] right-[-11.5px] z-1 size-6"
+            className="absolute top-[-12.5px] right-[-11.5px] z-1 size-6"
                 strokeWidth={1}
               />
               <PlusIcon

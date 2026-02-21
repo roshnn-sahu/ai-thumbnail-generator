@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useToast } from "@/hooks/use-toast";
 import HeroSection  from "@/components/hero-section"
 import { ResultsGrid } from "@/components/thumbnail-generator/results-grid";
-import { FileUpload } from "@/components/file-upload";
+import { FileUpload } from "@/components/thumbnail-generator/file-upload";
 import HeroGridPattern from "@/components/mui/HeroGridPattern";
 import { Feature43 } from "@/components/feature43";
 import { Feature1 } from "@/components/feature1";

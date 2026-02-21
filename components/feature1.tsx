@@ -37,7 +37,7 @@ const Feature1 = ({
 }: Feature1Props) => {
   return (
     <section className={cn("py-16", className)}>
-      <div className="container px-8">
+      <div className="container px-8 max-w-6xl mx-auto">
         <div className="grid items-center gap-8 lg:grid-cols-2">
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
             <Heading className="text-start  mb-2 lg:text-5xl text-">

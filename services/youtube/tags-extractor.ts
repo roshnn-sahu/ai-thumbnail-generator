@@ -1,5 +1,5 @@
-export const extractTags = async (url) => {
-  const res = await fetch("/api/extract-tags", {
+export const extractTags = async (url: string) => {
+  const res = await fetch("/api/youtube/extract-tags", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

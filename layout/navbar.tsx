@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Sparkles, ChevronDown, Image, Hash, Key, X, Tag } from "lucide-react";
+import { Sparkles, ChevronDown, Image, Hash, Key, X, Tag, Video } from "lucide-react";
 
 import { RiMenu3Line } from "@remixicon/react";
 import Link from "next/link";
@@ -18,6 +18,12 @@ const toolsMenuData = [
     platform: "YouTube",
 
     tools: [
+      {
+        icon: Video,  
+        title: "Youtube Video Download",
+        description: "Download youtube videos",
+        href: "/youtube/video-downloader",
+      },
       {
         icon: Image,
         title: "AI Thumbnail Generator",

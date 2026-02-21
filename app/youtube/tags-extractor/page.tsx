@@ -4,7 +4,8 @@ import { Feature1 } from "@/components/feature1";
 import { Feature43 } from "@/components/feature43";
 import HeroSection from "@/components/hero-section";
 import HeroGridPattern from "@/components/mui/HeroGridPattern";
-import TagInput from "@/components/tag-genarator/tag-input";
+import ExtractForm from "@/components/tags-extractor/extract-form";
+
 const page = () => {
   return (
     <>
@@ -16,7 +17,7 @@ const page = () => {
               title="Extract YouTube Tags from Any Video in Seconds"
               subTitle="Analyze competitor videos and uncover the exact tags they use to rank higher and increase visibility."
             />
-            <TagInput />
+            <ExtractForm />
             <Feature43 />
           </HeroGridPattern>
         </section>
