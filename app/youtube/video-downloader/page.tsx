@@ -1,22 +1,24 @@
 import HeroSection from "@/components/hero-section";
 import HeroGridPattern from "@/components/mui/HeroGridPattern";
-import KeywordForm from "@/components/youtube/keywords/keyword-from";
 import { Feature43 } from "@/components/feature43";
 import { Feature1 } from "@/components/feature1";
 import Faq from "@/components/faq";
+import TopicInput from "@/components/youtube/tags-generator/topic-input";
 import { CallToAction } from "@/components/cta";
+import YtInput from "@/components/youtube/yt-video-download/yt-link-form";
 
 const page = () => {
   return (
-    <main className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen bg-background flex flex-col">
       <div className="max-w-6xl mx-auto">
         <HeroGridPattern>
           <HeroSection
-            badgeTitle="AI Keyword Research Tool →"
-            title="Discover High-Ranking YouTube Keywords in Seconds"
-            subTitle="Enter your video idea and get powerful keywords with search volume, competition score, and ranking difficulty — optimized to grow your channel."
+            badgeTitle="⚡ Free YouTube Downloader"
+            title="Download YouTube Videos Instantly"
+            subTitle="Paste your video link and download in MP4 — fast, high quality, and no signup required."
           />
-          <KeywordForm />
+
+          <YtInput />
           <Feature43 />
         </HeroGridPattern>
         <Feature1
@@ -35,7 +37,7 @@ const page = () => {
         <Faq />
         <CallToAction />
       </div>
-    </main>
+    </div>
   );
 };
 

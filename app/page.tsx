@@ -4,9 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Pricing } from "@/components/pricing";
 import HeroGridPattern from "@/components/mui/HeroGridPattern";
 import { Testimonials } from "@/components/testimonials";
-import { motion } from "motion/react";
 import Faq from "@/components/faq";
 import { PlusIcon } from "lucide-react";
+import { motion } from "motion/react";
 import GridFeatureCards from "@/components/feature-cards";
 import Stats from "@/components/stats";
 import Demo from "@/components/demo";
@@ -103,11 +103,9 @@ export default function Home() {
         </motion.div>
 
         <Stats />
-        <Feature1/>
+        <Feature1 />
       </HeroGridPattern>
-
       <HowItWorks />
-
       <GridFeatureCards />
       <Pricing />
       <div className="container z-10 mx-auto">
@@ -125,7 +123,7 @@ export default function Home() {
                 strokeWidth={1}
               />
               <PlusIcon
-            className="absolute top-[-12.5px] right-[-11.5px] z-1 size-6"
+                className="absolute top-[-12.5px] right-[-11.5px] z-1 size-6"
                 strokeWidth={1}
               />
               <PlusIcon

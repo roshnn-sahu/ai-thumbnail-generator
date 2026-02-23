@@ -1,22 +1,23 @@
 import HeroSection from "@/components/hero-section";
 import HeroGridPattern from "@/components/mui/HeroGridPattern";
-import KeywordForm from "@/components/youtube/keywords/keyword-from";
 import { Feature43 } from "@/components/feature43";
 import { Feature1 } from "@/components/feature1";
 import Faq from "@/components/faq";
+import TopicInput from "@/components/youtube/tags-generator/topic-input";
 import { CallToAction } from "@/components/cta";
 
 const page = () => {
   return (
-    <main className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen bg-background flex flex-col">
       <div className="max-w-6xl mx-auto">
         <HeroGridPattern>
           <HeroSection
-            badgeTitle="AI Keyword Research Tool →"
-            title="Discover High-Ranking YouTube Keywords in Seconds"
-            subTitle="Enter your video idea and get powerful keywords with search volume, competition score, and ranking difficulty — optimized to grow your channel."
+            badgeTitle="For Creators & Influencers"
+            title="Find Perfect Hashtags for Every Post"
+            subTitle="Generate optimized tags for reels, photos, and stories to increase likes, views, and engagement."
           />
-          <KeywordForm />
+
+          <TopicInput />
           <Feature43 />
         </HeroGridPattern>
         <Feature1
@@ -35,7 +36,7 @@ const page = () => {
         <Faq />
         <CallToAction />
       </div>
-    </main>
+    </div>
   );
 };
 

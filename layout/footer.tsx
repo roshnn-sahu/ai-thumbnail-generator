@@ -41,101 +41,34 @@ function Footer() {
           <div>
             <h2 className="text-2xl font-bold">ThumbnailAI</h2>
 
-            <p className="mt-3 text-sm text-muted-foreground">
+            <p className="my-3 text-sm text-muted-foreground">
               AI-powered thumbnails, tags & keywords to help creators grow
               faster on YouTube and Instagram.
             </p>
 
-            <form className="mt-5 relative">
-              <Input
-                type="email"
-                placeholder="Get growth tips in your inbox"
-                className="pr-12"
-              />
-              <Button
-                size="icon"
-                type="submit"
-                className="absolute right-1 top-1 h-8 w-8 rounded-full"
-              >
-                <Send className="h-4 w-4" />
-              </Button>
-            </form>
-          </div>
+            <div>
+              <h4 className="mb-4 font-semibold">Follow Us</h4>
 
-          {/* TOOLS */}
-          <div>
-            <h3 className="mb-4 font-semibold">Tools</h3>
-            <nav className="space-y-2 text-sm text-muted-foreground">
-              <Link
-                href="/youtube/ai-thumbnail-generator"
-                className="block hover:text-primary"
-              >
-                AI Thumbnail Generator
-              </Link>
-              <Link
-                href="/youtube/tags-generator"
-                className="block hover:text-primary"
-              >
-                Tag Generator
-              </Link>
-              <Link href="/hashtags" className="block hover:text-primary">
-                Hashtag Finder
-              </Link>
-              <Link href="/templates" className="block hover:text-primary">
-                Thumbnail Templates
-              </Link>
-              <Link href="/pricing" className="block hover:text-primary">
-                Pricing
-              </Link>
-            </nav>
-          </div>
+              <div className="flex gap-3 mb-6">
+                {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
+                  <TooltipProvider key={i}>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          className="rounded-full"
+                        >
+                          <Icon className="h-4 w-4" />
+                        </Button>
+                      </TooltipTrigger>
+                      <TooltipContent>Social</TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                ))}
+              </div>
 
-          {/* RESOURCES */}
-          <div>
-            <h3 className="mb-4 font-semibold">Resources</h3>
-            <nav className="space-y-2 text-sm text-muted-foreground">
-              <Link href="/blog" className="block hover:text-primary">
-                Blog
-              </Link>
-              <Link href="/guides" className="block hover:text-primary">
-                Creator Guides
-              </Link>
-              <Link href="/faq" className="block hover:text-primary">
-                FAQ
-              </Link>
-              <Link href="/support" className="block hover:text-primary">
-                Support
-              </Link>
-              <Link href="/contact" className="block hover:text-primary">
-                Contact
-              </Link>
-            </nav>
-          </div>
-
-          {/* SOCIAL + THEME */}
-          <div>
-            <h3 className="mb-4 font-semibold">Follow Us</h3>
-
-            <div className="flex gap-3 mb-6">
-              {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
-                <TooltipProvider key={i}>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <Button
-                        variant="outline"
-                        size="icon"
-                        className="rounded-full"
-                      >
-                        <Icon className="h-4 w-4" />
-                      </Button>
-                    </TooltipTrigger>
-                    <TooltipContent>Social</TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-              ))}
-            </div>
-
-            {/* <div className="flex items-center space-x-2">
+              {/* <div className="flex items-center space-x-2">
               <Sun className="h-4 w-4" />
               <Switch
                 id="dark-mode"
@@ -149,22 +82,96 @@ function Footer() {
                 Toggle dark mode
               </Label>
             </div> */}
+            </div>
           </div>
+
+          {/* YOUTUBE */}
+          <div>
+            <h3 className="mb-4 font-semibold">Youtube</h3>
+            <nav className="space-y-2 text-sm text-muted-foreground">
+              <Link
+                href="/youtube/video-downloader"
+                className="block hover:text-primary"
+              >
+                Youtube Video Download
+              </Link>
+              <Link
+                href="/youtube/ai-thumbnail-generator"
+                className="block hover:text-primary"
+              >
+                AI Thumbnail Generator
+              </Link>
+              <Link
+                href="/youtube/tags-generator"
+                className="block hover:text-primary"
+              >
+                Tag Generator
+              </Link>
+
+              <Link
+                href="/youtube/tags-extractor"
+                className="block hover:text-primary"
+              >
+                Tag Extractor
+              </Link>
+
+              <Link
+                href="/youtube/keywords-generator"
+                className="block hover:text-primary"
+              >
+                Keywords Generator
+              </Link>
+            </nav>
+          </div>
+
+          {/* INSTAGRAM */}
+          <div>
+            <h3 className="mb-4 font-semibold">Instagram</h3>
+            <nav className="space-y-2 text-sm text-muted-foreground">
+              <Link href="/instagram/tag-generator" className="block hover:text-primary">
+                Tag Generator
+              </Link>
+              <Link href="/instagram/keywords-generator" className="block hover:text-primary">
+               Keywords Generator
+              </Link>
+           
+            </nav>
+          </div>
+
+          {/* QUICK LINK */}
+          <div>
+            <h3 className="mb-4 font-semibold">Quick Links</h3>
+            <nav className="space-y-2 text-sm text-muted-foreground">
+              <Link href="/about" className="block hover:text-primary">
+                About Us
+              </Link>
+              <Link href="/pricing" className="block hover:text-primary">
+                Pricing
+              </Link>
+        
+              <Link href="/support" className="block hover:text-primary">
+                Support
+              </Link>
+            
+            </nav>
+          </div>
+
+          {/* SOCIAL + THEME */}
         </div>
 
         {/* BOTTOM BAR */}
         <div className="mt-12 border-t pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <p>© {new Date().getFullYear()} ThumbnailAI. All rights reserved.</p>
 
-          <div className="flex gap-4">
-            <Link href="/privacy" className="hover:text-primary">
+          <div className="flex gap-4 text-xs">
+            <Link href="/privacy-policy" className="hover:text-primary">
               Privacy Policy
             </Link>
             <Link href="/terms" className="hover:text-primary">
-              Terms
+              Terms Of Services
             </Link>
-            <Link href="/cookies" className="hover:text-primary">
-              Cookies
+            <Link href="/cookies-policy" className="hover:text-primary">
+              Cookies Policy
             </Link>
           </div>
         </div>

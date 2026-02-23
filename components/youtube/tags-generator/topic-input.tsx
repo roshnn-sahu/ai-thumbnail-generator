@@ -6,8 +6,8 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import TagResult from "./tag-result";
 import { useState } from "react";
-import { generateTags } from "@/services/youtube/tag-generator";
-import { Spinner } from "../ui/spinner";
+import { generateTags } from "@/services/instagram/tag-generator";
+import { Spinner } from "@/components/ui/spinner";
 
 const TopicInput = ({ ...props }) => {
   const [topic, setTopic] = useState("");

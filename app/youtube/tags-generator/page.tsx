@@ -3,7 +3,7 @@ import HeroGridPattern from "@/components/mui/HeroGridPattern";
 import { Feature43 } from "@/components/feature43";
 import { Feature1 } from "@/components/feature1";
 import Faq from "@/components/faq";
-import TopicInput from "@/components/tags-genarator/topic-input";
+import TopicInput from "@/components/youtube/tags-generator/topic-input";
 import { CallToAction } from "@/components/cta";
 
 const page = () => {
@@ -17,7 +17,7 @@ const page = () => {
             subTitle="Enter your video title or topic and get high-ranking tags under 500 characters — optimized for reach, CTR, and discoverability."
           />
 
-          <TopicInput  />
+          <TopicInput />
           <Feature43 />
         </HeroGridPattern>
         <Feature1

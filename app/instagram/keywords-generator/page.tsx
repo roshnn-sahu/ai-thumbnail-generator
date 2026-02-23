@@ -1,6 +1,6 @@
 import HeroSection from "@/components/hero-section";
 import HeroGridPattern from "@/components/mui/HeroGridPattern";
-import KeywordForm from "@/components/youtube/keywords/keyword-from";
+import KeywordForm from "@/components/instagram/keywords/keyword-from";
 import { Feature43 } from "@/components/feature43";
 import { Feature1 } from "@/components/feature1";
 import Faq from "@/components/faq";

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: "AI Thumbnail Generator",
   description:
     "Upload an image and generate stunning thumbnails instantly with AI",
-  generator: "v0.app",
+  generator: "ArcLine-Softs",
   icons: {
     icon: [
       {

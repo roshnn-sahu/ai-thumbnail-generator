@@ -9,7 +9,7 @@ interface ExtractedResultProps {
   data: string[];
 }
 
-const KeywordResult = ({ data }: ExtractedResultProps) => {
+const TagResult = ({ data }: ExtractedResultProps) => {
   const [tags, setTags] = useState<string[]>([ ]);
   const [copied, setCopied] = useState(false);
   const { toast } = useToast();
@@ -44,13 +44,13 @@ const KeywordResult = ({ data }: ExtractedResultProps) => {
   };
 
   if (!data || data.length === 0) return null;
-console.log(tags) 
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="mt-12 max-w-4xl mx-auto p-8 bg-card/50 backdrop-blur-sm rounded-3xl border border-primary/10 shadow-[0_0_50px_-12px_rgba(0,0,0,0.3)] relative overflow-hidden group "
+      className="mt-12 max-w-4xl mx-auto p-8 bg-card/50 backdrop-blur-sm rounded-3xl border border-primary/10 shadow-[0_0_50px_-12px_rgba(0,0,0,0.3)] relative overflow-hidden group px-4"
     >
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
 
@@ -61,12 +61,12 @@ console.log(tags)
               <Sparkles className="w-5 h-5 text-primary" />
             </div>
             <h3 className="text-2xl font-bold tracking-tight">
-              Generated Keywords
+              Generated Tags
             </h3>
           </div>
           <p className="text-sm text-muted-foreground flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-            {tags.length} professional Keywords ready
+            {tags.length} professional tags ready
           </p>
         </div>
 
@@ -140,4 +140,4 @@ console.log(tags)
   );
 };
 
-export default KeywordResult;
+export default TagResult;

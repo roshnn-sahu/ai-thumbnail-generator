@@ -16,6 +16,8 @@ export const Testimonials = (props: {
   duration?: number;
 }) => {
   return (
+
+
     <div className={cn("py-12",props.className)}>
       <motion.div
         animate={{
@@ -62,5 +64,6 @@ export const Testimonials = (props: {
         ]}
       </motion.div>
     </div>
+    
   );
 };

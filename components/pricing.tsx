@@ -14,40 +14,43 @@ import {
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Switch } from "@/components/ui/switch";
+import Faq from "./faq";
 
 const plans = [
   {
     id: "free",
     name: "Free",
-    description: "Perfect to get started",
+    description: "Try all tools before upgrading",
     monthly: 0,
     yearly: 0,
     highlight: false,
     features: [
-      "5 thumbnails per day",
-      "10 keyword searches/day",
+      "30 thumbnails per month",
+      "20 keyword searches/day",
       "Basic templates",
-      "Watermarked downloads",
+      "Watermarked exports",
+      "Standard speed",
       "Community support",
     ],
-    buttonText: "Get Started Free",
+    buttonText: "Start Free",
     url: "/signup",
   },
   {
     id: "pro",
     name: "Pro",
-    description: "Best for most creators",
+    description: "Best for growing YouTubers",
     monthly: 12,
     yearly: 99,
     highlight: true,
     features: [
-      "200 thumbnails per month",
-      "Unlimited keywords & tags",
+      "300 thumbnails per month",
+      "High keyword & tag limits",
       "No watermark",
       "Premium templates",
       "HD downloads",
-      "Save history",
-      "Fast generation",
+      "Generation history",
+      "Fast priority queue",
+      "Email support",
     ],
     buttonText: "Upgrade to Pro",
     url: "/signup",
@@ -55,18 +58,20 @@ const plans = [
   {
     id: "creator",
     name: "Creator",
-    description: "Unlimited for professionals",
+    description: "Unlimited power for serious creators & teams",
     monthly: 29,
     yearly: 249,
     highlight: false,
     features: [
       "Unlimited thumbnails",
       "Unlimited keywords & tags",
-      "Bulk generation",
-      "Team access",
-      "Priority queue",
-      "Early features",
+      "Bulk thumbnail generation",
+      "Team access (3–5 members)",
+      "Private fastest queue",
+      "Commercial usage license",
+      "Early feature access",
       "Priority support",
+      "API access (coming soon)",
     ],
     buttonText: "Go Unlimited",
     url: "/signup",
@@ -78,7 +83,10 @@ export function Pricing({ className }: { className?: string }) {
 
   return (
     <section
-      className={cn("pt-12 pb-26 w-full max-w-6xl mx-auto relative z-10", className)}
+      className={cn(
+        "pt-12 pb-26 w-full max-w-6xl mx-auto relative z-10",
+        className,
+      )}
     >
       <div className=" mx-auto px-5">
         {/* Header */}

@@ -1,7 +1,7 @@
 "use client";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Spinner } from "../ui/spinner";
+import { Spinner } from "../../ui/spinner";
 
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";

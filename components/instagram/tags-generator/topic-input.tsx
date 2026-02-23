@@ -4,25 +4,25 @@ import { Button } from "@/components/ui/button";
 
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import TagResult from "./tag-result";
 import { useState } from "react";
-import { Spinner } from "../ui/spinner";
-import { generateKeywords } from "@/services/youtube/generate-keywords";
-import KeywordResult from "./keyword-results";
+import { generateTags } from "@/services/instagram/tag-generator";
+import { Spinner } from "@/components/ui/spinner";
 
-const KeywordForm = () => {
-  const [isLoading, setIsLoading] = useState(false);
+const TopicInput = ({ ...props }) => {
   const [topic, setTopic] = useState("");
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleSubmit = async () => {
     setIsLoading(true);
     if (!topic) return;
-    const res = await generateKeywords(topic);
-    setData(res.keywords);
+    const res = await generateTags(topic);
+    setData(res);
     setTopic("");
     setIsLoading(false);
   };
-  
+
   return (
     <>
       <div className="px-4">
@@ -30,12 +30,15 @@ const KeywordForm = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="flex items-center justify-center gap-2 max-w-xl mx-auto relative z-10"
+          className="flex items-center justify-center gap-2 max-w-xl mx-auto relative z-10 "
         >
           <Input
+            {...props}
+            placeholder={"Enter Your Topic"}
             value={topic}
             onChange={(e) => setTopic(e.target.value)}
-            placeholder={"Enter Your Topic"}
+            disabled={isLoading}
+            required
           />
           <Button
             onClick={handleSubmit}
@@ -45,10 +48,10 @@ const KeywordForm = () => {
             {isLoading ? <Spinner /> : "  Generate"}
           </Button>
         </motion.div>
-        <KeywordResult data={data} />
+        <TagResult data={data} />
       </div>
     </>
   );
 };
 
-export default KeywordForm;
+export default TopicInput;

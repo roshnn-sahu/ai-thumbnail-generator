@@ -58,7 +58,7 @@ const toolsMenuData = [
         icon: Hash,
         title: "Tags Generator",
         description: "Generate trending hashtags",
-        href: "/instagram/tag-generator",
+        href: "/instagram/tags-generator",
       },
       {
         icon: Key,

@@ -2,11 +2,12 @@ import { ArrowRightIcon, PlusIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Heading from "./heading";
 import SubHeading from "./sub-heading";
+import Link from "next/link";
 
 export function CallToAction() {
   return (
     <section className="px-5">
-      <div className="relative my-12 mx-auto flex w-full max-w-3xl flex-col justify-between gap-y-6 border-y bg-[radial-gradient(35%_80%_at_25%_0%,--theme(--color-foreground/.08),transparent)] px-4 py-8">
+      <div className="relative my-16 mx-auto flex w-full max-w-5xl flex-col justify-between gap-y-6 border-y bg-[radial-gradient(35%_80%_at_25%_0%,--theme(--color-foreground/.08),transparent)] px-4 py-8">
         <PlusIcon
           className="absolute top-[-12.5px] left-[-11.5px] z-1 size-6"
           strokeWidth={1}
@@ -36,11 +37,10 @@ export function CallToAction() {
         </div>
 
         <div className="flex items-center justify-center gap-2">
-          <Button className="border border-neutral-300" variant="outline">
-            Contact Sales
-          </Button>
           <Button>
-            Get Started <ArrowRightIcon className="size-4 ml-1" />
+            <Link href="/pricing" className="flex items-center justify-center">
+              Get Started <ArrowRightIcon className="size-4 ml-1" />
+            </Link>
           </Button>
         </div>
       </div>

@@ -4,7 +4,7 @@ import { Feature1 } from "@/components/feature1";
 import { Feature43 } from "@/components/feature43";
 import HeroSection from "@/components/hero-section";
 import HeroGridPattern from "@/components/mui/HeroGridPattern";
-import ExtractForm from "@/components/tags-extractor/extract-form";
+import ExtractForm from "@/components/youtube/tags-extractor/extract-form";
 
 const page = () => {
   return (
