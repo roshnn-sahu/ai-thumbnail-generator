@@ -2,11 +2,28 @@
 
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Sparkles, ChevronDown, Image, Hash, Key, X, Tag, Video } from "lucide-react";
+import {
+  Sparkles,
+  ChevronDown,
+  Image,
+  Hash,
+  Key,
+  X,
+  Tag,
+  Video,
+} from "lucide-react";
 
 import { RiMenu3Line } from "@remixicon/react";
 import Link from "next/link";
 import { useState } from "react";
+
+import {
+  SignedIn,
+  SignedOut,
+  UserButton,
+  SignInButton,
+  SignUpButton,
+} from "@clerk/nextjs";
 
 const navLinks = [
   { name: "Pricing", href: "/pricing" },
@@ -19,7 +36,7 @@ const toolsMenuData = [
 
     tools: [
       {
-        icon: Video,  
+        icon: Video,
         title: "Youtube Video Download",
         description: "Download youtube videos",
         href: "/youtube/video-downloader",
@@ -203,10 +220,21 @@ function Navbar() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="hidden md:flex items-center gap-2"
           >
-            <Button variant="outline" className="hover:scale-105 shadow-md">
-              SignUp
-            </Button>
-            <Button variant="default">Login</Button>
+            <SignedOut>
+              <SignInButton mode="modal">
+                <Button variant="outline" className="border shadow-lg">
+                  Sign in
+                </Button>
+              </SignInButton>
+
+              <SignUpButton mode="modal">
+                <Button className=" cursor-pointer">Sign Up</Button>
+              </SignUpButton>
+            </SignedOut>
+
+            <SignedIn>
+              <UserButton afterSignOutUrl="/" />
+            </SignedIn>
           </motion.div>
 
           {/* Mobile Menu Button */}

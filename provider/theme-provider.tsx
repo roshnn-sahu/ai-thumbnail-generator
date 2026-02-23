@@ -1,16 +1,16 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import * as React from "react";
 import {
   ThemeProvider as NextThemesProvider,
   type ThemeProviderProps,
 } from "next-themes";
 
 export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
-  const [mounted, setMounted] = useState(false);
+  const [mounted, setMounted] = React.useState(false);
 
   // Prevent hydration mismatch by only rendering after mount
-  useEffect(() => {
+  React.useEffect(() => {
     setMounted(true);
   }, []);
 

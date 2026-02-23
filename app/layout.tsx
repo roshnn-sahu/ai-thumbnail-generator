@@ -7,6 +7,7 @@ import { Toaster } from "@/components/ui/toaster";
 import Navbar from "@/layout/navbar";
 import Footer from "@/layout/footer";
 import { ThemeProvider } from "@/provider/theme-provider";
+import { ClerkProvider } from "@clerk/nextjs";
 import { SmoothScrollProvider } from "@/provider/smooth-scroll";
 
 const _geist = Geist({ subsets: ["latin"] });
@@ -44,7 +45,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`font-sans antialiased `}>
-    
+        <ClerkProvider>
+          
           <SmoothScrollProvider>
             <Navbar />
             {children}
@@ -52,6 +54,7 @@ export default function RootLayout({
             <Footer />
           </SmoothScrollProvider>
       
+    </ClerkProvider>
       </body>
     </html>
   );
