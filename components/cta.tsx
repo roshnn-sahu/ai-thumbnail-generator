@@ -1,3 +1,4 @@
+import React from "react";
 import { ArrowRightIcon, PlusIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Heading from "./heading";
