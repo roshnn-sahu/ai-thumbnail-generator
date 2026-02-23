@@ -44,14 +44,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`font-sans antialiased `}>
-        <ThemeProvider>
+    
           <SmoothScrollProvider>
             <Navbar />
             {children}
             <Toaster />
             <Footer />
           </SmoothScrollProvider>
-        </ThemeProvider>
+      
       </body>
     </html>
   );
