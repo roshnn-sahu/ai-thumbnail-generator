@@ -69,10 +69,7 @@ export const FileUpload = ({
   const handleFileChange = (newFiles: File[]) => {
     const file = newFiles[0];
     
-    if (!isSignedIn) {
-      setAuthModalOpen(true);
-      return;
-    }
+ 
     if (file) {
       setFiles([file]);
       onChange?.([file]);

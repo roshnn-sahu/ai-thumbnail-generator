@@ -238,8 +238,11 @@ function Navbar() {
           </motion.div>
 
           {/* Mobile Menu Button */}
+          <div>
+
+      
           <button
-            className="md:hidden p-2 text-foreground"
+            className="md:hidden p-2 text-foreground mr-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
@@ -248,7 +251,11 @@ function Navbar() {
               <RiMenu3Line className="w-6 h-6" />
             )}
           </button>
-        </div>
+          <SignedIn>
+            <UserButton afterSignOutUrl="/" />
+          </SignedIn>
+          </div>
+              </div>
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
@@ -257,7 +264,7 @@ function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden border-t border-border bg-white"
+            className="md:hidden border-t border-border bg-white px-2"
           >
             <div className="px-4 py-6 space-y-4">
               {/* Mobile Tools Section */}
@@ -328,12 +335,17 @@ function Navbar() {
 
               {/* Mobile Auth Buttons */}
               <div className="pt-4 space-y-2 border-t border-border">
-                <Button variant="outline" className="w-full ">
-                  SignUp
-                </Button>
-                <Button variant="default" className="w-full">
-                  Login
-                </Button>
+                <SignedOut>
+                  <SignInButton mode="modal">
+                    <Button variant="outline" className="border shadow-lg">
+                      Sign in
+                    </Button>
+                  </SignInButton>
+
+                  <SignUpButton mode="modal">
+                    <Button className=" cursor-pointer">Sign Up</Button>
+                  </SignUpButton>
+                </SignedOut>
               </div>
             </div>
           </motion.div>

@@ -92,7 +92,7 @@ export function Pricing({ className }: { className?: string }) {
   return (
     <section
       className={cn(
-        "pt-12 pb-26 w-full max-w-6xl mx-auto relative z-10",
+        "pt-12 pb-26 w-full max-w-6xl mx-auto relative z-10 px-5",
         className,
       )}
     >
