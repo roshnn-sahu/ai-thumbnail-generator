@@ -1,5 +1,6 @@
 import { CallToAction } from "@/components/cta";
 import HeroSection from "@/components/hero-section";
+import Stats from "@/components/stats";
 import Link from "next/link";
 
 export default function page() {
@@ -13,6 +14,7 @@ export default function page() {
           subTitle="We built ThumbAI to help content creators generate better thumbnails, discover powerful keywords, and grow faster on YouTube and Instagram."
         />
       </div>
+      <Stats/>
       {/* Mission Section */}
       <section className="max-w-6xl mx-auto px-6 py-20 text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Mission</h2>

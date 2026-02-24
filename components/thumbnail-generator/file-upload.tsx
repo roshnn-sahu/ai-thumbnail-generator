@@ -8,6 +8,8 @@ import ImagePreview from "@/components/thumbnail-generator/image-preview";
 import GridPattern from "@/components/mui/GridPattern";
 import { Lock } from "lucide-react";
 
+import AuthModal from "@/components/auth/auth-modal"
+import { useUser } from "@clerk/nextjs";
 
 const mainVariant = {
   initial: {
@@ -50,6 +52,9 @@ export const FileUpload = ({
   handleReset,
 }: FileUploadProps) => {
   const [files, setFiles] = useState<File[]>([]);
+  const [authModalOpen,setAuthModalOpen]=useState(false)
+
+    const { isSignedIn } = useUser();
 
   const [options, setOptions] = useState({
     prompt: "",
@@ -63,9 +68,15 @@ export const FileUpload = ({
 
   const handleFileChange = (newFiles: File[]) => {
     const file = newFiles[0];
+    
+    if (!isSignedIn) {
+      setAuthModalOpen(true);
+      return;
+    }
     if (file) {
       setFiles([file]);
       onChange?.([file]);
+
     }
   };
 
@@ -255,6 +266,8 @@ export const FileUpload = ({
                 </p>
               </div>
             )}
+
+            <AuthModal open={authModalOpen} onOpenChange={setAuthModalOpen} />
           </div>
 
           {/* Right Side: Options (Only visible when file is uploaded) */}
@@ -300,7 +313,7 @@ const FileUploadOptions = ({
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 20 }}
             transition={{ type: "spring", damping: 20, stiffness: 100 }}
-            className="w-full md:w-1/2 flex flex-col gap-4 z-40 relative border border-l "
+            className="w-full md:w-1/2 flex flex-col gap-4 z-40 relative "
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex flex-col gap-2">

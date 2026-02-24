@@ -14,22 +14,23 @@ import {
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Switch } from "@/components/ui/switch";
-import Faq from "./faq";
 
-const plans = [
+const USD_TO_INR = 90;
+
+const basePlans = [
   {
     id: "free",
     name: "Free",
-    description: "Try all tools before upgrading",
+    description: "Try the platform risk-free",
     monthly: 0,
     yearly: 0,
     highlight: false,
     features: [
-      "30 thumbnails per month",
-      "20 keyword searches/day",
-      "Basic templates",
+      "30 AI thumbnail generations / month",
+      "Unlimited tags & keyword tools",
+      "Unlimited tag extractor",
       "Watermarked exports",
-      "Standard speed",
+      "Standard speed queue",
       "Community support",
     ],
     buttonText: "Start Free",
@@ -38,13 +39,13 @@ const plans = [
   {
     id: "pro",
     name: "Pro",
-    description: "Best for growing YouTubers",
-    monthly: 12,
-    yearly: 99,
+    description: "Perfect for growing creators",
+    monthly: 7,
+    yearly: 60,
     highlight: true,
     features: [
-      "300 thumbnails per month",
-      "High keyword & tag limits",
+      "150 thumbnails / month",
+      "Unlimited SEO tools",
       "No watermark",
       "Premium templates",
       "HD downloads",
@@ -58,20 +59,19 @@ const plans = [
   {
     id: "creator",
     name: "Creator",
-    description: "Unlimited power for serious creators & teams",
-    monthly: 29,
-    yearly: 249,
+    description: "Unlimited for professionals & teams",
+    monthly: 12,
+    yearly: 120,
     highlight: false,
     features: [
       "Unlimited thumbnails",
-      "Unlimited keywords & tags",
-      "Bulk thumbnail generation",
-      "Team access (3–5 members)",
-      "Private fastest queue",
-      "Commercial usage license",
-      "Early feature access",
+      "Unlimited SEO tools",
+      "Bulk generation",
+      "Team access",
+      "Fastest private queue",
+      "Commercial license",
+      "Early features",
       "Priority support",
-      "API access (coming soon)",
     ],
     buttonText: "Go Unlimited",
     url: "/signup",
@@ -80,6 +80,14 @@ const plans = [
 
 export function Pricing({ className }: { className?: string }) {
   const [yearly, setYearly] = useState(false);
+  const [currency, setCurrency] = useState<"USD" | "INR">("USD");
+
+  const formatPrice = (price: number) => {
+    if (currency === "INR") {
+      return `₹${Math.round(price * USD_TO_INR)}`;
+    }
+    return `$${price}`;
+  };
 
   return (
     <section
@@ -88,86 +96,82 @@ export function Pricing({ className }: { className?: string }) {
         className,
       )}
     >
-      <div className=" mx-auto px-5">
-        {/* Header */}
-        <div className="mx-auto mb-16 max-w-7xl  text-center">
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tighter mt-5">
-            Pricing
-          </h2>
-          <p className="mt-4 text-muted-foreground text-lg">
-            Simple, affordable plans for every creator
-          </p>
+      {/* Header */}
+      <div className="text-center mb-14 space-y-4">
+        <h2 className="text-4xl font-bold">Simple Pricing</h2>
+        <p className="text-muted-foreground">
+          Free SEO tools. Pay only for AI thumbnail generation.
+        </p>
 
-          {/* Toggle */}
-          <div className="mt-8 flex items-center justify-center gap-3 text-sm">
+        {/* Controls */}
+        <div className="flex items-center justify-center gap-6">
+          <div className="flex items-center gap-2 text-sm">
             <span>Monthly</span>
             <Switch checked={yearly} onCheckedChange={setYearly} />
             <span>Yearly</span>
-            <span className="text-xs text-muted-foreground">(save ~30%)</span>
           </div>
+
+          {/* Currency Dropdown */}
+          <select
+            value={currency}
+            onChange={(e) => setCurrency(e.target.value as "USD" | "INR")}
+            className="border rounded-md px-3 py-1 text-sm bg-background"
+          >
+            <option value="USD">USD ($)</option>
+            <option value="INR">INR (₹)</option>
+          </select>
         </div>
+      </div>
 
-        {/* Cards */}
-        <div className="mx-auto grid w-full gap-6 md:grid-cols-3">
-          {plans.map((plan) => {
-            const price = yearly ? plan.yearly : plan.monthly;
+      {/* Cards */}
+      <div className="grid gap-6 md:grid-cols-3">
+        {basePlans.map((plan) => {
+          const price = yearly ? plan.yearly : plan.monthly;
 
-            return (
-              <Card
-                key={plan.id}
-                className={cn(
-                  "flex flex-col justify-between rounded-2xl border transition-all duration-200 hover:-translate-y-1 hover:shadow-lg",
-                  plan.highlight &&
-                    "border-primary shadow-lg scale-[1.03] relative",
-                )}
-              >
-                {plan.highlight && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-4 py-1 text-xs font-medium text-white">
-                    Most Popular
-                  </div>
-                )}
+          return (
+            <Card
+              key={plan.id}
+              className={cn(
+                "flex flex-col rounded-2xl border hover:shadow-xl transition",
+                plan.highlight && "border-primary scale-[1.03] shadow-lg",
+              )}
+            >
+              <CardHeader>
+                <CardTitle className="text-xl">{plan.name}</CardTitle>
+                <p className="text-sm text-muted-foreground">
+                  {plan.description}
+                </p>
 
-                <CardHeader>
-                  <CardTitle className="text-xl">{plan.name}</CardTitle>
-                  <p className="text-sm text-muted-foreground">
-                    {plan.description}
-                  </p>
+                <div className="mt-4 flex items-end gap-1">
+                  <span className="text-4xl font-bold">
+                    {formatPrice(price)}
+                  </span>
+                  <span className="text-muted-foreground">
+                    {yearly ? "/yr" : "/mo"}
+                  </span>
+                </div>
+              </CardHeader>
 
-                  <div className="mt-4 flex items-end gap-1">
-                    <span className="text-4xl font-bold">${price}</span>
-                    <span className="text-muted-foreground">
-                      {yearly ? "/yr" : "/mo"}
-                    </span>
-                  </div>
-                </CardHeader>
+              <CardContent>
+                <Separator className="mb-5" />
+                <ul className="space-y-3 text-sm">
+                  {plan.features.map((f, i) => (
+                    <li key={i} className="flex gap-2">
+                      <CircleCheck className="size-4 text-primary" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
 
-                <CardContent>
-                  <Separator className="mb-6" />
-                  <ul className="space-y-3 text-sm">
-                    {plan.features.map((feature, i) => (
-                      <li key={i} className="flex items-center gap-2">
-                        <CircleCheck className="size-4 text-primary" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-
-                <CardFooter className="mt-auto">
-                  <Button
-                    asChild
-                    className={cn(
-                      "w-full",
-                      plan.highlight && "bg-primary hover:opacity-90",
-                    )}
-                  >
-                    <a href={plan.url}>{plan.buttonText}</a>
-                  </Button>
-                </CardFooter>
-              </Card>
-            );
-          })}
-        </div>
+              <CardFooter className="mt-auto">
+                <Button className="w-full" asChild>
+                  <a href={plan.url}>{plan.buttonText}</a>
+                </Button>
+              </CardFooter>
+            </Card>
+          );
+        })}
       </div>
     </section>
   );

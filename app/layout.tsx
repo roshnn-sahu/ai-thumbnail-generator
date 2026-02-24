@@ -13,11 +13,36 @@ import { SmoothScrollProvider } from "@/provider/smooth-scroll";
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "AI Thumbnail Generator",
+export const metadata = {
+  metadataBase: new URL("https://yourdomain.com"),
+
+  title: {
+    default: "AI Thumbnail Generator – Create YouTube Thumbnails Fast",
+    template: "%s | AI Thumbnail Generator",
+  },
+
   description:
-    "Upload an image and generate stunning thumbnails instantly with AI",
-  generator: "ArcLine-Softs",
+    "Free AI tools for thumbnails, YouTube tags, Instagram hashtags, and SEO growth.",
+
+  keywords: [
+    "AI thumbnail generator",
+    "YouTube thumbnail maker",
+    "Instagram hashtag generator",
+    "YouTube SEO tools",
+  ],
+
+  openGraph: {
+    title: "AI Thumbnail Generator",
+    description: "Create thumbnails and grow your channel with AI tools",
+    url: "https://yourdomain.com",
+    siteName: "AI Thumbnail Generator",
+    type: "website",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
   icons: {
     icon: [
       {
@@ -46,15 +71,13 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`font-sans antialiased `}>
         <ClerkProvider>
-          
           <SmoothScrollProvider>
             <Navbar />
             {children}
             <Toaster />
             <Footer />
           </SmoothScrollProvider>
-      
-    </ClerkProvider>
+        </ClerkProvider>
       </body>
     </html>
   );

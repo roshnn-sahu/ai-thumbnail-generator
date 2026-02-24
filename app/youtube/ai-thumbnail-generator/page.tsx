@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useToast } from "@/hooks/use-toast";
-import HeroSection  from "@/components/hero-section"
+import HeroSection from "@/components/hero-section";
 import { ResultsGrid } from "@/components/thumbnail-generator/results-grid";
 import { FileUpload } from "@/components/thumbnail-generator/file-upload";
 import HeroGridPattern from "@/components/mui/HeroGridPattern";
@@ -17,14 +17,19 @@ import {
   generateThumbnails,
 } from "@/services/image-generation";
 import { CallToAction } from "@/components/cta";
+//auth check
+import { useUser } from "@clerk/nextjs";
+import AuthModal from "@/components/auth/auth-modal";
 
 export default function page() {
   const [imageData, setImageData] = useState<ImageData | null>();
   const [imageCount, setImageCount] = useState<number>(0);
   const [generatedImages, setGeneratedImages] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [authModalOpen, setAuthModalOpen] = useState(false);
 
   const { toast } = useToast();
+  const { isSignedIn } = useUser();
 
   const handleImageUpload = async (file: File, preview: string) => {
     try {
@@ -52,6 +57,10 @@ export default function page() {
     remixImages?: File[],
   ) => {
     if (!imageData) return;
+    if (!isSignedIn) {
+      setAuthModalOpen(true);
+      return;
+    }
     setImageCount(count);
 
     setIsLoading(true);
@@ -100,8 +109,8 @@ export default function page() {
               badgeTitle="AI Powered Thumbnail Generator →"
               title="Transform Your Images Into Eye-Catching Thumbnails"
               subTitle="Upload an image and generate stunning thumbnails instantly with AI"
-              
             />
+            <AuthModal open={authModalOpen} onOpenChange={setAuthModalOpen} />
             <FileUpload
               onGenerate={handleGenerate}
               isLoading={isLoading}
@@ -142,7 +151,7 @@ export default function page() {
         <Feature43 />
         <Feature1 />
         <Faq />
-        <CallToAction/>
+        <CallToAction />
       </div>
     </div>
   );
