@@ -238,24 +238,22 @@ function Navbar() {
           </motion.div>
 
           {/* Mobile Menu Button */}
-          <div>
-
-      
-          <button
-            className="md:hidden p-2 text-foreground mr-2"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <RiMenu3Line className="w-6 h-6" />
-            )}
-          </button>
-          <SignedIn>
-            <UserButton afterSignOutUrl="/" />
-          </SignedIn>
+          <div className="md:hidden">
+            <button
+              className="md:hidden p-2 text-foreground mr-2"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <RiMenu3Line className="w-6 h-6" />
+              )}
+            </button>
+            <SignedIn>
+              <UserButton afterSignOutUrl="/" />
+            </SignedIn>
           </div>
-              </div>
+        </div>
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
@@ -334,7 +332,7 @@ function Navbar() {
               ))}
 
               {/* Mobile Auth Buttons */}
-              <div className="pt-4 space-y-2 border-t border-border">
+              <div className="pt-4 space-y-2 border-t border-border flex gap-3 justify-end">
                 <SignedOut>
                   <SignInButton mode="modal">
                     <Button variant="outline" className="border shadow-lg">

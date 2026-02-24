@@ -8,7 +8,7 @@ import ImagePreview from "@/components/thumbnail-generator/image-preview";
 import GridPattern from "@/components/mui/GridPattern";
 import { Lock } from "lucide-react";
 
-import AuthModal from "@/components/auth/auth-modal"
+import AuthModal from "@/components/auth/auth-modal";
 import { useUser } from "@clerk/nextjs";
 
 const mainVariant = {
@@ -52,28 +52,34 @@ export const FileUpload = ({
   handleReset,
 }: FileUploadProps) => {
   const [files, setFiles] = useState<File[]>([]);
-  const [authModalOpen,setAuthModalOpen]=useState(false)
+  const [authModalOpen, setAuthModalOpen] = useState(false);
 
-    const { isSignedIn } = useUser();
+  const { isSignedIn } = useUser();
 
-  const [options, setOptions] = useState({
+  interface GenerationOptions {
+    prompt: string;
+    aspectRatio: string;
+    count: number;
+    isRemix: boolean;
+    remixImages: (File | null)[];
+  }
+
+  const [options, setOptions] = useState<GenerationOptions>({
     prompt: "",
     aspectRatio: "16:9",
     count: 1,
     isRemix: false,
-    remixImages: [] as (File | null)[],
+    remixImages: [],
   });
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFileChange = (newFiles: File[]) => {
     const file = newFiles[0];
-    
- 
+
     if (file) {
       setFiles([file]);
       onChange?.([file]);
-
     }
   };
 
@@ -274,6 +280,8 @@ export const FileUpload = ({
             onGenerate={onGenerate}
             isLoading={isLoading}
             setOptions={setOptions}
+            isSignedIn={isSignedIn}
+            setAuthModalOpen={setAuthModalOpen}
           />
         </div>
       </motion.div>
@@ -287,10 +295,19 @@ const FileUploadOptions = ({
   setOptions,
   onGenerate,
   isLoading,
+  isSignedIn,
+  setAuthModalOpen,
 }: {
   files: File[];
-  options: any;
-  setOptions: any;
+  options: {
+    prompt: string;
+    aspectRatio: string;
+    count: number;
+    isRemix: boolean;
+    remixImages: (File | null)[];
+  };
+  setOptions: React.Dispatch<React.SetStateAction<any>>;
+  isSignedIn: boolean | null | undefined;
 
   onGenerate?: (
     prompt: string,
@@ -299,6 +316,7 @@ const FileUploadOptions = ({
     isRemix: boolean,
     remixImages?: File[],
   ) => void;
+  setAuthModalOpen: (open: boolean) => void;
   isLoading?: boolean;
 }) => {
   return (
@@ -343,7 +361,7 @@ const FileUploadOptions = ({
                 </label>
 
                 <div className="grid grid-cols-4 gap-2">
-                  {[1, 2, 3, 4].map((num) => (
+                  {[1, 2, 3].map((num) => (
                     <button
                       key={num}
                       type="button"
@@ -374,12 +392,13 @@ const FileUploadOptions = ({
                     <button
                       key={ratio}
                       type="button"
-                      onClick={() =>
+                      onClick={() => {
+                      
                         setOptions((prev: any) => ({
                           ...prev,
                           aspectRatio: ratio,
-                        }))
-                      }
+                        }));
+                      }}
                       className={cn(
                         "flex items-center justify-center p-2 rounded-lg border border-border text-xs transition-all",
                         options.aspectRatio === ratio
@@ -396,11 +415,15 @@ const FileUploadOptions = ({
               <div className="col-span-full mt-2">
                 <button
                   type="button"
-                  onClick={() =>
+                  onClick={() =>{
+                      if (!isSignedIn) {
+                          setAuthModalOpen(true);
+                          return;
+                        }
                     setOptions((prev: any) => ({
                       ...prev,
                       isRemix: !prev.isRemix,
-                    }))
+                    }))}
                   }
                   className="flex items-center gap-2 text-xs font-bold text-neutral-500 hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors uppercase tracking-wider border px-2 rounded-lg py-1"
                 >
@@ -505,7 +528,6 @@ const FileUploadOptions = ({
                 "Generate"
               )}
             </motion.button>
-           
           </motion.div>
         )}
       </AnimatePresence>
