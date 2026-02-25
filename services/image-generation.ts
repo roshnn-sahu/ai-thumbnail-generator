@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export interface ImageData {
   file: File;
   preview: string; // UI only — keeps the data: prefix
@@ -69,43 +71,55 @@ export const processImageUpload = async (
 /**
  * Handles the logic for calling the generation API.
  */
-export const generateThumbnails = async (params: {
-  prompt: string;
-  count: number;
-  aspectRatio: string;
-  isRemix: boolean;
-  remixImages?: File[];
-  mainImageBase64: string;
-}): Promise<string[]> => {
-  const { prompt, count, aspectRatio, isRemix, remixImages, mainImageBase64 } =
-    params;
+const API_BASE = process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:8000";
 
-  // Optimize remix images if present
-  const optimizedRemix =
-    isRemix && remixImages && remixImages.length > 0
-      ? await Promise.all(
-          remixImages.map(async (file) => (await optimizeImage(file)).base64),
-        )
-      : [];
+const fileToBase64 = (file: File) =>
+  new Promise<string>((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result as string);
+    reader.onerror = reject;
+  });
 
-  const res = await fetch("/api/generate-thumbnail", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
+export const generateThumbnails = async (
+  token: string,
+  params: {
+    prompt: string;
+    count: number;
+    aspectRatio: string;
+    isRemix: boolean;
+    remixImages?: File[];
+    mainImageBase64: string;
+  },
+): Promise<string[]> => {
+  const {
+    prompt,
+    count,
+    aspectRatio,
+    isRemix,
+    remixImages = [],
+    mainImageBase64,
+  } = params;
+
+  // 🔥 convert files → base64
+  const remixBase64 = await Promise.all(remixImages.map(fileToBase64));
+
+  const { data } = await axios.post(
+    `${API_BASE}/api/generate/generate-thumbnail`,
+    {
       instruction: prompt,
       imageBase64: mainImageBase64,
       count,
       aspectRatio,
       isRemix,
-      remixImages: optimizedRemix,
-    }),
-  });
-
-  if (!res.ok) {
-    const errorData = await res.json();
-    throw new Error(errorData.error || "Failed to generate");
-  }
-
-  const data = await res.json();
+      remixImages: remixBase64,
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    },
+  );
   return data.images;
 };

@@ -19,6 +19,7 @@ import {
 import { CallToAction } from "@/components/cta";
 //auth check
 import { useUser } from "@clerk/nextjs";
+import { useAuth } from "@clerk/nextjs";
 import AuthModal from "@/components/auth/auth-modal";
 
 export default function page() {
@@ -30,6 +31,8 @@ export default function page() {
 
   const { toast } = useToast();
   const { isSignedIn } = useUser();
+  const { getToken } = useAuth();
+ 
 
   const handleImageUpload = async (file: File, preview: string) => {
     try {
@@ -48,6 +51,7 @@ export default function page() {
       });
     }
   };
+  
 
   const handleGenerate = async (
     prompt: string,
@@ -56,17 +60,19 @@ export default function page() {
     isRemix: boolean,
     remixImages?: File[],
   ) => {
+     const token = await getToken();
     if (!imageData) return;
-    if (!isSignedIn) {
+    if (!isSignedIn || !token) {
       setAuthModalOpen(true);
       return;
     }
-    setImageCount(count);
 
+    setImageCount(count);
     setIsLoading(true);
     setGeneratedImages([]);
+
     try {
-      const images = await generateThumbnails({
+      const images = await generateThumbnails(token,{
         prompt,
         count,
         aspectRatio,
@@ -86,7 +92,8 @@ export default function page() {
       console.error("Generation error:", error);
       toast({
         title: "Error",
-        description: error.message || "Failed to generate thumbnails",
+        description:
+          error.response.data.message || "Failed to generate thumbnails",
         variant: "error",
       });
     } finally {

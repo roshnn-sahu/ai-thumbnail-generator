@@ -107,7 +107,7 @@ export async function POST(req: Request) {
     console.error("REVE API Request failed:", error);
     return NextResponse.json(
       { error: error.message || "Failed to edit image" },
-      { status: 500 },
+      { status: 500 },  
     );
   }
 }

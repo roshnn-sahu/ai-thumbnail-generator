@@ -1,6 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { IconUpload, IconX } from "@tabler/icons-react";
 import { useDropzone } from "react-dropzone";
@@ -10,6 +10,9 @@ import { Lock } from "lucide-react";
 
 import AuthModal from "@/components/auth/auth-modal";
 import { useUser } from "@clerk/nextjs";
+import { useAuth } from "@clerk/nextjs";
+import axios from "axios";
+import { getUser } from "@/services/userApi";
 
 const mainVariant = {
   initial: {
@@ -53,8 +56,10 @@ export const FileUpload = ({
 }: FileUploadProps) => {
   const [files, setFiles] = useState<File[]>([]);
   const [authModalOpen, setAuthModalOpen] = useState(false);
+  const [plan, setPlan] = useState<"free" | "pro" | "creator">("free");
 
   const { isSignedIn } = useUser();
+  const { getToken } = useAuth();
 
   interface GenerationOptions {
     prompt: string;
@@ -114,6 +119,20 @@ export const FileUpload = ({
     },
   });
 
+
+
+
+  useEffect(() => {
+    const loadUser = async () => {
+         const token = await getToken()
+      if (!token) return;
+      const res = await getUser(token)
+      setPlan(res.plan);
+    };
+
+    loadUser();
+  }, []);
+console.log(plan)
   return (
     <div className="w-full  px-5" {...getRootProps()}>
       <motion.div

@@ -15,7 +15,7 @@ import {
 
 import { RiMenu3Line } from "@remixicon/react";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import {
   SignedIn,
@@ -24,6 +24,8 @@ import {
   SignInButton,
   SignUpButton,
 } from "@clerk/nextjs";
+
+import { User } from "lucide-react";
 
 const navLinks = [
   { name: "Pricing", href: "/pricing" },
@@ -87,10 +89,25 @@ const toolsMenuData = [
   },
 ];
 
+import { useAuth, useUser } from "@clerk/nextjs";
+import { getUser } from "@/services/userApi";
+
 function Navbar() {
   const [isToolsOpen, setIsToolsOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileToolsOpen, setIsMobileToolsOpen] = useState(false);
+
+  const { isSignedIn } = useUser();
+  const { getToken } = useAuth();
+
+  useEffect(() => {
+    const sync = async () => {
+      const token = await getToken();
+      if (!isSignedIn) return;
+      const res = await getUser(token);
+    };
+    sync();
+  }, [isSignedIn]);
 
   return (
     <>
@@ -233,7 +250,15 @@ function Navbar() {
             </SignedOut>
 
             <SignedIn>
-              <UserButton afterSignOutUrl="/" />
+              <UserButton afterSignOutUrl="/">
+                <UserButton.MenuItems>
+                  <UserButton.Link
+                    label="Profile & Plan"
+                    labelIcon={<User className="w-4 h-4" />}
+                    href="/settings"
+                  />
+                </UserButton.MenuItems>
+              </UserButton>
             </SignedIn>
           </motion.div>
 
@@ -250,7 +275,15 @@ function Navbar() {
               )}
             </button>
             <SignedIn>
-              <UserButton afterSignOutUrl="/" />
+              <UserButton afterSignOutUrl="/">
+                <UserButton.MenuItems>
+                  <UserButton.Link
+                    label="Profile & Plan"
+                    labelIcon={<User className="w-4 h-4" />}
+                    href="/settings"
+                  />
+                </UserButton.MenuItems>
+              </UserButton>
             </SignedIn>
           </div>
         </div>
