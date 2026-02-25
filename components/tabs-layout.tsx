@@ -10,11 +10,14 @@ const TabsLayout = () => (
     className="flex w-full max-w-6xl flex-col md:flex-row gap-0 py-4 md:py-8 px-4"
     defaultValue="profile"
   >
-    <div className="w-full md:w-64 shrink-0 border-b md:border-b-0 md:border-r pb-4 md:pb-0 md:pr-4">
-      <h2 className="mb-4 md:mb-6 px-2 md:px-4 text-xl font-bold tracking-tight">
+    <h2 className="mb-4 md:mb-6 px-2 md:px-4 text-xl font-bold tracking-tight block md:hidden">
+      Settings
+    </h2>
+    <div className="w-full md:w-64 shrink-0 border-b md:border-b-0 md:border-r pb-4 md:pb-0 md:pr-4 overflow-x-auto  ">
+      <h2 className="mb-4 md:mb-6 px-2 md:px-4 text-xl font-bold tracking-tight hidden md:block">
         Settings
       </h2>
-      <TabsList className="flex h-fit flex-row md:flex-col bg-transparent p-0 gap-1 border-none shadow-none overflow-x-auto md:overflow-x-visible no-scrollbar">
+      <TabsList className="flex flex-row md:flex-col bg-transparent  gap-1       ">
         <TabsTrigger
           className="justify-start gap-2 md:gap-3 px-3 md:px-4 py-2 md:py-2.5 data-[state=active]:bg-muted data-[state=active]:text-foreground data-[state=active]:shadow-none hover:bg-muted/50 transition-colors whitespace-nowrap"
           value="profile"

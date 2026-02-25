@@ -35,6 +35,7 @@ interface SettingsProfileProps {
 }
 
 const SettingsProfile = ({ className }: SettingsProfileProps) => {
+  
   const { isLoaded, isSignedIn, user: clerkUser } = useUser();
   const { getToken } = useAuth();
   const [userData, setUserData] = useState<UserData | null>(null);
