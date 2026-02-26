@@ -30,7 +30,7 @@ const TabsLayout = () => (
           value="security"
         >
           <Shield className="w-4 h-4" />
-          Security
+          Upgrade
         </TabsTrigger>
         <TabsTrigger
           className="justify-start gap-2 md:gap-3 px-3 md:px-4 py-2 md:py-2.5 data-[state=active]:bg-muted data-[state=active]:text-foreground data-[state=active]:shadow-none hover:bg-muted/50 transition-colors whitespace-nowrap"

@@ -35,7 +35,11 @@ export function CreditsTable({
 
   return (
     <Table>
-      <TableCaption>Your plan & credit usage</TableCaption>
+      <TableCaption>
+        {todayUsed !== todayLimit
+          ? "Your plan & credit usage"
+          : "Credit will reset in 12 am night"}
+      </TableCaption>
 
       <TableHeader>
         <TableRow>
@@ -88,7 +92,7 @@ export function CreditsTable({
         <TableRow>
           <TableCell colSpan={3}>Remaining Credits</TableCell>
           <TableCell className="text-right font-semibold">
-            {remaining}
+            {isNaN(remaining) ? "Unlimited" : remaining}
           </TableCell>
         </TableRow>
       </TableFooter>
