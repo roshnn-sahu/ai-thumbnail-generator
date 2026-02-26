@@ -72,7 +72,7 @@ const Feature43 = ({
 }: Feature43Props) => {
   return (
     <section className={cn("py-16 relative z-10", className)}>
-      <div className="container px-8">
+      <div className="container px-8 mx-auto">
         <div className="mb-12">
           <Heading> {title}</Heading>
         </div>

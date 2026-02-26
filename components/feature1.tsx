@@ -44,7 +44,7 @@ const Feature1 = ({
               {title}
             </Heading>
             {description && (
-              <SubHeading className="text-start text-md">
+              <SubHeading className="text-start text-md pl-0">
                 {description}
               </SubHeading>
             )}

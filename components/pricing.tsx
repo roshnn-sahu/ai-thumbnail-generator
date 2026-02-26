@@ -14,10 +14,10 @@ import {
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Switch } from "@/components/ui/switch";
-import { useUser } from "@clerk/nextjs";
+import { useUser, useAuth } from "@clerk/nextjs";
 import AuthModal from "@/components/auth/auth-modal";
 import { useRouter } from "next/navigation";
-
+import CheckoutModal from "./checkout-modal";
 
 const USD_TO_INR = 90;
 
@@ -42,6 +42,7 @@ const basePlans = [
   },
   {
     id: "pro",
+    planId: "prod_U391ti2DGLnF58",
     name: "Pro",
     description: "Perfect for growing creators",
     monthly: 7,
@@ -62,6 +63,7 @@ const basePlans = [
   },
   {
     id: "creator",
+    planId: "prod_U3920hfgd5IEdQ",
     name: "Creator",
     description: "Unlimited for professionals & teams",
     monthly: 12,
@@ -86,27 +88,68 @@ export function Pricing({ className }: { className?: string }) {
   const [yearly, setYearly] = useState(false);
   const [currency, setCurrency] = useState<"USD" | "INR">("USD");
   const [authModalOpen, setAuthModalOpen] = useState(false);
+  const [checkoutModalOpen, setCheckoutModalOpen] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState<any>(null);
 
   const { isSignedIn } = useUser();
+  const { getToken } = useAuth();
   const router = useRouter();
 
-  const handlePlanAction = (planId: string) => {
+  const handlePlanAction = (plan: any) => {
     if (!isSignedIn) {
       setAuthModalOpen(true);
       return;
     }
 
-    if (planId === "free") {
-      router.push("/dashboard");
+    if (plan.id === "free") {
+      router.push("/");
       return;
     }
 
-    // Payment Integration Placeholder
-    console.log(`Initiating payment for plan: ${planId}`);
-    // Here you would typically redirect to Checkout or open Stripe/Razorpay
-    alert(`Payment gateway integration for ${planId} coming soon!`);
+    setSelectedPlan(plan);
+    setCheckoutModalOpen(true);
   };
 
+  const onCheckout = async () => {
+    if (!selectedPlan) return;
+
+    try {
+      const token = await getToken();
+      if (!token) {
+        alert("Session expired. Please sign in again.");
+        return;
+      }
+
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/plan/create-checkout-session`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            planId: selectedPlan.planId,
+            isYearly: yearly,
+            currency: currency,
+          }),
+        },
+      );
+
+      const data = await response.json();
+
+      if (data.success && data.url) {
+        window.location.href = data.url;
+      } else {
+        alert(data.message || "Failed to initiate checkout");
+      }
+    } catch (error) {
+      console.error("Checkout Error:", error);
+      alert("An error occurred. Please try again.");
+    } finally {
+      setCheckoutModalOpen(false);
+    }
+  };
 
   const formatPrice = (price: number) => {
     if (currency === "INR") {
@@ -115,6 +158,7 @@ export function Pricing({ className }: { className?: string }) {
     return `$${price}`;
   };
 
+  console.log(selectedPlan, "selected plan");
   return (
     <section
       className={cn(
@@ -191,21 +235,26 @@ export function Pricing({ className }: { className?: string }) {
               </CardContent>
 
               <CardFooter className="mt-auto">
-                <Button 
-                  className="w-full cursor-pointer" 
-                  onClick={() => handlePlanAction(plan.id)}
+                <Button
+                  className="w-full cursor-pointer"
+                  onClick={() => handlePlanAction(plan)}
                 >
                   {plan.buttonText}
                 </Button>
               </CardFooter>
-
             </Card>
           );
         })}
       </div>
 
       <AuthModal open={authModalOpen} onOpenChange={setAuthModalOpen} />
+      <CheckoutModal
+        open={checkoutModalOpen}
+        onOpenChange={setCheckoutModalOpen}
+        plan={selectedPlan}
+        isYearly={yearly}
+        onCheckout={onCheckout}
+      />
     </section>
-
   );
 }
