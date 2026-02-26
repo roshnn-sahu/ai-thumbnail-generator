@@ -13,6 +13,7 @@ import { useUser } from "@clerk/nextjs";
 import { useAuth } from "@clerk/nextjs";
 import axios from "axios";
 import { getUser } from "@/services/userApi";
+import UpgradeModal from "@/components/auth/upgrade-modal";
 
 const mainVariant = {
   initial: {
@@ -119,29 +120,23 @@ export const FileUpload = ({
     },
   });
 
-
-
-
   useEffect(() => {
     const loadUser = async () => {
-         const token = await getToken()
+      const token = await getToken();
       if (!token) return;
-      const res = await getUser(token)
+      const res = await getUser(token);
       setPlan(res.plan);
     };
 
     loadUser();
   }, []);
-console.log(plan)
+  console.log(plan);
   return (
     <div className="w-full  px-5" {...getRootProps()}>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        onClick={() => {
-          files.length === 0 && handleClick();
-        }}
         whileHover={files.length === 0 ? "animate" : ""}
         className={cn(
           "group/file relative block w-full cursor-pointer overflow-hidden rounded-xl border border-dashed border-border bg-white transition-all dark:bg-neutral-900 duration-150 min-h-96 hover:border-sky-400 max-w-5xl ",
@@ -301,6 +296,7 @@ console.log(plan)
             setOptions={setOptions}
             isSignedIn={isSignedIn}
             setAuthModalOpen={setAuthModalOpen}
+            plan={plan}
           />
         </div>
       </motion.div>
@@ -316,12 +312,14 @@ const FileUploadOptions = ({
   isLoading,
   isSignedIn,
   setAuthModalOpen,
+  plan,
 }: {
   files: File[];
   options: {
     prompt: string;
     aspectRatio: string;
     count: number;
+
     isRemix: boolean;
     remixImages: (File | null)[];
   };
@@ -337,7 +335,11 @@ const FileUploadOptions = ({
   ) => void;
   setAuthModalOpen: (open: boolean) => void;
   isLoading?: boolean;
+  plan: string;
 }) => {
+  const [upgradeModalOpen, setUpgradeModalOpen] = useState(false);
+  const isFreePlan = plan === "free";
+
   return (
     <>
       <AnimatePresence>
@@ -412,7 +414,6 @@ const FileUploadOptions = ({
                       key={ratio}
                       type="button"
                       onClick={() => {
-                      
                         setOptions((prev: any) => ({
                           ...prev,
                           aspectRatio: ratio,
@@ -434,24 +435,35 @@ const FileUploadOptions = ({
               <div className="col-span-full mt-2">
                 <button
                   type="button"
-                  onClick={() =>{
-                      if (!isSignedIn) {
-                          setAuthModalOpen(true);
-                          return;
-                        }
+                  onClick={() => {
+                    if (!isSignedIn) {
+                      setAuthModalOpen(true);
+                      return;
+                    }
+                    if (isFreePlan) {
+                      setUpgradeModalOpen(true);
+                      return;
+                    }
                     setOptions((prev: any) => ({
                       ...prev,
                       isRemix: !prev.isRemix,
-                    }))}
-                  }
-                  className="flex items-center gap-2 text-xs font-bold text-neutral-500 hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors uppercase tracking-wider border px-2 rounded-lg py-1"
+                    }));
+                  }}
+                  className={cn(
+                    "flex items-center gap-2 text-xs font-bold transition-colors uppercase tracking-wider border px-2 rounded-lg py-1",
+                    options.isRemix
+                      ? "text-red-500 border-red-200 hover:text-red-600"
+                      : isFreePlan
+                        ? "text-neutral-400 border-neutral-200 cursor-pointer"
+                        : "text-neutral-500 hover:text-neutral-800 dark:hover:text-neutral-200",
+                  )}
                 >
                   {options.isRemix ? (
                     "✕ Cancel Remix"
                   ) : (
                     <span className="flex gap-1 items-center">
-                      {" "}
-                      ⚡ Remix Mode <Lock className="w-3 h-3 font-bold" />{" "}
+                      ⚡ Remix Mode{" "}
+                      {isFreePlan && <Lock className="w-3 h-3 font-bold" />}
                     </span>
                   )}
                 </button>
@@ -550,6 +562,10 @@ const FileUploadOptions = ({
           </motion.div>
         )}
       </AnimatePresence>
+      <UpgradeModal
+        open={upgradeModalOpen}
+        onOpenChange={setUpgradeModalOpen}
+      />
     </>
   );
 };
