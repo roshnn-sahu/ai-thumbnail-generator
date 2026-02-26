@@ -121,7 +121,7 @@ export function Pricing({ className }: { className?: string }) {
       }
 
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/plan/create-checkout-session`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/subscription/create-checkout-session`,
         {
           method: "POST",
           headers: {
