@@ -21,7 +21,7 @@ export default function UpgradeModal({
 }) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-7xl p-0 overflow-hidden p-6">
+      <DialogContent className="max-w-7xl  overflow-hidden p-6">
         <DialogHeader className="p-6 pb-0">
           <DialogTitle className="text-2xl font-bold text-center">
             Upgrade Your Plan

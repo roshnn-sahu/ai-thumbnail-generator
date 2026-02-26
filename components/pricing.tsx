@@ -14,6 +14,10 @@ import {
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Switch } from "@/components/ui/switch";
+import { useUser } from "@clerk/nextjs";
+import AuthModal from "@/components/auth/auth-modal";
+import { useRouter } from "next/navigation";
+
 
 const USD_TO_INR = 90;
 
@@ -81,6 +85,28 @@ const basePlans = [
 export function Pricing({ className }: { className?: string }) {
   const [yearly, setYearly] = useState(false);
   const [currency, setCurrency] = useState<"USD" | "INR">("USD");
+  const [authModalOpen, setAuthModalOpen] = useState(false);
+
+  const { isSignedIn } = useUser();
+  const router = useRouter();
+
+  const handlePlanAction = (planId: string) => {
+    if (!isSignedIn) {
+      setAuthModalOpen(true);
+      return;
+    }
+
+    if (planId === "free") {
+      router.push("/dashboard");
+      return;
+    }
+
+    // Payment Integration Placeholder
+    console.log(`Initiating payment for plan: ${planId}`);
+    // Here you would typically redirect to Checkout or open Stripe/Razorpay
+    alert(`Payment gateway integration for ${planId} coming soon!`);
+  };
+
 
   const formatPrice = (price: number) => {
     if (currency === "INR") {
@@ -165,14 +191,21 @@ export function Pricing({ className }: { className?: string }) {
               </CardContent>
 
               <CardFooter className="mt-auto">
-                <Button className="w-full" asChild>
-                  <a href={plan.url}>{plan.buttonText}</a>
+                <Button 
+                  className="w-full cursor-pointer" 
+                  onClick={() => handlePlanAction(plan.id)}
+                >
+                  {plan.buttonText}
                 </Button>
               </CardFooter>
+
             </Card>
           );
         })}
       </div>
+
+      <AuthModal open={authModalOpen} onOpenChange={setAuthModalOpen} />
     </section>
+
   );
 }

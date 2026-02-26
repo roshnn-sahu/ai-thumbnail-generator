@@ -9,7 +9,7 @@ import { Home, ArrowLeft } from "lucide-react";
 export default function NotFound() {
   return (
     <HeroGridPattern>
-      <div className="flex flex-col items-center justify-center h-full px-4 text-center py-20 relative z-10">
+      <div className="flex flex-col items-center justify-center h-full px-4 text-center py-20 relative z-10 overflow-hidden">
         <motion.div
    
           className="relative"

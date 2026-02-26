@@ -90,7 +90,7 @@ const toolsMenuData = [
 ];
 
 import { useAuth, useUser } from "@clerk/nextjs";
-import { getUser } from "@/services/userApi";
+import { syncUser } from "@/services/userApi";
 
 function Navbar() {
   const [isToolsOpen, setIsToolsOpen] = useState(false);
@@ -103,8 +103,9 @@ function Navbar() {
   useEffect(() => {
     const sync = async () => {
       const token = await getToken();
-      if (!isSignedIn) return;
-      const res = await getUser(token);
+      if (!isSignedIn || !token) return;
+      const res = await syncUser(token);
+      console.log(res)
     };
     sync();
   }, [isSignedIn]);

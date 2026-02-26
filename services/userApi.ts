@@ -12,3 +12,12 @@ export const getUser = async (token: string) => {
 
   return data;
 };
+export const syncUser = async (token: string) => {
+  const { data } = await axios.get(`${BACKEND_URL}/api/users/sync`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  return data;
+};
