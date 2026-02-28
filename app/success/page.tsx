@@ -23,16 +23,8 @@ export default function SuccessPage() {
 
   return (
     <HeroGridPattern>
+   
       <div className="min-h-screen flex items-center justify-center p-6 relative overflow-hidden">
-        {showConfetti && (
-          <Confetti
-            width={width}
-            height={height}
-            recycle={false}
-            numberOfPieces={500}
-            gravity={0.1}
-          />
-        )}
 
         {/* Background Glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-card blur-[120px] rounded-full" />
@@ -58,7 +50,7 @@ export default function SuccessPage() {
 
           <div className="grid gap-4">
             <Button
-              onClick={() => router.push("/ai-thumbnail-generator")}
+              onClick={() => router.push("/youtube/ai-thumbnail-generator")}
               className="h-14 group transition-all"
             >
               Generate Thumbnail

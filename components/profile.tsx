@@ -35,7 +35,6 @@ interface SettingsProfileProps {
 }
 
 const SettingsProfile = ({ className }: SettingsProfileProps) => {
-  
   const { isLoaded, isSignedIn, user: clerkUser } = useUser();
   const { getToken } = useAuth();
   const [userData, setUserData] = useState<UserData | null>(null);
@@ -91,7 +90,7 @@ const SettingsProfile = ({ className }: SettingsProfileProps) => {
   };
 
   const currentLimits = limits[plan];
-
+  console.log(userData);
   return (
     <Card className={cn("w-full max-w-2xl", className)}>
       <CardHeader>

@@ -42,14 +42,15 @@ const basePlans = [
   },
   {
     id: "pro",
-    planId: "prod_U391ti2DGLnF58",
+    monthlyPlanId: "prod_U391ti2DGLnF58",
+    yearlyPlanId: "prod_U3U9cff92HFjt8",
     name: "Pro",
     description: "Perfect for growing creators",
     monthly: 7,
     yearly: 60,
     highlight: true,
     features: [
-      "150 thumbnails / month",
+      "300 thumbnails / month",
       "Unlimited SEO tools",
       "No watermark",
       "Premium templates",
@@ -63,7 +64,8 @@ const basePlans = [
   },
   {
     id: "creator",
-    planId: "prod_U3920hfgd5IEdQ",
+    monthlyPlanId: "prod_U3920hfgd5IEdQ",
+    yearlyPlanId: "prod_U3UBV0UsfXacN7",
     name: "Creator",
     description: "Unlimited for professionals & teams",
     monthly: 12,
@@ -90,12 +92,13 @@ export function Pricing({ className }: { className?: string }) {
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [checkoutModalOpen, setCheckoutModalOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<any>(null);
+  const [selectedPlanDetails, setSelectedPlanDetails] = useState<any>(null);
 
   const { isSignedIn } = useUser();
   const { getToken } = useAuth();
   const router = useRouter();
 
-  const handlePlanAction = (plan: any) => {
+  const handlePlanAction = (plan: any, planId: any) => {
     if (!isSignedIn) {
       setAuthModalOpen(true);
       return;
@@ -106,7 +109,8 @@ export function Pricing({ className }: { className?: string }) {
       return;
     }
 
-    setSelectedPlan(plan);
+    setSelectedPlan(planId);
+    setSelectedPlanDetails(plan)
     setCheckoutModalOpen(true);
   };
 
@@ -129,7 +133,7 @@ export function Pricing({ className }: { className?: string }) {
             Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify({
-            planId: selectedPlan.planId,
+            planId: selectedPlan,
             isYearly: yearly,
             currency: currency,
           }),
@@ -158,7 +162,6 @@ export function Pricing({ className }: { className?: string }) {
     return `$${price}`;
   };
 
-  console.log(selectedPlan, "selected plan");
   return (
     <section
       className={cn(
@@ -180,16 +183,6 @@ export function Pricing({ className }: { className?: string }) {
             <Switch checked={yearly} onCheckedChange={setYearly} />
             <span>Yearly</span>
           </div>
-
-          {/* Currency Dropdown */}
-          <select
-            value={currency}
-            onChange={(e) => setCurrency(e.target.value as "USD" | "INR")}
-            className="border rounded-md px-3 py-1 text-sm bg-background"
-          >
-            <option value="USD">USD ($)</option>
-            <option value="INR">INR (₹)</option>
-          </select>
         </div>
       </div>
 
@@ -197,6 +190,7 @@ export function Pricing({ className }: { className?: string }) {
       <div className="grid gap-6 md:grid-cols-3">
         {basePlans.map((plan) => {
           const price = yearly ? plan.yearly : plan.monthly;
+          const planId = yearly ? plan.yearlyPlanId : plan.monthlyPlanId;
 
           return (
             <Card
@@ -237,7 +231,7 @@ export function Pricing({ className }: { className?: string }) {
               <CardFooter className="mt-auto">
                 <Button
                   className="w-full cursor-pointer"
-                  onClick={() => handlePlanAction(plan)}
+                  onClick={() => handlePlanAction(plan, planId)}
                 >
                   {plan.buttonText}
                 </Button>
@@ -251,7 +245,7 @@ export function Pricing({ className }: { className?: string }) {
       <CheckoutModal
         open={checkoutModalOpen}
         onOpenChange={setCheckoutModalOpen}
-        plan={selectedPlan}
+        plan={selectedPlanDetails}
         isYearly={yearly}
         onCheckout={onCheckout}
       />

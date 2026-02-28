@@ -1,13 +1,8 @@
 "use client";
 
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Sparkles, Trash2, X } from "lucide-react";
+import { Sparkles, Trash2, X, XIcon } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
@@ -38,7 +33,9 @@ export default function CheckoutModal({
   if (!plan) return null;
 
   const price = isYearly ? plan.yearly : plan.monthly;
-  const originalPrice = isYearly ? Math.round(plan.yearly * 1.5) : Math.round(plan.monthly * 1.5);
+  const originalPrice = isYearly
+    ? Math.round(plan.yearly * 1.5)
+    : Math.round(plan.monthly * 1.5);
   const billingCycle = isYearly ? "yearly" : "monthly";
   const interval = isYearly ? "12 months" : "month";
 
@@ -70,6 +67,13 @@ export default function CheckoutModal({
                 </span>
               </div>
             </div>
+
+            <div className="absolute top-4 right-4 border rounded-lg">
+              <XIcon
+                onClick={() => onOpenChange(false)}
+                className="cursor-pointer text-neutral-500 h-5 w-5"
+              />
+            </div>
           </div>
 
           {/* Subscription details */}
@@ -86,10 +90,7 @@ export default function CheckoutModal({
 
           {/* Checkout Button */}
           <div className="flex justify-center pb-2">
-            <Button
-              onClick={onCheckout}
-              className=""
-            >
+            <Button onClick={onCheckout} className="">
               Checkout
             </Button>
           </div>
