@@ -5,7 +5,18 @@ import { Feature1 } from "@/components/feature1";
 import Faq from "@/components/faq";
 import TopicInput from "@/components/youtube/tags-generator/topic-input";
 import { CallToAction } from "@/components/cta";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Instagram Tools | AI Caption & Hashtag Generator",
+  description:
+    "Generate Instagram captions, hashtags, and growth ideas using AI. Boost engagement and visibility instantly.",
+  keywords: [
+    "instagram hashtag generator",
+    "ai instagram captions",
+    "instagram growth tools",
+  ],
+};
 const page = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">

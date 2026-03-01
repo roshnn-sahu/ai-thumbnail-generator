@@ -5,7 +5,20 @@ import { Feature43 } from "@/components/feature43";
 import HeroSection from "@/components/hero-section";
 import HeroGridPattern from "@/components/mui/HeroGridPattern";
 import ExtractForm from "@/components/youtube/tags-extractor/extract-form";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "YouTube SEO Tools | AI Thumbnail, Tags & Keywords",
+  description:
+    "All-in-one YouTube SEO toolkit. Generate AI thumbnails, extract tags, find ranking keywords, and grow your channel faster.",
+  keywords: [
+    "youtube seo tools",
+    "youtube tag extractor",
+    "youtube keyword generator",
+    "ai thumbnail maker for youtube",
+    "youtube growth tools"
+  ]
+};
 const page = () => {
   return (
     <>

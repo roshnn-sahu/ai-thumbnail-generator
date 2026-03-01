@@ -16,20 +16,19 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] });
 export const metadata = {
   metadataBase: new URL("https://yourdomain.com"),
 
-  title: {
-    default: "AI Thumbnail Generator – Create YouTube Thumbnails Fast",
-    template: "%s | AI Thumbnail Generator",
-  },
-
+ title: "AI YouTube Thumbnail Generator & Tag Tool | Free Creator Suite",
   description:
-    "Free AI tools for thumbnails, YouTube tags, Instagram hashtags, and SEO growth.",
-
+    "Generate high-CTR YouTube thumbnails, tags, and keywords instantly using AI. Free tools for creators to boost rankings, views, and channel growth.",
   keywords: [
-    "AI thumbnail generator",
-    "YouTube thumbnail maker",
-    "Instagram hashtag generator",
-    "YouTube SEO tools",
+    "ai thumbnail generator",
+    "youtube thumbnail generator",
+    "youtube tag generator",
+    "youtube keyword generator",
+    "free youtube seo tools",
+    "ai tools for creators",
+    "youtube growth tools"
   ],
+
 
   openGraph: {
     title: "AI Thumbnail Generator",

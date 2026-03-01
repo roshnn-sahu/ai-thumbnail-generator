@@ -1,10 +1,21 @@
-"use client";
+
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Support | Help Center for AI Creator Tools",
+  description:
+    "Get help with AI thumbnail generation, YouTube tag extraction, keyword tools, and account issues.",
+  keywords: [
+    "ai thumbnail support",
+    "youtube tag tool help",
+    "creator support center",
+  ],
+};
 export default function SupportPage() {
   return (
     <div className="container max-w-5xl py-20 mx-auto">
@@ -73,17 +84,17 @@ export default function SupportPage() {
 
         <form className="space-y-4">
           <div>
-            <Label>Name</Label>
+            <Label className="mb-2">Name</Label>
             <Input placeholder="Your name" />
           </div>
 
           <div>
-            <Label>Email</Label>
+            <Label className="mb-2">Email</Label>
             <Input type="email" placeholder="you@email.com" />
           </div>
 
           <div>
-            <Label>Message</Label>
+            <Label className="mb-2">Message</Label>
             <Textarea placeholder="Describe your issue..." rows={4} />
           </div>
 

@@ -6,6 +6,21 @@ import { Feature1 } from "@/components/feature1";
 import Faq from "@/components/faq";
 import { CallToAction } from "@/components/cta";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "YouTube SEO Tools | AI Thumbnail, Tags & Keywords",
+  description:
+    "All-in-one YouTube SEO toolkit. Generate AI thumbnails, extract tags, find ranking keywords, and grow your channel faster.",
+  keywords: [
+    "youtube seo tools",
+    "youtube tag extractor",
+    "youtube keyword generator",
+    "ai thumbnail maker for youtube",
+    "youtube growth tools",
+  ],
+};
+
 const page = () => {
   return (
     <main className="min-h-screen bg-background flex flex-col">

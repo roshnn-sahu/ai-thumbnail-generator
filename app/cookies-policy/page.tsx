@@ -1,5 +1,16 @@
 import React from "react";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Cookies Policy | AI Thumbnail Generator",
+  description:
+    "Read our cookies policy to understand how we use cookies and tracking technologies to improve your experience.",
+  keywords: [
+    "cookies policy",
+    "website cookies policy",
+    "ai tool cookies usage",
+  ],
+};
 const page = () => {
   return (
     <main className="min-h-screen bg-background">

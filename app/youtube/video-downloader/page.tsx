@@ -6,7 +6,20 @@ import Faq from "@/components/faq";
 import TopicInput from "@/components/youtube/tags-generator/topic-input";
 import { CallToAction } from "@/components/cta";
 import YtInput from "@/components/youtube/yt-video-download/yt-link-form";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "YouTube SEO Tools | AI Thumbnail, Tags & Keywords",
+  description:
+    "All-in-one YouTube SEO toolkit. Generate AI thumbnails, extract tags, find ranking keywords, and grow your channel faster.",
+  keywords: [
+    "youtube seo tools",
+    "youtube tag extractor",
+    "youtube keyword generator",
+    "ai thumbnail maker for youtube",
+    "youtube growth tools",
+  ],
+};
 const page = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">

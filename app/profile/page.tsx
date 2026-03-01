@@ -1,6 +1,17 @@
 import SettingsProfile from "@/components/profile";
 import React from "react";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Your Profile | Creator Dashboard",
+  description:
+    "Manage your account, subscription, and AI tool history from your creator dashboard.",
+  keywords: [
+    "creator dashboard",
+    "ai thumbnail account",
+    "youtube seo profile",
+  ],
+};
 const page = () => {
   return (
     <>

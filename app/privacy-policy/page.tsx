@@ -1,5 +1,12 @@
 import React from 'react'
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Privacy Policy | AI Creator Tools",
+  description:
+    "Read our privacy policy to learn how we collect, use, and protect your data.",
+  keywords: ["privacy policy", "data protection policy", "ai tool privacy"],
+};
 const page = () => {
   return (
    <>

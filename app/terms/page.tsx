@@ -1,5 +1,16 @@
 import React from "react";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Terms & Conditions | AI Creator Suite",
+  description:
+    "Read the terms and conditions for using our AI thumbnail, tag, and keyword tools.",
+  keywords: [
+    "terms and conditions",
+    "website terms of service",
+    "ai tool terms",
+  ],
+};
 const page = () => {
   return (
     <>

@@ -16,7 +16,9 @@ import SubHeading from "@/components/sub-heading";
 import { CallToAction } from "@/components/cta";
 import { Feature1 } from "@/components/feature1";
 
-export default function Home() {
+
+export default function Home() {  
+
   const testimonials = [
     {
       text: `ThumbAI saves me hours every week. I generate thumbnails and tags in seconds and my click-through rate improved almost immediately.`,
@@ -85,10 +87,11 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col items-center justify-center pt-26 pb-22 relative z-10 px-5"
+          className="flex flex-col mx-auto items-center justify-center pt-26 pb-22 relative z-10 px-5 max-w-6xl"
         >
           <Heading as="h1">
-            Create Viral Thumbnails <br /> in Seconds
+             Create Viral Thumbnails <br /> in
+            Seconds
           </Heading>
 
           <SubHeading>
@@ -97,7 +100,7 @@ export default function Home() {
           </SubHeading>
           <Link href="/youtube/ai-thumbnail-generator">
             <Button size="lg" className="bg-foreground">
-              Go to Thumbnail Generator
+              Get Started For Free
             </Button>
           </Link>
         </motion.div>
