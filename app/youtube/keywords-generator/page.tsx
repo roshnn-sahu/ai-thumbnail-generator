@@ -47,7 +47,38 @@ const page = () => {
             href: "/about",
           }}
         />
-        <Faq />
+        <Faq items = {[
+  {
+    id: "faq-1",
+    question: "What is a YouTube keyword generator?",
+    answer:
+      "A YouTube keyword generator finds high-search and low-competition keywords to help your videos rank in search results.",
+  },
+  {
+    id: "faq-2",
+    question: "How do YouTube keywords improve ranking?",
+    answer:
+      "Using optimized keywords in your title, description, and tags increases your chances of appearing in search and suggested videos.",
+  },
+  {
+    id: "faq-3",
+    question: "What is the difference between keywords and tags?",
+    answer:
+      "Keywords are core search terms used in titles and descriptions, while tags are additional contextual signals for YouTube’s algorithm.",
+  },
+  {
+    id: "faq-4",
+    question: "How do I find low-competition keywords?",
+    answer:
+      "Use the AI keyword tool to identify phrases with strong search demand and lower competition in your niche.",
+  },
+  {
+    id: "faq-5",
+    question: "Is this keyword tool beginner-friendly?",
+    answer:
+      "Yes. Simply enter your video topic and the AI generates optimized keyword suggestions instantly.",
+  },
+]}/>
         <CallToAction />
       </div>
     </main>

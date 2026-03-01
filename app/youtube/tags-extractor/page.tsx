@@ -16,8 +16,8 @@ export const metadata: Metadata = {
     "youtube tag extractor",
     "youtube keyword generator",
     "ai thumbnail maker for youtube",
-    "youtube growth tools"
-  ]
+    "youtube growth tools",
+  ],
 };
 const page = () => {
   return (
@@ -36,7 +36,40 @@ const page = () => {
         </section>
         <div className="max-w-6xl mx-auto">
           <Feature1 />
-          <Faq />
+          <Faq
+            items={[
+              {
+                id: "faq-1",
+                question: "What is a YouTube tag extractor?",
+                answer:
+                  "A YouTube tag extractor allows you to view and copy tags used by other videos to analyze competitor SEO strategies.",
+              },
+              {
+                id: "faq-2",
+                question: "Is extracting YouTube tags legal?",
+                answer:
+                  "Yes. Tags are publicly accessible data and can be used for research and SEO analysis purposes.",
+              },
+              {
+                id: "faq-3",
+                question: "Can copying competitor tags guarantee ranking?",
+                answer:
+                  "No. Tags help with relevance, but ranking also depends on thumbnails, watch time, CTR, and content quality.",
+              },
+              {
+                id: "faq-4",
+                question: "How do I extract tags from a video?",
+                answer:
+                  "Simply paste the YouTube video URL into the tool and it will instantly display all associated tags.",
+              },
+              {
+                id: "faq-5",
+                question: "Should I use extracted tags exactly as they are?",
+                answer:
+                  "It’s best to combine extracted tags with your own optimized keywords for better results.",
+              },
+            ]}
+          />
           <CallToAction />
         </div>
       </main>

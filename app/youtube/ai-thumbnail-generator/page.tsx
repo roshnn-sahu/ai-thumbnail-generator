@@ -32,7 +32,6 @@ export default function page() {
   const { toast } = useToast();
   const { isSignedIn } = useUser();
   const { getToken } = useAuth();
- 
 
   const handleImageUpload = async (file: File, preview: string) => {
     try {
@@ -51,7 +50,6 @@ export default function page() {
       });
     }
   };
-  
 
   const handleGenerate = async (
     prompt: string,
@@ -60,7 +58,7 @@ export default function page() {
     isRemix: boolean,
     remixImages?: File[],
   ) => {
-     const token = await getToken();
+    const token = await getToken();
     if (!imageData) return;
     if (!isSignedIn || !token) {
       setAuthModalOpen(true);
@@ -72,7 +70,7 @@ export default function page() {
     setGeneratedImages([]);
 
     try {
-      const images = await generateThumbnails(token,{
+      const images = await generateThumbnails(token, {
         prompt,
         count,
         aspectRatio,
@@ -157,7 +155,47 @@ export default function page() {
         </HeroGridPattern>
         <Feature43 />
         <Feature1 />
-        <Faq />
+        <Faq
+          items={[
+            {
+              id: "faq-1",
+              question: "What is an AI YouTube thumbnail generator?",
+              answer:
+                "An AI YouTube thumbnail generator automatically creates high-CTR thumbnails using artificial intelligence based on your video title or idea.",
+            },
+            {
+              id: "faq-2",
+              question: "What size should YouTube thumbnails be?",
+              answer:
+                "YouTube recommends 1280×720 resolution with a 16:9 aspect ratio and a minimum width of 640 pixels.",
+            },
+            {
+              id: "faq-3",
+              question: "Can I customize the AI-generated thumbnails?",
+              answer:
+                "Yes, you can edit text, colors, layout, and download the final thumbnail in PNG or JPG format.",
+            },
+            {
+              id: "faq-4",
+              question: "Does AI improve YouTube click-through rate?",
+              answer:
+                "Yes. AI designs thumbnails optimized for attention and contrast, which can increase your click-through rate and overall video performance.",
+            },
+            {
+              id: "faq-5",
+              question: "Is this better than Canva for thumbnails?",
+              answer:
+                "ThumbAI focuses specifically on YouTube optimization, while Canva is a general design tool. Our AI is built for YouTube growth and CTR performance.",
+            },
+            {
+              id: "faq-6",
+              question:
+                "Can I use thumbnails for gaming or educational content?",
+              answer:
+                "Yes. The AI adapts to different niches including gaming, education, vlogs, tech reviews, and business content.",
+            },
+          ]}
+        />
         <CallToAction />
       </div>
     </div>

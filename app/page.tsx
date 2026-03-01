@@ -15,10 +15,9 @@ import Heading from "@/components/heading";
 import SubHeading from "@/components/sub-heading";
 import { CallToAction } from "@/components/cta";
 import { Feature1 } from "@/components/feature1";
+import HeroAbout from "@/components/hero-about";
 
-
-export default function Home() {  
-
+export default function Home() {
   const testimonials = [
     {
       text: `ThumbAI saves me hours every week. I generate thumbnails and tags in seconds and my click-through rate improved almost immediately.`,
@@ -90,7 +89,7 @@ export default function Home() {
           className="flex flex-col mx-auto items-center justify-center pt-26 pb-22 relative z-10 px-5 max-w-6xl"
         >
           <Heading as="h1">
-             Create Viral Thumbnails <br /> in
+            AI YouTube Thumbnail Generator – Create High-CTR Thumbnails in
             Seconds
           </Heading>
 
@@ -104,8 +103,8 @@ export default function Home() {
             </Button>
           </Link>
         </motion.div>
-
         <Stats />
+        <HeroAbout />
         <Feature1 />
       </HeroGridPattern>
       <HowItWorks />
@@ -163,7 +162,40 @@ export default function Home() {
           />
         </div>
       </div>
-      <Faq />
+      <Faq
+        items={[
+          {
+            id: "faq-1",
+            question: "What is ThumbAI?",
+            answer:
+              "ThumbAI is an AI-powered YouTube growth toolkit that helps creators generate thumbnails, YouTube tags, keywords, and hashtags in seconds to increase clicks and improve video rankings.",
+          },
+          {
+            id: "faq-2",
+            question: "How does ThumbAI help grow my YouTube channel?",
+            answer:
+              "ThumbAI improves your click-through rate with AI-generated thumbnails and boosts discoverability using optimized tags and keyword research tools designed for YouTube SEO.",
+          },
+          {
+            id: "faq-3",
+            question: "Is ThumbAI free to use?",
+            answer:
+              "Yes, ThumbAI offers a free plan with limited daily generations. You can upgrade anytime for more thumbnails, keywords, and advanced SEO features.",
+          },
+          {
+            id: "faq-4",
+            question: "Do I need design experience?",
+            answer:
+              "No design skills are required. Just enter your video idea and the AI generates professional thumbnails instantly.",
+          },
+          {
+            id: "faq-5",
+            question: "Does ThumbAI include YouTube SEO tools?",
+            answer:
+              "Yes. In addition to thumbnails, ThumbAI includes YouTube tag generation, keyword research, and hashtag tools to help your videos rank better.",
+          },
+        ]}
+      />
       <CallToAction />
     </>
   );

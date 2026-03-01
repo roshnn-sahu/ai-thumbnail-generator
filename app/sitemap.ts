@@ -1,0 +1,20 @@
+import { MetadataRoute } from "next";
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = "https://yourdomain.com";
+  const routes = [
+    "",
+    "/youtube/ai-thumbnail-generator",
+    "/youtube/tags-generator",
+    "/youtube/keyword-generator",
+    "/instagram/keyword-generator",
+    "/instagram/tags-generator",
+  ];
+
+  return routes.map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date(),
+    changeFrequency: "daily",
+    priority: route === "" ? 1 : 0.8,
+  }));
+}

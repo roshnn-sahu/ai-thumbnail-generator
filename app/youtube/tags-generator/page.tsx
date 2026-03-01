@@ -46,7 +46,40 @@ const page = () => {
             href: "/about",
           }}
         />
-        <Faq />
+        <Faq
+          items={[
+            {
+              id: "faq-1",
+              question: "What is a YouTube tag generator?",
+              answer:
+                "A YouTube tag generator automatically creates relevant tags based on your video topic to improve search visibility and discoverability.",
+            },
+            {
+              id: "faq-2",
+              question: "Do YouTube tags still matter?",
+              answer:
+                "Yes. While titles and descriptions are important, tags help YouTube better understand your content and can improve related video placement.",
+            },
+            {
+              id: "faq-3",
+              question: "How many tags should I use on YouTube?",
+              answer:
+                "You can use up to 500 characters of tags. It’s best to include a mix of broad, niche, and long-tail keywords.",
+            },
+            {
+              id: "faq-4",
+              question: "Are these debates about tag importance true?",
+              answer:
+                "Tags are not the primary ranking factor, but they still help with contextual relevance and video categorization.",
+            },
+            {
+              id: "faq-5",
+              question: "Is this tag generator free?",
+              answer:
+                "Yes, you can generate YouTube tags for free with limited daily usage under the free plan.",
+            },
+          ]}
+        />
         <CallToAction />
       </div>
     </div>
