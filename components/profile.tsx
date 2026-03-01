@@ -25,6 +25,7 @@ interface UserData {
   name: string;
   email: string;
   clerkId: string;
+  generationCount: Number;
   image?: string;
   plan: "free" | "pro" | "creator";
   credits: number;
@@ -81,6 +82,7 @@ const SettingsProfile = ({ className }: SettingsProfileProps) => {
 
   const plan = userData?.plan || "free";
   const credits = userData?.credits ?? 0;
+  const todayGenerations = userData?.generationCount ?? 0;
 
   // Limits based on plan (placeholders for now)
   const limits = {
@@ -141,9 +143,9 @@ const SettingsProfile = ({ className }: SettingsProfileProps) => {
           </h4>
           <CreditsTable
             plan={plan}
-            todayUsed={limits.free.today - credits} // Mock usage logic for now
+            todayUsed={todayGenerations} // Mock usage logic for now
             todayLimit={currentLimits.today}
-            monthlyUsed={limits.free.today - credits} // Mock usage logic for now
+            monthlyUsed={todayGenerations} // Mock usage logic for now
             monthlyLimit={currentLimits.monthly}
           />
         </div>

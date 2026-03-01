@@ -141,7 +141,7 @@ function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 0.1 }}
             >
-              <button className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
+              <button className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1 cursor-pointer">
                 Tools
                 <ChevronDown
                   className={`w-4 h-4 transition-transform ${isToolsOpen ? "rotate-180" : ""}`}

@@ -32,7 +32,13 @@ export function CreditsTable({
   const monthPercent = (monthlyUsed / monthlyLimit) * 100;
 
   const remaining = monthlyLimit - monthlyUsed;
-
+  console.log(
+    plan,
+    todayUsed.toExponential,
+    todayLimit,
+    monthlyUsed,
+    monthlyLimit,
+  );
   return (
     <Table>
       <TableCaption>
@@ -65,7 +71,7 @@ export function CreditsTable({
 
         {/* Today */}
         <TableRow>
-          <TableCell className="font-medium">Today Credits</TableCell>
+          <TableCell className="font-medium">Today Used</TableCell>
           <TableCell>
             {todayUsed} / {todayLimit}
           </TableCell>

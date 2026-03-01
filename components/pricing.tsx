@@ -18,6 +18,8 @@ import { useUser, useAuth } from "@clerk/nextjs";
 import AuthModal from "@/components/auth/auth-modal";
 import { useRouter } from "next/navigation";
 import CheckoutModal from "./checkout-modal";
+import Heading from "./heading";
+import SubHeading from "./sub-heading";
 
 const USD_TO_INR = 90;
 
@@ -171,10 +173,10 @@ export function Pricing({ className }: { className?: string }) {
     >
       {/* Header */}
       <div className="text-center mb-14 space-y-4">
-        <h2 className="text-4xl font-bold">Simple Pricing</h2>
-        <p className="text-muted-foreground">
+        <Heading >Simple Pricing</Heading>
+        <SubHeading >
           Free SEO tools. Pay only for AI thumbnail generation.
-        </p>
+        </SubHeading>
 
         {/* Controls */}
         <div className="flex items-center justify-center gap-6">
