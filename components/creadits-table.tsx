@@ -16,9 +16,9 @@ import { Progress } from "@/components/ui/progress";
 interface UsageProps {
   plan: "free" | "pro" | "creator";
   todayUsed: number;
-  todayLimit: number;
+  todayLimit: number | string;
   monthlyUsed: number;
-  monthlyLimit: number;
+  monthlyLimit: number | string;
 }
 
 export function CreditsTable({
@@ -28,17 +28,17 @@ export function CreditsTable({
   monthlyUsed,
   monthlyLimit,
 }: UsageProps) {
-  const todayPercent = (todayUsed / (plan=="free" ? todayLimit : monthlyLimit)) * 100;
-  const monthPercent = (monthlyUsed / (plan=="free" ? monthlyLimit : monthlyLimit)) * 100;
+  const parseLimit = (limit: number | string) =>
+    typeof limit === "number" ? limit : 999999;
 
-  const remaining = monthlyLimit - monthlyUsed;
-  console.log(
-    plan,
-    todayUsed.toExponential,
-    todayLimit,
-    monthlyUsed,
-    monthlyLimit,
-  );
+  const tLimit = parseLimit(plan === "free" ? todayLimit : monthlyLimit);
+  const mLimit = parseLimit(monthlyLimit);
+
+  const todayPercent = (todayUsed / tLimit) * 100;
+  const monthPercent = (monthlyUsed / mLimit) * 100;
+
+  const remaining = mLimit - monthlyUsed;
+  console.log(plan, todayUsed, todayLimit, monthlyUsed, monthlyLimit);
   return (
     <Table>
       <TableCaption>
@@ -73,12 +73,14 @@ export function CreditsTable({
         <TableRow>
           <TableCell className="font-medium">Today Used</TableCell>
           <TableCell>
-            {todayUsed} / {plan=="free" ? todayLimit : monthlyLimit}
+            {todayUsed} / {plan == "free" ? todayLimit : monthlyLimit}
           </TableCell>
           <TableCell>
             <Progress value={todayPercent} />
           </TableCell>
-          <TableCell className="text-right">{plan=="free" ? todayLimit : monthlyLimit}</TableCell>
+          <TableCell className="text-right">
+            {plan == "free" ? todayLimit : monthlyLimit}
+          </TableCell>
         </TableRow>
 
         {/* Monthly */}

@@ -81,19 +81,19 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>
-
-
-) {
+}>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`font-sans antialiased `}>
+      <body
+        className={`font-sans antialiased ${_geist.variable} ${_geistMono.variable} `}
+      >
         <ClerkProvider>
           <SmoothScrollProvider>
             <Navbar />
             {children}
             <Toaster />
             <Footer />
+            <Analytics />
           </SmoothScrollProvider>
         </ClerkProvider>
       </body>

@@ -26,7 +26,7 @@ interface UserData {
   name: string;
   email: string;
   clerkId: string;
-  generationCount: Number;
+  generationCount: number;
   image?: string;
   plan: "free" | "pro" | "creator";
   credits: number;
@@ -125,10 +125,10 @@ const SettingsProfile = ({ className }: SettingsProfileProps) => {
               {plan} Plan
             </Badge>
 
-            {plan ==="free" || plan ==="pro" && (
-            <Badge className="mt-2 capitalize ml-2" >
-              <Link href="/pricing">Upgrade</Link>
-            </Badge>
+            {(plan === "free" || plan === "pro") && (
+              <Badge className="mt-2 capitalize ml-2">
+                <Link href="/pricing">Upgrade</Link>
+              </Badge>
             )}
           </div>
         </div>
@@ -151,9 +151,9 @@ const SettingsProfile = ({ className }: SettingsProfileProps) => {
           <CreditsTable
             plan={plan}
             todayUsed={todayGenerations} // Mock usage logic for now
-            todayLimit={currentLimits.today}
+            todayLimit={currentLimits.today as any}
             monthlyUsed={todayGenerations} // Mock usage logic for now
-            monthlyLimit={currentLimits.monthly}
+            monthlyLimit={currentLimits.monthly as any}
           />
         </div>
       </CardContent>
