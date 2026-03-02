@@ -103,9 +103,10 @@ function Navbar() {
   useEffect(() => {
     const sync = async () => {
       const token = await getToken();
+      console.log(token);
       if (!isSignedIn || !token) return;
       const res = await syncUser(token);
-      console.log(res)
+      console.log(res);
     };
     sync();
   }, [isSignedIn]);
