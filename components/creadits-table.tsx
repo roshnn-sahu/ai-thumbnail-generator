@@ -28,8 +28,8 @@ export function CreditsTable({
   monthlyUsed,
   monthlyLimit,
 }: UsageProps) {
-  const todayPercent = (todayUsed / todayLimit) * 100;
-  const monthPercent = (monthlyUsed / monthlyLimit) * 100;
+  const todayPercent = (todayUsed / (plan=="free" ? todayLimit : monthlyLimit)) * 100;
+  const monthPercent = (monthlyUsed / (plan=="free" ? monthlyLimit : monthlyLimit)) * 100;
 
   const remaining = monthlyLimit - monthlyUsed;
   console.log(
@@ -73,12 +73,12 @@ export function CreditsTable({
         <TableRow>
           <TableCell className="font-medium">Today Used</TableCell>
           <TableCell>
-            {todayUsed} / {todayLimit}
+            {todayUsed} / {plan=="free" ? todayLimit : monthlyLimit}
           </TableCell>
           <TableCell>
             <Progress value={todayPercent} />
           </TableCell>
-          <TableCell className="text-right">{todayLimit}</TableCell>
+          <TableCell className="text-right">{plan=="free" ? todayLimit : monthlyLimit}</TableCell>
         </TableRow>
 
         {/* Monthly */}
