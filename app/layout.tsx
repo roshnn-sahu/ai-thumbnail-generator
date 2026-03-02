@@ -16,7 +16,7 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] });
 export const metadata = {
   metadataBase: new URL("https://yourdomain.com"),
 
- title: "AI YouTube Thumbnail Generator & Tag Tool | Free Creator Suite",
+  title: "AI YouTube Thumbnail Generator & Tag Tool | Free Creator Suite",
   description:
     "Generate high-CTR YouTube thumbnails, tags, and keywords instantly using AI. Free tools for creators to boost rankings, views, and channel growth.",
   keywords: [
@@ -26,16 +26,31 @@ export const metadata = {
     "youtube keyword generator",
     "free youtube seo tools",
     "ai tools for creators",
-    "youtube growth tools"
+    "youtube growth tools",
   ],
 
-
   openGraph: {
-    title: "AI Thumbnail Generator",
-    description: "Create thumbnails and grow your channel with AI tools",
-    url: "https://yourdomain.com",
-    siteName: "AI Thumbnail Generator",
+    title: "ThumbAI – AI Thumbnail & YouTube SEO Tools",
+    description:
+      "Create high-converting thumbnails and optimized SEO tags using AI.",
+    url: "https://ai-thumbnail-generator-five.vercel.app",
+    siteName: "ThumbAI",
+    images: [
+      {
+        url: "/og-image.png", // create this image
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "en_US",
     type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "ThumbAI – AI Thumbnail & SEO Generator",
+    description: "Generate thumbnails, tags, and keywords instantly using AI.",
+    images: ["/og-image.png"],
   },
 
   robots: {

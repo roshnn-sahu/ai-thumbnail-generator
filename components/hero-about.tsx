@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const HeroAbout = () => {
@@ -49,11 +50,27 @@ const HeroAbout = () => {
                 All-in-One YouTube Growth Suite
               </h4>
 
-              <ul className="space-y-3 text-gray-600">
-                <li>🚀 AI Thumbnail Generator</li>
-                <li>🏷️ YouTube Tag Generator</li>
-                <li>🔍 Tag Extractor Tool</li>
-                <li>📈 Smart Keyword Finder</li>
+              <ul className="space-y-3 text-gray-600 list-disc pl-3">
+                <li>
+                  <Link href="/youtube/ai-thumbnail-generator">
+                    🚀 AI Thumbnail Generator
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/youtube/tags-generator">
+                    🏷️ YouTube Tags Generator
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/youtube/tags-extractor">
+                    🔍 Tags Extractor Tool
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/youtube/keywords-generator">
+                    📈 Smart Keyword Finder
+                  </Link>
+                </li>
                 <li>⚡ SEO Optimization for Faster Ranking</li>
               </ul>
             </div>
