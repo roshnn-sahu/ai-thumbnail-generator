@@ -1,5 +1,4 @@
-import React from "react";
-import PricingPage from "@/pages/pricing-page";
+import PricingPageContent from "@/components/sections/pricing-page-content";
 
 import { Metadata } from "next";
 
@@ -18,10 +17,9 @@ export const metadata: Metadata = {
     "content creator tools",
     "youtube growth tools",
   ],
-
 };
 const page = () => {
-  return <PricingPage />;
+  return <PricingPageContent />;
 };
 
 export default page;

@@ -9,8 +9,7 @@ import { PlusIcon } from "lucide-react";
 import { motion } from "motion/react";
 import SubHeading from "@/components/sub-heading";
 
-
-const PricingPage = () => {
+const PricingPageContent = () => {
   const testimonials = [
     {
       text: `ThumbAI saves me hours every week. I generate thumbnails and tags in seconds and my click-through rate improved almost immediately.`,
@@ -144,4 +143,4 @@ const PricingPage = () => {
   );
 };
 
-export default PricingPage;
+export default PricingPageContent;
