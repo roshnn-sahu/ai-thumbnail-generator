@@ -5,7 +5,7 @@ import { Pricing } from "@/components/pricing";
 import HeroGridPattern from "@/components/mui/HeroGridPattern";
 import { Testimonials } from "@/components/testimonials";
 import Faq from "@/components/faq";
-import { PlusIcon } from "lucide-react";
+import { ArrowRightIcon, PlusIcon } from "lucide-react";
 import { motion } from "motion/react";
 import GridFeatureCards from "@/components/feature-cards";
 import Stats from "@/components/stats";
@@ -99,7 +99,7 @@ export default function Home() {
           </SubHeading>
           <Link href="/youtube/ai-thumbnail-generator">
             <Button size="lg" className="bg-foreground">
-              Get Started For Free
+              Get Started For Free <ArrowRightIcon className="size-4 ml-1" />
             </Button>
           </Link>
         </motion.div>
