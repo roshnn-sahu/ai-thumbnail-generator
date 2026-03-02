@@ -20,6 +20,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 import { CreditsTable } from "./creadits-table";
+import Link from "next/link";
 
 interface UserData {
   name: string;
@@ -123,6 +124,12 @@ const SettingsProfile = ({ className }: SettingsProfileProps) => {
             <Badge className="mt-2 capitalize" variant="outline">
               {plan} Plan
             </Badge>
+
+            {plan ==="free" || plan ==="pro" && (
+            <Badge className="mt-2 capitalize ml-2" >
+              <Link href="/pricing">Upgrade</Link>
+            </Badge>
+            )}
           </div>
         </div>
 
