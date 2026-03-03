@@ -130,7 +130,6 @@ export const FileUpload = ({
 
     loadUser();
   }, []);
-  console.log(plan);
   return (
     <div className="w-full  px-5" {...getRootProps()}>
       <motion.div

@@ -93,7 +93,7 @@ const SettingsProfile = ({ className }: SettingsProfileProps) => {
   };
 
   const currentLimits = limits[plan];
-  console.log(userData);
+
   return (
     <Card className={cn("w-full max-w-2xl", className)}>
       <CardHeader>

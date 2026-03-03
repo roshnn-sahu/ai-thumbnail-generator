@@ -44,7 +44,7 @@ const KeywordResult = ({ data }: ExtractedResultProps) => {
   };
 
   if (!data || data.length === 0) return null;
-  console.log(tags);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20, scale: 0.95 }}
