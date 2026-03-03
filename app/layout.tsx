@@ -84,12 +84,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`font-sans antialiased ${_geist.variable} ${_geistMono.variable} `}
-      >
+      <body className={`font-sans antialiased `}      >
         <ClerkProvider>
           <SmoothScrollProvider>
-            <Navbar />
+            <Navbar />``
             {children}
             <Toaster />
             <Footer />
