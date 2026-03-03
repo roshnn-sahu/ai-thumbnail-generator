@@ -10,6 +10,7 @@ import Footer from "@/layout/footer";
 import { ThemeProvider } from "@/provider/theme-provider";
 import { ClerkProvider } from "@clerk/nextjs";
 import { SmoothScrollProvider } from "@/provider/smooth-scroll";
+import { BRAND_NAME } from "@/constants/brand";
 
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
@@ -31,11 +32,11 @@ export const metadata = {
   ],
 
   openGraph: {
-    title: "ThumbAI – AI Thumbnail & YouTube SEO Tools",
+    title: `${BRAND_NAME} – AI Thumbnail & YouTube SEO Tools`,
     description:
       "Create high-converting thumbnails and optimized SEO tags using AI.",
     url: "https://ai-thumbnail-generator-five.vercel.app",
-    siteName: "ThumbAI",
+    siteName: BRAND_NAME,
     images: [
       {
         url: "/og-image.png", // create this image
@@ -49,7 +50,7 @@ export const metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "ThumbAI – AI Thumbnail & SEO Generator",
+    title: `${BRAND_NAME} – AI Thumbnail & SEO Generator`,
     description: "Generate thumbnails, tags, and keywords instantly using AI.",
     images: ["/og-image.png"],
   },
@@ -84,10 +85,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`font-sans antialiased `}      >
+      <body className={`font-sans antialiased `}>
         <ClerkProvider>
           <SmoothScrollProvider>
-            <Navbar />``
+            <Navbar />
             {children}
             <Toaster />
             <Footer />

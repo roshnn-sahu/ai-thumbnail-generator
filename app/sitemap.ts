@@ -5,7 +5,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     "",
     "/youtube/ai-thumbnail-generator",
+    "/youtube/video-downloader",
     "/youtube/tags-generator",
+    "/youtube/tags-extractor",
     "/youtube/keyword-generator",
     "/instagram/keyword-generator",
     "/instagram/tags-generator",

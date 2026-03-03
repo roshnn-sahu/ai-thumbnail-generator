@@ -91,6 +91,7 @@ const toolsMenuData = [
 
 import { useAuth, useUser } from "@clerk/nextjs";
 import { syncUser } from "@/services/userApi";
+import { BRAND_NAME } from "@/constants/brand";
 
 function Navbar() {
   const [isToolsOpen, setIsToolsOpen] = useState(false);
@@ -124,7 +125,7 @@ function Navbar() {
                 <Sparkles className="w-5 h-5 text-primary-foreground" />
               </div>
               <span className="font-semibold text-lg text-foreground">
-                ThumbnailAI
+                {BRAND_NAME}
               </span>
             </Link>
           </motion.div>

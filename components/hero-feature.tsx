@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { BRAND_NAME } from "@/constants/brand";
 
 const tabs = [
   { id: "analytics", label: "Analytics", icon: BarChart3 },
@@ -46,7 +47,7 @@ export default function HeroFeature() {
             viewport={{ once: true }}
             className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10"
           >
-            ThumbAI is the all-in-one suite for modern creators. Generate
+            {BRAND_NAME} is the all-in-one suite for modern creators. Generate
             high-CTR thumbnails, SEO keywords, and viral tags instantly.
           </motion.p>
           <motion.div

@@ -9,18 +9,20 @@ import { ArrowRightIcon, PlusIcon } from "lucide-react";
 import { motion } from "motion/react";
 import GridFeatureCards from "@/components/feature-cards";
 import Stats from "@/components/stats";
-import Demo from "@/components/demo";
 import HowItWorks from "@/components/how-works";
 import Heading from "@/components/heading";
 import SubHeading from "@/components/sub-heading";
 import { CallToAction } from "@/components/cta";
 import { Feature1 } from "@/components/feature1";
 import HeroAbout from "@/components/hero-about";
+import TrustBadge from "@/components/trust-badge";
+import { BRAND_NAME } from "@/constants/brand";
+import ImageMarquee from "@/components/image-marquee";
 
 export default function Home() {
   const testimonials = [
     {
-      text: `ThumbAI saves me hours every week. I generate thumbnails and tags in seconds and my click-through rate improved almost immediately.`,
+      text: `${BRAND_NAME} saves me hours every week. I generate thumbnails and tags in seconds and my click-through rate improved almost immediately.`,
       image: "https://randomuser.me/api/portraits/men/11.jpg",
       name: "Aman Verma",
       role: "YouTube Gaming Creator (120K subs)",
@@ -44,7 +46,7 @@ export default function Home() {
       role: "Instagram Creator",
     },
     {
-      text: "The hashtag generator helped my reels go viral. I saw 3x reach within a week of using ThumbAI.",
+      text: `The hashtag generator helped my reels go viral. I saw 3x reach within a week of using ${BRAND_NAME}.`,
       image: "https://randomuser.me/api/portraits/men/15.jpg",
       name: "Rohit Singh",
       role: "Reels & Shorts Creator",
@@ -62,7 +64,7 @@ export default function Home() {
       role: "Full-time YouTuber",
     },
     {
-      text: "My CTR increased from 4% to 9% after switching to ThumbAI thumbnails. That alone doubled my views.",
+      text: `My CTR increased from 4% to 9% after switching to ${BRAND_NAME} thumbnails. That alone doubled my views.`,
       image: "https://randomuser.me/api/portraits/women/18.jpg",
       name: "Priya Nair",
       role: "Education Channel Owner",
@@ -102,10 +104,12 @@ export default function Home() {
               Get Started For Free <ArrowRightIcon className="size-4 ml-1" />
             </Button>
           </Link>
+          <TrustBadge />
         </motion.div>
         <Stats />
-        <HeroAbout />
+        <ImageMarquee />
         <Feature1 />
+        <HeroAbout />
       </HeroGridPattern>
       <HowItWorks />
       <GridFeatureCards />
@@ -166,21 +170,18 @@ export default function Home() {
         items={[
           {
             id: "faq-1",
-            question: "What is ThumbAI?",
-            answer:
-              "ThumbAI is an AI-powered YouTube growth toolkit that helps creators generate thumbnails, YouTube tags, keywords, and hashtags in seconds to increase clicks and improve video rankings.",
+            question: `What is ${BRAND_NAME}?`,
+            answer: `${BRAND_NAME} is an AI-powered YouTube growth toolkit that helps creators generate thumbnails, YouTube tags, keywords, and hashtags in seconds to increase clicks and improve video rankings.`,
           },
           {
             id: "faq-2",
-            question: "How does ThumbAI help grow my YouTube channel?",
-            answer:
-              "ThumbAI improves your click-through rate with AI-generated thumbnails and boosts discoverability using optimized tags and keyword research tools designed for YouTube SEO.",
+            question: `How does ${BRAND_NAME} help grow my YouTube channel?`,
+            answer: `${BRAND_NAME} improves your click-through rate with AI-generated thumbnails and boosts discoverability using optimized tags and keyword research tools designed for YouTube SEO.`,
           },
           {
             id: "faq-3",
-            question: "Is ThumbAI free to use?",
-            answer:
-              "Yes, ThumbAI offers a free plan with limited daily generations. You can upgrade anytime for more thumbnails, keywords, and advanced SEO features.",
+            question: `Is ${BRAND_NAME} free to use?`,
+            answer: `Yes, ${BRAND_NAME} offers a free plan with limited daily generations. You can upgrade anytime for more thumbnails, keywords, and advanced SEO features.`,
           },
           {
             id: "faq-4",
@@ -190,9 +191,8 @@ export default function Home() {
           },
           {
             id: "faq-5",
-            question: "Does ThumbAI include YouTube SEO tools?",
-            answer:
-              "Yes. In addition to thumbnails, ThumbAI includes YouTube tag generation, keyword research, and hashtag tools to help your videos rank better.",
+            question: `Does ${BRAND_NAME} include YouTube SEO tools?`,
+            answer: `Yes. In addition to thumbnails, ${BRAND_NAME} includes YouTube tag generation, keyword research, and hashtag tools to help your videos rank better.`,
           },
         ]}
       />

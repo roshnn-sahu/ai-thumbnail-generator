@@ -9,7 +9,7 @@ import {
 export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
   const [mounted, setMounted] = React.useState(false);
 
-  // Prevent hydration mismatch by only rendering after mount
+
   React.useEffect(() => {
     setMounted(true);
   }, []);
@@ -25,7 +25,7 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
       defaultTheme="system"
       enableSystem
       disableTransitionOnChange
-      storageKey="thumbai-theme"
+      storageKey="ThumbnailFlow-theme"
       {...props}
     >
       {children}

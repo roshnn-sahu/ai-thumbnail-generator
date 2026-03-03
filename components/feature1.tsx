@@ -29,10 +29,7 @@ const Feature1 = ({
     text: "Generate Thumbnail",
     href: "/generate",
   },
-  buttonSecondary = {
-    text: "See Examples",
-    href: "/templates",
-  },
+
   className,
 }: Feature1Props) => {
   return (

@@ -6,6 +6,7 @@ import { Sparkles, Trash2, X, XIcon } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Spinner } from "./ui/spinner";
+import { BRAND_NAME } from "@/constants/brand";
 
 interface Plan {
   id: string;
@@ -53,7 +54,7 @@ export default function CheckoutModal({
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-purple-500/20" />
               <Sparkles className="w-8 h-8 text-primary/50" />
               <div className="absolute bottom-2 left-2 right-2 bg-black/40 backdrop-blur-sm p-1 rounded text-[8px] border border-white/10">
-                ThumbAI {plan.name}
+              {BRAND_NAME} {plan.name}
               </div>
             </div>
 

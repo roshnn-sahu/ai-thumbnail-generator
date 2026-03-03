@@ -8,11 +8,12 @@ import { Testimonials } from "@/components/testimonials";
 import { PlusIcon } from "lucide-react";
 import { motion } from "motion/react";
 import SubHeading from "@/components/sub-heading";
+import { BRAND_NAME } from "@/constants/brand";
 
 const PricingPageContent = () => {
   const testimonials = [
     {
-      text: `ThumbAI saves me hours every week. I generate thumbnails and tags in seconds and my click-through rate improved almost immediately.`,
+      text: `${BRAND_NAME} saves me hours every week. I generate thumbnails and tags in seconds and my click-through rate improved almost immediately.`,
       image: "https://randomuser.me/api/portraits/men/11.jpg",
       name: "Aman Verma",
       role: "YouTube Gaming Creator (120K subs)",
@@ -36,7 +37,7 @@ const PricingPageContent = () => {
       role: "Instagram Creator",
     },
     {
-      text: "The hashtag generator helped my reels go viral. I saw 3x reach within a week of using ThumbAI.",
+      text: `The hashtag generator helped my reels go viral. I saw 3x reach within a week of using ${BRAND_NAME}.`,
       image: "https://randomuser.me/api/portraits/men/15.jpg",
       name: "Rohit Singh",
       role: "Reels & Shorts Creator",
@@ -54,7 +55,7 @@ const PricingPageContent = () => {
       role: "Full-time YouTuber",
     },
     {
-      text: "My CTR increased from 4% to 9% after switching to ThumbAI thumbnails. That alone doubled my views.",
+      text: `My CTR increased from 4% to 9% after switching to ${BRAND_NAME} thumbnails. That alone doubled my views.`,
       image: "https://randomuser.me/api/portraits/women/18.jpg",
       name: "Priya Nair",
       role: "Education Channel Owner",

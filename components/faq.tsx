@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/accordion";
 import Heading from "./heading";
 import SubHeading from "./sub-heading";
+import { BRAND_NAME } from "@/constants/brand";
 
 interface FaqItem {
   id: string;
@@ -27,9 +28,8 @@ const Faq = ({
   items = [
     {
       id: "faq-1",
-      question: "What is ThumbAI?",
-      answer:
-        "ThumbAI is an AI-powered toolkit for creators that helps you generate thumbnails, YouTube keywords, tags, and Instagram hashtags in seconds to grow your reach and clicks.",
+      question: `What is ${BRAND_NAME}?`,
+      answer: `${BRAND_NAME} is an AI-powered toolkit for creators that helps you generate thumbnails, YouTube keywords, tags, and Instagram hashtags in seconds to grow your reach and clicks.`,
     },
     {
       id: "faq-2",
@@ -39,9 +39,8 @@ const Faq = ({
     },
     {
       id: "faq-3",
-      question: "Do I need design skills to use ThumbAI?",
-      answer:
-        "Not at all. ThumbAI is built for beginners and creators. No Photoshop or design experience is required — just type your idea and the AI does the rest.",
+      question: `Do I need design skills to use ${BRAND_NAME}?`,
+      answer: `Not at all. ${BRAND_NAME} is built for beginners and creators. No Photoshop or design experience is required — just type your idea and the AI does the rest.`,
     },
     {
       id: "faq-4",
@@ -69,7 +68,7 @@ const Faq = ({
     },
     {
       id: "faq-8",
-      question: "Can I use ThumbAI for commercial or client work?",
+      question: `Can I use ${BRAND_NAME} for commercial or client work?`,
       answer:
         "Yes. All generated thumbnails and assets can be used for personal, YouTube, Instagram, or commercial projects without restrictions.",
     },
@@ -77,13 +76,13 @@ const Faq = ({
       id: "faq-9",
       question: "Do I need to install anything?",
       answer:
-        "No installation is required. ThumbAI works completely in your browser on desktop and mobile.",
+        `No installation is required. ${BRAND_NAME} works completely in your browser on desktop and mobile.`,
     },
     {
       id: "faq-10",
-      question: "How is ThumbAI different from other tools?",
+      question: `How is ${BRAND_NAME} different from other tools?`,
       answer:
-        "Unlike other tools that only create thumbnails or keywords separately, ThumbAI combines thumbnails, SEO keywords, tags, and hashtags into one simple platform to save time and boost growth.",
+        `Unlike other tools that only create thumbnails or keywords separately, ${BRAND_NAME} combines thumbnails, SEO keywords, tags, and hashtags into one simple platform to save time and boost growth.`,
     },
   ],
 
@@ -112,7 +111,6 @@ const Faq = ({
             />
             <div className="-inset-y-6 pointer-events-none absolute left-0 w-px border-l" />
             <div className="-inset-y-6 pointer-events-none absolute right-0 w-px border-r" />
-            
             FAQ
           </div>
         </div>

@@ -185,7 +185,7 @@ export default function page() {
               id: "faq-5",
               question: "Is this better than Canva for thumbnails?",
               answer:
-                "ThumbAI focuses specifically on YouTube optimization, while Canva is a general design tool. Our AI is built for YouTube growth and CTR performance.",
+                " focuses specifically on YouTube optimization, while Canva is a general design tool. Our AI is built for YouTube growth and CTR performance.",
             },
             {
               id: "faq-6",

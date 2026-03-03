@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
+import { BRAND_NAME } from "@/constants/brand";
 
 function Footer() {
   const { theme, setTheme } = useTheme();
@@ -39,7 +40,7 @@ function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* BRAND + NEWSLETTER */}
           <div>
-            <h2 className="text-2xl font-bold">ThumbnailAI</h2>
+            <h2 className="text-2xl font-bold">{BRAND_NAME}</h2>
 
             <p className="my-3 text-sm text-muted-foreground">
               AI-powered thumbnails, tags & keywords to help creators grow
@@ -128,13 +129,18 @@ function Footer() {
           <div>
             <h3 className="mb-4 font-semibold">Instagram</h3>
             <nav className="space-y-2 text-sm text-muted-foreground">
-              <Link href="/instagram/tag-generator" className="block hover:text-primary">
+              <Link
+                href="/instagram/tag-generator"
+                className="block hover:text-primary"
+              >
                 Tag Generator
               </Link>
-              <Link href="/instagram/keywords-generator" className="block hover:text-primary">
-               Keywords Generator
+              <Link
+                href="/instagram/keywords-generator"
+                className="block hover:text-primary"
+              >
+                Keywords Generator
               </Link>
-           
             </nav>
           </div>
 
@@ -148,11 +154,10 @@ function Footer() {
               <Link href="/pricing" className="block hover:text-primary">
                 Pricing
               </Link>
-        
+
               <Link href="/support" className="block hover:text-primary">
                 Support
               </Link>
-            
             </nav>
           </div>
 
@@ -161,7 +166,7 @@ function Footer() {
 
         {/* BOTTOM BAR */}
         <div className="mt-12 border-t pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} ThumbnailAI. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} {BRAND_NAME}. All rights reserved.</p>
 
           <div className="flex gap-4 text-xs">
             <Link href="/privacy-policy" className="hover:text-primary">
