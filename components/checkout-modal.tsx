@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Sparkles, Trash2, X, XIcon } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { Spinner } from "./ui/spinner";
 
 interface Plan {
   id: string;
@@ -21,9 +22,11 @@ interface CheckoutModalProps {
   plan: Plan | null;
   isYearly: boolean;
   onCheckout: () => void;
+  isLoading: boolean;
 }
 
 export default function CheckoutModal({
+  isLoading,
   open,
   onOpenChange,
   plan,
@@ -90,8 +93,8 @@ export default function CheckoutModal({
 
           {/* Checkout Button */}
           <div className="flex justify-center pb-2">
-            <Button onClick={onCheckout} className="">
-              Checkout
+            <Button onClick={onCheckout} disabled={isLoading} className="">
+              { isLoading ? <Spinner/> : "Checkout"}
             </Button>
           </div>
         </div>

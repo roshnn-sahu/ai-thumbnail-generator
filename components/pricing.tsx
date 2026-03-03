@@ -96,6 +96,8 @@ export function Pricing({ className }: { className?: string }) {
   const [selectedPlan, setSelectedPlan] = useState<any>(null);
   const [selectedPlanDetails, setSelectedPlanDetails] = useState<any>(null);
 
+  const [isLoading,setIsLoading]= useState(false);
+
   const { isSignedIn } = useUser();
   const { getToken } = useAuth();
   const router = useRouter();
@@ -118,7 +120,7 @@ export function Pricing({ className }: { className?: string }) {
 
   const onCheckout = async () => {
     if (!selectedPlan) return;
-
+    setIsLoading(true);
     try {
       const token = await getToken();
       if (!token) {
@@ -154,7 +156,9 @@ export function Pricing({ className }: { className?: string }) {
       alert("An error occurred. Please try again.");
     } finally {
       setCheckoutModalOpen(false);
+      setIsLoading(false);
     }
+
   };
 
   const formatPrice = (price: number) => {
@@ -245,6 +249,7 @@ export function Pricing({ className }: { className?: string }) {
 
       <AuthModal open={authModalOpen} onOpenChange={setAuthModalOpen} />
       <CheckoutModal
+        isLoading={isLoading}
         open={checkoutModalOpen}
         onOpenChange={setCheckoutModalOpen}
         plan={selectedPlanDetails}
