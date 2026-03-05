@@ -160,7 +160,7 @@ const page = () => {
             <p>
               For any questions regarding this policy:
               <br />
-              Email: support@yourdomain.com
+              Email: support@boltcreator.online
             </p>
           </section>
 
