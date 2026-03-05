@@ -16,7 +16,7 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata = {
-  metadataBase: new URL("https://yourdomain.com"),
+  metadataBase: new URL("https://boltcreator.online/"),
 
   title: "AI YouTube Thumbnail Generator & Tag Tool | Free Creator Suite",
   description:
@@ -75,6 +75,9 @@ export const metadata = {
       },
     ],
     apple: "/apple-icon.png",
+  },
+    other: {
+    'google-site-verification': 'ECiuKUHEyE6Of3GwDwaDmaE4WfKr5gZrPQ-U7_Xcmo8',
   },
 };
 
