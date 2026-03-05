@@ -117,7 +117,7 @@ const page = () => {
             <h2 className="text-xl font-semibold text-foreground mb-3">
               7. Contact
             </h2>
-            <p>Email: support@yourdomain.com</p>
+            <p>Email: support@boltcreator.online</p>
           </section>
         </div>
       </div>
