@@ -102,7 +102,7 @@ export default function SupportPage() {
         </form>
 
         <p className="text-xs text-muted-foreground text-center mt-6">
-          Or email us directly at support@yourdomain.com
+          Or email us directly at support@boltcreator.online
         </p>
       </div>
     </div>
