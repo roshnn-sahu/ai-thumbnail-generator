@@ -15,72 +15,61 @@ import { BRAND_NAME } from "@/constants/brand";
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
-export const metadata = {
-  metadataBase: new URL("https://boltcreator.online/"),
+export const metadata: Metadata = {
+  metadataBase: new URL("https://boltcreator.online"),
 
-  title: "AI YouTube Thumbnail Generator & Tag Tool | Free Creator Suite",
+  title:
+    "AI YouTube Thumbnail Generator, Tags & Keyword Tool | BoltCreator",
+
   description:
-    "Generate high-CTR YouTube thumbnails, tags, and keywords instantly using AI. Free tools for creators to boost rankings, views, and channel growth.",
+    "Free AI tools for creators. Generate YouTube thumbnails, tags, and keywords instantly to boost views, SEO rankings, and channel growth.",
+
   keywords: [
-    "ai thumbnail generator",
     "youtube thumbnail generator",
+    "ai thumbnail generator",
     "youtube tag generator",
     "youtube keyword generator",
     "free youtube seo tools",
-    "ai tools for creators",
     "youtube growth tools",
   ],
 
-  openGraph: {
-    title: `${BRAND_NAME} – AI Thumbnail & YouTube SEO Tools`,
-    description:
-      "Create high-converting thumbnails and optimized SEO tags using AI.",
-    url: "https://ai-thumbnail-generator-five.vercel.app",
-    siteName: BRAND_NAME,
-    images: [
-      {
-        url: "/og-image.png", // create this image
-        width: 1200,
-        height: 630,
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-
-  twitter: {
-    card: "summary_large_image",
-    title: `${BRAND_NAME} – AI Thumbnail & SEO Generator`,
-    description: "Generate thumbnails, tags, and keywords instantly using AI.",
-    images: ["/og-image.png"],
+  alternates: {
+    canonical: "https://boltcreator.online",
   },
 
   robots: {
     index: true,
     follow: true,
   },
-  icons: {
-    icon: [
+
+  openGraph: {
+    title: "BoltCreator – AI Thumbnail & YouTube SEO Tools",
+    description:
+      "Create high-converting thumbnails and optimized YouTube tags using AI.",
+    url: "https://boltcreator.online",
+    siteName: "BoltCreator",
+    images: [
       {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
       },
     ],
-    apple: "/apple-icon.png",
+    type: "website",
   },
-    other: {
-    'google-site-verification': 'ECiuKUHEyE6Of3GwDwaDmaE4WfKr5gZrPQ-U7_Xcmo8',
+
+  twitter: {
+    card: "summary_large_image",
+    title: "BoltCreator – AI YouTube Tools",
+    description:
+      "Generate thumbnails, tags, and keywords instantly using AI.",
+    images: ["/og-image.png"],
+  },
+
+  verification: {
+    google: "ECiuKUHEyE6Of3GwDwaDmaE4WfKr5gZrPQ-U7_Xcmo8",
   },
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -88,6 +77,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "BoltCreator",
+              url: "https://boltcreator.online",
+              potentialAction: {
+                "@type": "SearchAction",
+                target: "https://boltcreator.online/?q={search_term_string}",
+                "query-input": "required name=search_term_string",
+              },
+            }),
+          }}
+        />
+      </head>
       <body className={`font-sans antialiased `}>
         <ClerkProvider>
           <SmoothScrollProvider>
