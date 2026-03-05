@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://ai-thumbnail-generator-five.vercel.app/sitemap.xml",
+    sitemap: "https://boltcreator.online/sitemap.xml",
   };
 }
