@@ -18,8 +18,7 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] });
 export const metadata: Metadata = {
   metadataBase: new URL("https://boltcreator.online"),
 
-  title:
-    "AI YouTube Thumbnail Generator, Tags & Keyword Tool | BoltCreator",
+  title: "AI YouTube Thumbnail Generator, Tags & Keyword Tool | BoltCreator",
 
   description:
     "Free AI tools for creators. Generate YouTube thumbnails, tags, and keywords instantly to boost views, SEO rankings, and channel growth.",
@@ -42,6 +41,21 @@ export const metadata: Metadata = {
     follow: true,
   },
 
+  icons: {
+    icon: [
+      { url: "/favicon/favicon.ico" },
+      { url: "/favicon/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      {
+        url: "/favicon/apple-touch-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+  },
+
   openGraph: {
     title: "BoltCreator – AI Thumbnail & YouTube SEO Tools",
     description:
@@ -50,7 +64,7 @@ export const metadata: Metadata = {
     siteName: "BoltCreator",
     images: [
       {
-        url: "/og-image.png",
+        url: "/favicon/web-app-manifest-512x512.png",
         width: 1200,
         height: 630,
       },
@@ -61,9 +75,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "BoltCreator – AI YouTube Tools",
-    description:
-      "Generate thumbnails, tags, and keywords instantly using AI.",
-    images: ["/og-image.png"],
+    description: "Generate thumbnails, tags, and keywords instantly using AI.",
+    images: ["/favicon/web-app-manifest-512x512.png"],
   },
 
   verification: {

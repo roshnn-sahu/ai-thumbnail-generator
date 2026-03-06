@@ -17,6 +17,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/youtube/keyword-generator",
     "/instagram/keyword-generator",
     "/instagram/tags-generator",
+    "/youtube-tags-for-gaming",
+    "/youtube-thumbnail-size",
   ];
 
   return routes.map((route) => ({
