@@ -4,6 +4,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://boltcreator.online";
   const routes = [
     "",
+    "/about",
+    "/pricing",
+    "/support",
+    "/privacy-policy",
+    "/terms",
+    "/cookies-policy",
     "/youtube/ai-thumbnail-generator",
     "/youtube/video-downloader",
     "/youtube/tags-generator",
