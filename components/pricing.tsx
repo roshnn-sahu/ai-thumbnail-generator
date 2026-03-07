@@ -44,8 +44,8 @@ const basePlans = [
   },
   {
     id: "pro",
-    monthlyPlanId: "prod_U391ti2DGLnF58",
-    yearlyPlanId: "prod_U3U9cff92HFjt8",
+    monthlyPlanId: "plan_SNuqOid3vopvhN",
+    yearlyPlanId: "plan_SNvsI7uq64Prqj",
     name: "Pro",
     description: "Perfect for growing creators",
     monthly: 7,
@@ -66,8 +66,8 @@ const basePlans = [
   },
   {
     id: "creator",
-    monthlyPlanId: "prod_U3920hfgd5IEdQ",
-    yearlyPlanId: "prod_U3UBV0UsfXacN7",
+    monthlyPlanId: "plan_SNvuCaLmLtEtZh",
+    yearlyPlanId: "plan_SNvwfidE7ZgAMQ",
     name: "Creator",
     description: "Unlimited for professionals & teams",
     monthly: 12,
@@ -96,7 +96,7 @@ export function Pricing({ className }: { className?: string }) {
   const [selectedPlan, setSelectedPlan] = useState<any>(null);
   const [selectedPlanDetails, setSelectedPlanDetails] = useState<any>(null);
 
-  const [isLoading,setIsLoading]= useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const { isSignedIn } = useUser();
   const { getToken } = useAuth();
@@ -114,22 +114,20 @@ export function Pricing({ className }: { className?: string }) {
     }
 
     setSelectedPlan(planId);
-    setSelectedPlanDetails(plan)
+    setSelectedPlanDetails(plan);
     setCheckoutModalOpen(true);
   };
 
   const onCheckout = async () => {
     if (!selectedPlan) return;
+
     setIsLoading(true);
+
     try {
       const token = await getToken();
-      if (!token) {
-        alert("Session expired. Please sign in again.");
-        return;
-      }
 
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/subscription/create-checkout-session`,
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/subscription/create-subscription`,
         {
           method: "POST",
           headers: {
@@ -138,27 +136,43 @@ export function Pricing({ className }: { className?: string }) {
           },
           body: JSON.stringify({
             planId: selectedPlan,
-            isYearly: yearly,
-            currency: currency,
           }),
         },
       );
 
       const data = await response.json();
 
-      if (data.success && data.url) {
-        window.location.href = data.url;
-      } else {
-        alert(data.message || "Failed to initiate checkout");
+      if (!data.success) {
+        alert("Failed to start payment");
+        return;
       }
+
+      const options = {
+        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
+        subscription_id: data.subscription.id,
+
+        name: "BoltCreator",
+        description: "AI Thumbnail Generator",
+
+        theme: {
+          color: "#0060AA",
+        },
+
+        handler: function (response: any) {
+          console.log("Payment Success", response);
+
+          window.location.href = "/";
+        },
+      };
+
+      const rzp = new (window as any).Razorpay(options);
+
+      rzp.open();
     } catch (error) {
-      console.error("Checkout Error:", error);
-      alert("An error occurred. Please try again.");
+      console.error(error);
     } finally {
-      setCheckoutModalOpen(false);
       setIsLoading(false);
     }
-
   };
 
   const formatPrice = (price: number) => {
@@ -177,8 +191,8 @@ export function Pricing({ className }: { className?: string }) {
     >
       {/* Header */}
       <div className="text-center mb-14 space-y-4">
-        <Heading >Simple Pricing</Heading>
-        <SubHeading >
+        <Heading>Simple Pricing</Heading>
+        <SubHeading>
           Free SEO tools. Pay only for AI thumbnail generation.
         </SubHeading>
 
