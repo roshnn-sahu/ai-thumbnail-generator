@@ -5,6 +5,7 @@ import PlanDetails from "./plan-details";
 import { User, Shield, Settings, Users, Key, LogOut, CreditCard } from "lucide-react";
 
 import { useClerk } from "@clerk/nextjs";
+import BillingHistory from "./billing-history";
 export const title = "Vertical Tabs";
 
 const TabsLayout = () => {
@@ -58,6 +59,7 @@ const TabsLayout = () => {
         </TabsContent>
         <TabsContent value="plan" className="mt-0 outline-none">
           <PlanDetails />
+          <BillingHistory />
         </TabsContent>
       </div>
     </Tabs>

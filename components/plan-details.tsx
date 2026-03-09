@@ -9,7 +9,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -32,7 +31,8 @@ import { useRouter } from "next/navigation";
 
 interface UserData {
   plan: "free" | "pro" | "creator";
-  subscriptionStatus: string;
+  subscriptionStatus: "active" | "cancelled" | "past_due" | "completed";
+  subscriptionEnd: string;
 }
 
 const PlanDetails = ({ className }: { className?: string }) => {
@@ -75,20 +75,27 @@ const PlanDetails = ({ className }: { className?: string }) => {
   }
 
   const plan = userData?.plan || "free";
+  const status = userData?.subscriptionStatus;
+  const planExpireDate = userData?.subscriptionEnd;
 
   const handleCancelPlan = async () => {
     const token = await getToken();
     setCanceling(true);
+
     try {
       const response = await cancelSubscription(token as string);
-      if (response && response.success) {
+
+      if (response?.success) {
         toast({
           title: "Subscription Cancelled",
-          description: "Your subscription has been successfully cancelled.",
+          description:
+            "Your subscription will remain active until the end of the billing period.",
         });
-        setTimeout(() => {
-          router.push("/subscription/canceled");
-        }, 1500);
+
+        setUserData((prev) =>
+          prev ? { ...prev, subscriptionStatus: "cancelled" } : prev,
+        );
+        router.push("/subscription/cancelled");
       } else {
         toast({
           title: "Failed",
@@ -108,53 +115,85 @@ const PlanDetails = ({ className }: { className?: string }) => {
     }
   };
 
+  const getStatusMessage = () => {
+    if (plan === "free") return "You are currently on the free plan.";
+
+    if (status === "cancelled")
+      return "Your subscription will end at the end of the current billing cycle.";
+
+    if (status === "past_due")
+      return "Payment failed. Please update your billing method.";
+
+    return "You have an active subscription.";
+  };
+
   return (
-    <Card className={cn("w-full max-w-2xl", className)}>
+    <Card className={cn("w-full max-w-2xl mb-3", className)}>
       <CardHeader>
         <CardTitle>Your Plan</CardTitle>
         <CardDescription>
           Manage your subscription and billing details.
         </CardDescription>
       </CardHeader>
+
       <CardContent className="space-y-6">
         <div className="flex items-center justify-between p-4 border rounded-lg">
-          <div>
-            <h3 className="text-lg font-medium capitalize">{plan} Plan</h3>
+          <div className="space-y-1">
+            <h3 className="text-lg font-semibold capitalize flex items-center gap-2">
+              {plan} Plan
+              {plan !== "free" && (
+                <span className="px-2 py-1 text-xs rounded bg-red-400/10 text-primary border border-red-300 rounded-lg">
+                  {status}
+                </span>
+              )}
+            </h3>
+
             <p className="text-sm text-muted-foreground">
-              {plan === "free"
-                ? "You are on the free plan."
-                : "You have an active subscription."}
+              {getStatusMessage()}
             </p>
+            <p className="text-sm text-muted-foreground">{<p className="text-sm text-muted-foreground">
+  {planExpireDate
+    ? `Expires on ${new Date(planExpireDate).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      })}`
+    : ""}
+</p>
+}</p>
           </div>
 
           {plan === "free" && (
-            <Button variant="default" onClick={() => router.push("/pricing")}>
+            <Button onClick={() => router.push("/pricing")}>
               Upgrade Plan
             </Button>
           )}
-          {(plan === "pro" || plan === "creator") && (
+
+          {(plan === "pro" || plan === "creator") && status !== "cancelled" && (
             <AlertDialog>
               <AlertDialogTrigger asChild>
                 <Button variant="destructive" disabled={canceling}>
-                  {canceling ? (
+                  {canceling && (
                     <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                  ) : null}
+                  )}
                   Cancel Plan
                 </Button>
               </AlertDialogTrigger>
+
               <AlertDialogContent>
                 <AlertDialogHeader>
                   <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
                   <AlertDialogDescription>
-                    This action cannot be undone. This will cancel your current
-                    subscription and revert you to the free plan at the end of
-                    your billing cycle.
+                    This will cancel your subscription. You will continue to
+                    have access until the end of your billing cycle.
                   </AlertDialogDescription>
                 </AlertDialogHeader>
+
                 <AlertDialogFooter>
                   <AlertDialogCancel disabled={canceling}>
-                    Cancel
+                    Keep Plan
                   </AlertDialogCancel>
+
                   <AlertDialogAction
                     onClick={(e) => {
                       e.preventDefault();

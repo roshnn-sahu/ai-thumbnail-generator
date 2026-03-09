@@ -1,6 +1,4 @@
-
 import axios from "axios";
-
 
 export const createSubscription = async () => {};
 export const cancelSubscription = async (token: string) => {
@@ -15,6 +13,24 @@ export const cancelSubscription = async (token: string) => {
         },
       },
     );
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return { success: false };
+  }
+};
+
+export const getBillingHistory = async (token: string) => {
+  try {
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/subscription/billing-history`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      },
+    );
+
     return response.data;
   } catch (error) {
     console.error(error);
