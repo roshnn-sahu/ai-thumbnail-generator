@@ -100,7 +100,7 @@ export default function RootLayout({
               "@type": "WebSite",
               name: "BoltCreator",
               url: "https://boltcreator.online",
-              logo: "https://boltcreator.online/public/logo.png",
+              logo: "https://boltcreator.online/logo.png",
               potentialAction: {
                 "@type": "SearchAction",
                 target: "https://boltcreator.online/?q={search_term_string}",

@@ -35,7 +35,7 @@ export function Pricing({ className }: { className?: string }) {
   const [production, setProduction] = useState(true);
 
   const basePlans = production ? onlinePlan : offlinePlan;
-  console.log(basePlans);
+
   const [isLoading, setIsLoading] = useState(false);
 
   const { isSignedIn, user } = useUser();
@@ -57,7 +57,7 @@ export function Pricing({ className }: { className?: string }) {
     setSelectedPlanDetails(plan);
     setCheckoutModalOpen(true);
   };
-
+//HANDLE SUBSCRIPTION
   const onCheckout = async (e?: any) => {
     if (e) e.preventDefault();
 

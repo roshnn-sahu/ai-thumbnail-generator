@@ -1,33 +1,18 @@
 "use client";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import SettingsProfile from "./profile";
-import { User, Shield, Settings, Users, Key, LogOut } from "lucide-react";
+import PlanDetails from "./plan-details";
+import { User, Shield, Settings, Users, Key, LogOut, CreditCard } from "lucide-react";
 
 import { useClerk } from "@clerk/nextjs";
 export const title = "Vertical Tabs";
 
-const pricingData = [
-  {
-    id: "starter",
-    title: "Starter",
-    description: "Ideal for crypto pros!",
-    monthly: 99,
-    annual: 999,
-  },
-  {
-    id: "professional",
-    title: "Professional",
-    description: "Ideal for business owners.",
-    monthly: 199,
-    annual: 1999,
-  },
-];
 const TabsLayout = () => {
   const { signOut } = useClerk();
   return (
     <Tabs
       orientation="vertical"
-      className="flex w-full max-w-6xl flex-col md:flex-row gap-0 py-4 md:py-8 px-4"
+      className="flex w-full max-w-6xl flex-col md:flex-row gap-0 py-4 md:py-8 px-4 min-h-screen"
       defaultValue="profile"
     >
       <h2 className="mb-4 md:mb-6 px-2 md:px-4 text-xl font-bold tracking-tight block md:hidden">
@@ -45,6 +30,15 @@ const TabsLayout = () => {
             <User className="w-4 h-4" />
             Profile
           </TabsTrigger>
+
+          <TabsTrigger
+            className="justify-start gap-2 md:gap-3 px-3 md:px-4 py-2 md:py-2.5 data-[state=active]:bg-muted data-[state=active]:text-foreground data-[state=active]:shadow-none hover:bg-muted/50 transition-colors whitespace-nowrap"
+            value="plan"
+          >
+            <CreditCard className="w-4 h-4" />
+            Plan
+          </TabsTrigger>
+ 
       
           <TabsTrigger
             className="justify-start gap-2 md:gap-3 px-3 md:px-4 py-2 md:py-2.5 data-[state=active]:bg-muted data-[state=active]:text-foreground data-[state=active]:shadow-none hover:bg-muted/50 transition-colors whitespace-nowrap"
@@ -62,7 +56,9 @@ const TabsLayout = () => {
         <TabsContent value="profile" className="mt-0 outline-none">
           <SettingsProfile />
         </TabsContent>
-
+        <TabsContent value="plan" className="mt-0 outline-none">
+          <PlanDetails />
+        </TabsContent>
       </div>
     </Tabs>
   );
