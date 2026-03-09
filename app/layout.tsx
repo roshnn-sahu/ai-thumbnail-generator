@@ -100,6 +100,7 @@ export default function RootLayout({
               "@type": "WebSite",
               name: "BoltCreator",
               url: "https://boltcreator.online",
+              logo: "https://boltcreator.online/public/logo.png",
               potentialAction: {
                 "@type": "SearchAction",
                 target: "https://boltcreator.online/?q={search_term_string}",
@@ -110,6 +111,10 @@ export default function RootLayout({
         />
       </head>
       <body className={`font-sans antialiased `}>
+        <Script
+          src="https://checkout.razorpay.com/v1/checkout.js"
+          strategy="lazyOnload"
+        />
         <ClerkProvider>
           <SmoothScrollProvider>
             <Navbar />
@@ -119,10 +124,6 @@ export default function RootLayout({
             <Analytics />
           </SmoothScrollProvider>
         </ClerkProvider>
-        <Script
-          src="https://checkout.razorpay.com/v1/checkout.js"
-          strategy="lazyOnload"
-        />
       </body>
     </html>
   );

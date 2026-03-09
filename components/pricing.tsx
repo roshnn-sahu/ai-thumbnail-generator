@@ -98,7 +98,7 @@ export function Pricing({ className }: { className?: string }) {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const { isSignedIn } = useUser();
+  const { isSignedIn, user } = useUser();
   const { getToken } = useAuth();
   const router = useRouter();
 
@@ -118,7 +118,9 @@ export function Pricing({ className }: { className?: string }) {
     setCheckoutModalOpen(true);
   };
 
-  const onCheckout = async () => {
+  const onCheckout = async (e?: any) => {
+    if (e) e.preventDefault();
+
     if (!selectedPlan) return;
 
     setIsLoading(true);
@@ -136,14 +138,22 @@ export function Pricing({ className }: { className?: string }) {
           },
           body: JSON.stringify({
             planId: selectedPlan,
+            clerkUser: user,
           }),
         },
       );
 
       const data = await response.json();
 
-      if (!data.success) {
-        alert("Failed to start payment");
+      console.log("Subscription Response:", data);
+
+      if (!data.success || !data.subscription?.id) {
+        console.error("Failed to start payment");
+        return;
+      }
+
+      if (!(window as any).Razorpay) {
+        console.error("Razorpay SDK not loaded");
         return;
       }
 
@@ -159,17 +169,30 @@ export function Pricing({ className }: { className?: string }) {
         },
 
         handler: function (response: any) {
-          console.log("Payment Success", response);
+          console.log("Payment Success:", response);
+          window.location.href = "/success";
+        },
 
-          window.location.href = "/";
+        modal: {
+          ondismiss: function () {
+            console.log("Payment popup closed");
+          },
         },
       };
 
       const rzp = new (window as any).Razorpay(options);
 
+      rzp.on("payment.failed", function (response: any) {
+        console.error("Payment Failed:", response.error);
+        const errorMsg = encodeURIComponent(response.error.description || "Payment Failed");
+        window.location.href = `/failure?error=${errorMsg}`;
+      });
+
       rzp.open();
+      setCheckoutModalOpen(false);
     } catch (error) {
-      console.error(error);
+      console.error("Checkout Error:", error);
+      alert("Something went wrong");
     } finally {
       setIsLoading(false);
     }
