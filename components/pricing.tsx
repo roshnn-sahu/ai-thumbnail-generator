@@ -1,7 +1,7 @@
 "use client";
 
 import { CircleCheck } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -20,6 +20,7 @@ import { useRouter } from "next/navigation";
 import CheckoutModal from "./checkout-modal";
 import Heading from "./heading";
 import SubHeading from "./sub-heading";
+import { getUser } from "@/services/userApi";
 
 import { offlinePlan, onlinePlan } from "@/lib/plans";
 
@@ -27,12 +28,13 @@ const USD_TO_INR = 90;
 
 export function Pricing({ className }: { className?: string }) {
   const [yearly, setYearly] = useState(false);
-  const [currency, setCurrency] = useState<"USD" | "INR">("USD");
+  const [currency, setCurrency] = useState<"USD" | "INR">("INR");
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [checkoutModalOpen, setCheckoutModalOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<any>(null);
   const [selectedPlanDetails, setSelectedPlanDetails] = useState<any>(null);
   const [production, setProduction] = useState(true);
+  const [currentPlan, setCurrentPlan] = useState<string | null>(null);
 
   const basePlans = production ? onlinePlan : offlinePlan;
 
@@ -41,6 +43,25 @@ export function Pricing({ className }: { className?: string }) {
   const { isSignedIn, user } = useUser();
   const { getToken } = useAuth();
   const router = useRouter();
+
+  useEffect(() => {
+    const fetchUserPlan = async () => {
+      if (isSignedIn) {
+        try {
+          const token = await getToken();
+          if (token) {
+            const res = await getUser(token);
+            if (res.success) {
+              setCurrentPlan(res.user.plan);
+            }
+          }
+        } catch (error) {
+          console.error("Error fetching user plan:", error);
+        }
+      }
+    };
+    fetchUserPlan();
+  }, [isSignedIn, getToken]);
 
   const handlePlanAction = (plan: any, planId: any) => {
     if (!isSignedIn) {
@@ -176,6 +197,7 @@ export function Pricing({ className }: { className?: string }) {
         {basePlans.map((plan) => {
           const price = yearly ? plan.yearly : plan.monthly;
           const planId = yearly ? plan.yearlyPlanId : plan.monthlyPlanId;
+          const isCurrentPlan = currentPlan === plan.id;
 
           return (
             <Card
@@ -193,7 +215,7 @@ export function Pricing({ className }: { className?: string }) {
 
                 <div className="mt-4 flex items-end gap-1">
                   <span className="text-4xl font-bold">
-                    {formatPrice(price)}
+                 { "₹" +price}
                   </span>
                   <span className="text-muted-foreground">
                     {yearly ? "/yr" : "/mo"}
@@ -215,10 +237,11 @@ export function Pricing({ className }: { className?: string }) {
 
               <CardFooter className="mt-auto">
                 <Button
-                  className="w-full cursor-pointer"
-                  onClick={() => handlePlanAction(plan, planId)}
+                  className={cn("w-full cursor-pointer", isCurrentPlan && "bg-muted text-muted-foreground cursor-default hover:bg-muted border border-2")}
+                  onClick={() => !isCurrentPlan && handlePlanAction(plan, planId)}
+                  disabled={isCurrentPlan}
                 >
-                  {plan.buttonText}
+                  {isCurrentPlan ? "Current Plan" : plan.buttonText}
                 </Button>
               </CardFooter>
             </Card>

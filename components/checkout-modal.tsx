@@ -65,7 +65,7 @@ export default function CheckoutModal({
                 </h3>
               </div>
               <div className="flex items-baseline gap-2">
-                <span className="text-2xl font-bold">${price}</span>
+                <span className="text-2xl font-bold">₹{price}</span>
                 <span className="text-neutral-500 line-through text-lg">
                   ${originalPrice}
                 </span>
@@ -84,9 +84,9 @@ export default function CheckoutModal({
           <div className="text-center mb-8 px-4 max-w-lg">
             <p className="text-neutral-600 text-sm leading-relaxed">
               Pay{" "}
-              <span className=" text-foreground font-semibold">${price}</span>{" "}
+              <span className=" text-foreground font-semibold">₹{price}</span>{" "}
               then{" "}
-              <span className="text-foreground font-semibold">${price}</span>{" "}
+              <span className="text-foreground font-semibold">₹{price}</span>{" "}
               every {interval} until canceled. You may cancel subscriptions at
               any time.
             </p>
