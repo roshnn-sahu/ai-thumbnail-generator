@@ -158,7 +158,7 @@ export function Pricing({ className }: { className?: string }) {
       }
 
       const options = {
-        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
+        key: process.env.NEXT_PUBLIC_RAZORPAY_API_KEY,
         subscription_id: data.subscription.id,
 
         name: "BoltCreator",
