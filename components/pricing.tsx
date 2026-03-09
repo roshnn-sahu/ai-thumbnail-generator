@@ -21,72 +21,9 @@ import CheckoutModal from "./checkout-modal";
 import Heading from "./heading";
 import SubHeading from "./sub-heading";
 
-const USD_TO_INR = 90;
+import { offlinePlan, onlinePlan } from "@/lib/plans";
 
-const basePlans = [
-  {
-    id: "free",
-    name: "Free",
-    description: "Try the platform risk-free",
-    monthly: 0,
-    yearly: 0,
-    highlight: false,
-    features: [
-      "30 AI thumbnail generations / month",
-      "Unlimited tags & keyword tools",
-      "Unlimited tag extractor",
-      "Watermarked exports",
-      "Standard speed queue",
-      "Community support",
-    ],
-    buttonText: "Start Free",
-    url: "/signup",
-  },
-  {
-    id: "pro",
-    monthlyPlanId: "plan_SNuqOid3vopvhN",
-    yearlyPlanId: "plan_SNvsI7uq64Prqj",
-    name: "Pro",
-    description: "Perfect for growing creators",
-    monthly: 7,
-    yearly: 60,
-    highlight: true,
-    features: [
-      "300 thumbnails / month",
-      "Unlimited SEO tools",
-      "No watermark",
-      "Premium templates",
-      "HD downloads",
-      "Generation history",
-      "Fast priority queue",
-      "Email support",
-    ],
-    buttonText: "Upgrade to Pro",
-    url: "/signup",
-  },
-  {
-    id: "creator",
-    monthlyPlanId: "plan_SNvuCaLmLtEtZh",
-    yearlyPlanId: "plan_SNvwfidE7ZgAMQ",
-    name: "Creator",
-    description: "Unlimited for professionals & teams",
-    monthly: 12,
-    yearly: 120,
-    highlight: false,
-    features: [
-      "Unlimited thumbnails",
-      "Unlimited SEO tools",
-      "Bulk generation",
-      "Team access",
-      "Fastest private queue",
-      "Commercial license",
-      "Early features",
-      "Priority support",
-    ],
-    buttonText: "Go Unlimited",
-    url: "/signup",
-  },
-];
+const USD_TO_INR = 90;
 
 export function Pricing({ className }: { className?: string }) {
   const [yearly, setYearly] = useState(false);
@@ -95,7 +32,10 @@ export function Pricing({ className }: { className?: string }) {
   const [checkoutModalOpen, setCheckoutModalOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<any>(null);
   const [selectedPlanDetails, setSelectedPlanDetails] = useState<any>(null);
+  const [production, setProduction] = useState(true);
 
+  const basePlans = production ? onlinePlan : offlinePlan;
+  console.log(basePlans);
   const [isLoading, setIsLoading] = useState(false);
 
   const { isSignedIn, user } = useUser();
@@ -184,7 +124,9 @@ export function Pricing({ className }: { className?: string }) {
 
       rzp.on("payment.failed", function (response: any) {
         console.error("Payment Failed:", response.error);
-        const errorMsg = encodeURIComponent(response.error.description || "Payment Failed");
+        const errorMsg = encodeURIComponent(
+          response.error.description || "Payment Failed",
+        );
         window.location.href = `/failure?error=${errorMsg}`;
       });
 
