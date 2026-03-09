@@ -87,7 +87,7 @@ const PlanDetails = ({ className }: { className?: string }) => {
           description: "Your subscription has been successfully cancelled.",
         });
         setTimeout(() => {
-          router.push("/subscription-canceled");
+          router.push("/subscription/canceled");
         }, 1500);
       } else {
         toast({

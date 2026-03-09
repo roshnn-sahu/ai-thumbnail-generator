@@ -110,7 +110,7 @@ export function Pricing({ className }: { className?: string }) {
 
         handler: function (response: any) {
           console.log("Payment Success:", response);
-          window.location.href = "/success";
+          window.location.href = "/subscription/success";
         },
 
         modal: {
@@ -127,7 +127,7 @@ export function Pricing({ className }: { className?: string }) {
         const errorMsg = encodeURIComponent(
           response.error.description || "Payment Failed",
         );
-        window.location.href = `/failure?error=${errorMsg}`;
+        window.location.href = `/subscription/failed?error=${errorMsg}`;
       });
 
       rzp.open();
