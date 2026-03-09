@@ -150,11 +150,11 @@ function Navbar() {
 
               {isToolsOpen && (
                 <motion.div
-                  initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                  initial={{ opacity: 0, y: -10, scale: 0.95, x: "-50%" }}
+                  animate={{ opacity: 1, y: 0, scale: 1, x: "-50%" }}
+                  exit={{ opacity: 0, y: -10, scale: 0.95, x: "-50%" }}
                   transition={{ duration: 0.2, ease: "easeOut" }}
-                  className="absolute top-full left-0 mt-2 w-[600px] bg-white border border-border rounded-lg shadow-lg p-6 z-50"
+                  className="absolute top-full left-1/2 mt-2 w-[calc(100vw-2rem)] md:w-[600px] max-w-[max-content] md:max-w-none bg-white border border-border rounded-lg shadow-lg p-6 z-50"
                   onMouseLeave={() => setIsToolsOpen(false)}
                 >
                   <div className="grid grid-cols-2 gap-6">
