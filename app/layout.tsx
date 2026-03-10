@@ -92,40 +92,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <meta name="98009edd7346960b40d2da2222e99163a3825c1f" content="98009edd7346960b40d2da2222e99163a3825c1f" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(iwbn){
-              var d = document,
-                  s = d.createElement('script'),
-                  l = d.scripts[d.scripts.length - 1];
-              s.settings = iwbn || {};
-              s.src = "\\/\\/elderlygoal.com\\/cND.9P6ObE2q5_lrSbW\\/QU9BNAj\\/g\\/1yNsTqUvwNNhSY0o2DO\\/D\\/Uf1dNaT\\/Aq5c";
-              s.async = true;
-              s.referrerPolicy = 'no-referrer-when-downgrade';
-              l.parentNode.insertBefore(s, l);
-              })({})
-            `,
-          }}
-        />
-                
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(uxaywp){
-              var d = document,
-                  s = d.createElement('script'),
-                  l = d.scripts[d.scripts.length - 1];
-              s.settings = uxaywp || {};
-              s.src = "\\/\\/elaborate-analysis.com\\/bPXMVHs_d.GAlq0nY-WQcQ\\/beUmW9NuWZaUqlBkbPwTgYM4\\/NETaUs1zNYDKEvtGNojzgK1VNSTLU\\/0jN-QN";
-              s.async = true;
-              s.referrerPolicy = 'no-referrer-when-downgrade';
-              l.parentNode.insertBefore(s, l);
-              })({})
-            `,
-          }}
-        />
+        <meta name="google-adsense-account" content="ca-pub-6832790493898716"/>
+    
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
