@@ -577,3 +577,15 @@ html.lenis body {
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
 }
+
+.▭ {
+    direction: ltr;
+    position: fixed;
+    bottom: 25px !important;
+    right: 16px;
+    display: flex;
+    flex-direction: column-reverse;
+    width: 300px !important;
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    z-index: 2147483647;
+}
