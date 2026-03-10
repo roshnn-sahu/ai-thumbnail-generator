@@ -83,8 +83,8 @@ export const onlinePlan = [
   },
   {
     id: "pro",
-    monthlyPlanId: "plan_SNuqOid3vopvhN",
-    yearlyPlanId: "plan_SNvsI7uq64Prqj",
+    monthlyPlanId: "plan_SP4bUHqL0ug9NF",
+    yearlyPlanId: "plan_SP4bUyJvcgRsBE",
     name: "Pro",
     description: "Perfect for growing creators",
     monthly: 599,
@@ -105,8 +105,8 @@ export const onlinePlan = [
   },
   {
     id: "creator",
-    monthlyPlanId: "plan_SNvuCaLmLtEtZh",
-    yearlyPlanId: "plan_SNvwfidE7ZgAMQ",
+    monthlyPlanId: "plan_SP4bVcWrMnarXV",
+    yearlyPlanId: "plan_SP4bWDFkgr0Jrr",
     name: "Creator",
     description: "Unlimited for professionals & teams",
     monthly: 999,
