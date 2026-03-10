@@ -1,6 +1,6 @@
 "use client";
 
-import { Dialog, DialogContent, DialogHeader } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Sparkles, Trash2, X, XIcon } from "lucide-react";
 import Image from "next/image";
@@ -60,9 +60,9 @@ export default function CheckoutModal({
 
             <div className="flex-1 min-w-0 text-foreground">
               <div className="flex justify-between items-start mb-1">
-                <h3 className="text-2xl font-bold truncate ">
+                <DialogTitle className="text-2xl font-bold truncate ">
                   {plan.name} Access
-                </h3>
+                </DialogTitle>
               </div>
               <div className="flex items-baseline gap-2">
                 <span className="text-2xl font-bold">₹{price}</span>

@@ -122,14 +122,21 @@ export const FileUpload = ({
 
   useEffect(() => {
     const loadUser = async () => {
-      const token = await getToken();
-      if (!token) return;
-      const res = await getUser(token);
-      setPlan(res.plan);
+      try {
+        const token = await getToken();
+        if (!token) return;
+        const res = await getUser(token);
+        console.log("Successfully loaded user plan:", res.plan);
+        setPlan(res.plan);
+      } catch (error) {
+        console.error("Error loading user plan:", error);
+      }
     };
 
-    loadUser();
-  }, []);
+    if (isSignedIn) {
+      loadUser();
+    }
+  }, [isSignedIn, getToken]);
   return (
     <div className="w-full  px-5" {...getRootProps()}>
       <motion.div
@@ -282,11 +289,8 @@ export const FileUpload = ({
                 </p>
               </div>
             )}
-
-            <AuthModal open={authModalOpen} onOpenChange={setAuthModalOpen} />
           </div>
 
-          {/* Right Side: Options (Only visible when file is uploaded) */}
           <FileUploadOptions
             files={files}
             options={options}
@@ -299,6 +303,7 @@ export const FileUpload = ({
           />
         </div>
       </motion.div>
+      <AuthModal open={authModalOpen} onOpenChange={setAuthModalOpen} />
     </div>
   );
 };
@@ -337,8 +342,9 @@ const FileUploadOptions = ({
   plan: string;
 }) => {
   const [upgradeModalOpen, setUpgradeModalOpen] = useState(false);
-  const isFreePlan = plan === "free";
-
+  // Robust check: If plan is NOT pro and NOT creator, it's effectively "free" or restricted.
+  // This handles undefined/loading states by defaulting to restricted access.
+  const isFreePlan = plan !== "pro" && plan !== "creator";
   return (
     <>
       <AnimatePresence>
@@ -391,7 +397,7 @@ const FileUploadOptions = ({
                           count: num,
                         }))
                       }
-                      className={`p-2 rounded-lg border text-sm transition-all ${
+                      className={`p-2 rounded-lg border text-sm transition-all cursor-pointer ${
                         options.count === num
                           ? "bg-neutral-900 text-white border-neutral-900 dark:bg-neutral-100 dark:text-neutral-900 dark:border-neutral-100 font-medium"
                           : "bg-white dark:bg-neutral-800 border-border text-neutral-600 dark:text-neutral-400 hover:shadow-md"
@@ -419,7 +425,7 @@ const FileUploadOptions = ({
                         }));
                       }}
                       className={cn(
-                        "flex items-center justify-center p-2 rounded-lg border border-border text-xs transition-all",
+                        "flex items-center justify-center p-2 rounded-lg border border-border text-xs transition-all cursor-pointer",
                         options.aspectRatio === ratio
                           ? "bg-foreground text-white border-foreground"
                           : "bg-white dark:bg-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-700",
@@ -434,7 +440,8 @@ const FileUploadOptions = ({
               <div className="col-span-full mt-2">
                 <button
                   type="button"
-                  onClick={() => {
+                  onClick={(e) => {
+                    e.stopPropagation();
                     if (!isSignedIn) {
                       setAuthModalOpen(true);
                       return;
