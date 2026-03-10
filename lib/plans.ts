@@ -27,7 +27,7 @@ export const offlinePlan = [
     yearly: 4999,
     highlight: true,
     features: [
-      "300 thumbnails / month",
+      "500 thumbnails / month",
       "Unlimited SEO tools",
       "No watermark",
       "Premium templates",
@@ -91,7 +91,7 @@ export const onlinePlan = [
     yearly: 4999,
     highlight: true,
     features: [
-      "300 thumbnails / month",
+      "500 thumbnails / month",
       "Unlimited SEO tools",
       "No watermark",
       "Premium templates",
