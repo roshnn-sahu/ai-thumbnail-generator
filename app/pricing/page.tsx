@@ -1,22 +1,56 @@
 import PricingPageContent from "@/components/sections/pricing-page-content";
-
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Pricing | AI Thumbnail & YouTube SEO Tools",
+  title: "Pricing Plans | AI Thumbnail Generator & YouTube SEO Tools | BoltCreator",
+
   description:
-    "Affordable plans for AI thumbnail generation, YouTube tag extraction, and keyword research tools.",
+    "Explore BoltCreator pricing plans for AI thumbnail generation, YouTube tag extraction, and keyword research tools. Choose the best plan to grow your YouTube channel faster.",
 
   keywords: [
-    "ai thumbnail pricing",
-    "youtube seo tool pricing",
-    "creator tool subscription plans",
-    "video optimization",
-    "youtube marketing tools",
-    "thumbnail generator cost",
-    "content creator tools",
-    "youtube growth tools",
+    "BoltCreator pricing",
+    "AI thumbnail generator pricing",
+    "YouTube SEO tools pricing",
+    "YouTube tag generator pricing",
+    "AI creator tools subscription",
+    "content creator tools pricing",
+    "YouTube growth tools pricing",
+    "thumbnail generator cost"
   ],
+
+  alternates: {
+    canonical: "https://boltcreator.online/pricing",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  openGraph: {
+    title: "BoltCreator Pricing | AI Thumbnail Generator & YouTube SEO Tools",
+    description:
+      "View BoltCreator pricing plans for AI thumbnail generation, tag extraction, and YouTube SEO tools.",
+    url: "https://boltcreator.online/pricing",
+    siteName: "BoltCreator",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "BoltCreator Pricing Plans",
+      },
+    ],
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "BoltCreator Pricing Plans",
+    description:
+      "Affordable plans for AI thumbnail generator and YouTube SEO tools.",
+    images: ["/og-image.png"],
+  },
 };
 const page = () => {
   return <PricingPageContent />;

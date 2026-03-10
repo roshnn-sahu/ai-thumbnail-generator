@@ -1,16 +1,58 @@
-import { Metadata } from "next";
+
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "YouTube Thumbnail Size Guide (2026) – Best Dimensions & Tips",
+  title: "YouTube Thumbnail Size Guide (2026) – Best Dimensions & Tips | BoltCreator",
+
   description:
-    "Learn the exact YouTube thumbnail size, dimensions, file format, and best practices to increase CTR and views in 2026.",
+    "Discover the perfect YouTube thumbnail size, dimensions, file formats, and best practices for 2026. Learn how to create high-CTR thumbnails that boost views and improve video performance.",
+
   keywords: [
     "youtube thumbnail size",
     "youtube thumbnail dimensions",
     "best thumbnail size for youtube",
     "youtube thumbnail resolution",
-    "youtube thumbnail guide 2026",
+    "youtube thumbnail pixels",
+    "youtube thumbnail aspect ratio",
+    "youtube thumbnail file size limit",
+    "youtube thumbnail guide",
+    "perfect youtube thumbnail size",
+    "BoltCreator thumbnail guide"
   ],
+
+  alternates: {
+    canonical: "https://boltcreator.online/blog/youtube-thumbnail-size",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  openGraph: {
+    title: "YouTube Thumbnail Size Guide (2026)",
+    description:
+      "Learn the perfect YouTube thumbnail dimensions, resolution, and design tips to increase CTR and views.",
+    url: "https://boltcreator.online/blog/youtube-thumbnail-size",
+    siteName: "BoltCreator",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "YouTube Thumbnail Size Guide",
+      },
+    ],
+    type: "article",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "YouTube Thumbnail Size Guide (2026)",
+    description:
+      "Learn the perfect thumbnail dimensions and design tips to increase YouTube CTR.",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function Page() {

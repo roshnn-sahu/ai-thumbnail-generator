@@ -1,15 +1,44 @@
 import React from "react";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions | AI Creator Suite",
+  title: "Terms & Conditions | BoltCreator AI Creator Tools",
+
   description:
-    "Read the terms and conditions for using our AI thumbnail, tag, and keyword tools.",
+    "Read the BoltCreator terms and conditions for using our AI thumbnail generator, YouTube tag tools, and keyword research features.",
+
   keywords: [
-    "terms and conditions",
+    "BoltCreator terms and conditions",
     "website terms of service",
-    "ai tool terms",
+    "AI tools terms",
+    "AI thumbnail generator terms",
+    "creator tools terms and conditions"
   ],
+
+  alternates: {
+    canonical: "https://boltcreator.online/terms-and-conditions",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  openGraph: {
+    title: "Terms & Conditions | BoltCreator",
+    description:
+      "Review the terms and conditions for using BoltCreator AI thumbnail generator and creator tools.",
+    url: "https://boltcreator.online/terms-and-conditions",
+    siteName: "BoltCreator",
+    type: "article",
+  },
+
+  twitter: {
+    card: "summary",
+    title: "BoltCreator Terms & Conditions",
+    description:
+      "Understand the terms and conditions for using BoltCreator AI creator tools.",
+  },
 };
 const page = () => {
   return (

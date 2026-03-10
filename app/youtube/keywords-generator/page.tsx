@@ -6,19 +6,60 @@ import { Feature1 } from "@/components/feature1";
 import Faq from "@/components/faq";
 import { CallToAction } from "@/components/cta";
 
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "YouTube SEO Tools | AI Thumbnail, Tags & Keywords",
+  title: "YouTube Keyword Generator | AI YouTube SEO Tool | BoltCreator",
+
   description:
-    "All-in-one YouTube SEO toolkit. Generate AI thumbnails, extract tags, find ranking keywords, and grow your channel faster.",
+    "Find high-ranking YouTube keywords instantly with BoltCreator's AI YouTube Keyword Generator. Discover low-competition keywords, search volume insights, and optimize your videos for better rankings.",
+
   keywords: [
-    "youtube seo tools",
-    "youtube tag extractor",
     "youtube keyword generator",
-    "ai thumbnail maker for youtube",
-    "youtube growth tools",
+    "youtube keyword research tool",
+    "ai youtube keyword generator",
+    "find youtube keywords",
+    "low competition youtube keywords",
+    "youtube search volume tool",
+    "youtube seo keywords",
+    "best keywords for youtube videos",
+    "youtube keyword finder",
+    "BoltCreator youtube keyword tool"
   ],
+
+  alternates: {
+    canonical: "https://boltcreator.online/youtube/keyword-generator",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  openGraph: {
+    title: "YouTube Keyword Generator | BoltCreator AI SEO Tool",
+    description:
+      "Discover trending and low-competition YouTube keywords with BoltCreator AI keyword generator.",
+    url: "https://boltcreator.online/youtube/keyword-generator",
+    siteName: "BoltCreator",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "BoltCreator YouTube Keyword Generator",
+      },
+    ],
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "YouTube Keyword Generator | BoltCreator",
+    description:
+      "Generate high-ranking YouTube keywords instantly using BoltCreator AI.",
+    images: ["/og-image.png"],
+  },
 };
 
 const page = () => {

@@ -154,6 +154,9 @@ function Footer() {
               <Link href="/pricing" className="block hover:text-primary">
                 Pricing
               </Link>
+              <Link href="/faq" className="block hover:text-primary">
+                Pricing
+              </Link>
 
               <Link href="/support" className="block hover:text-primary">
                 Support
@@ -166,7 +169,9 @@ function Footer() {
 
         {/* BOTTOM BAR */}
         <div className="mt-12 border-t pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} {BRAND_NAME}. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} {BRAND_NAME}. All rights reserved.
+          </p>
 
           <div className="flex gap-4 text-xs">
             <Link href="/privacy-policy" className="hover:text-primary">

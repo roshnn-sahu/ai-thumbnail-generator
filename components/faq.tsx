@@ -88,7 +88,47 @@ const Faq = ({
 
   className,
 }: Faq1Props) => {
+  
+ const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What is BoltCreator AI Thumbnail Generator?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "BoltCreator is a free AI tool that helps YouTube creators generate thumbnails, tags, and SEO keywords."
+        }
+      },
+      {
+        "@type": "Question",
+        name: "Is BoltCreator free to use?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes, BoltCreator offers free AI tools to generate thumbnails, YouTube tags, and keywords."
+        }
+      },
+      {
+        "@type": "Question",
+        name: "How does the AI thumbnail generator work?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Users provide a prompt or video idea and BoltCreator generates optimized thumbnail suggestions using AI."
+        }
+      }
+    ]
+  };
+
+
+
   return (
+    <>
+        <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
     <section className={cn("py-16 w-full", className)}>
       <div className="container max-w-3xl mx-auto px-5">
         <div className="flex justify-center ">
@@ -136,6 +176,7 @@ const Faq = ({
         </div>
       </div>
     </section>
+        </>
   );
 };
 

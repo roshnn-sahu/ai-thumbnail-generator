@@ -6,19 +6,60 @@ import Faq from "@/components/faq";
 import TopicInput from "@/components/youtube/tags-generator/topic-input";
 import { CallToAction } from "@/components/cta";
 import YtInput from "@/components/youtube/yt-video-download/yt-link-form";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "YouTube SEO Tools | AI Thumbnail, Tags & Keywords",
+  title: "Free YouTube Video Downloader | Download YouTube Videos MP4 | BoltCreator",
+
   description:
-    "All-in-one YouTube SEO toolkit. Generate AI thumbnails, extract tags, find ranking keywords, and grow your channel faster.",
+    "Download YouTube videos instantly with BoltCreator's free YouTube video downloader. Save videos in high-quality MP4 format online with no software or signup required.",
+
   keywords: [
-    "youtube seo tools",
-    "youtube tag extractor",
-    "youtube keyword generator",
-    "ai thumbnail maker for youtube",
-    "youtube growth tools",
+    "youtube video downloader",
+    "free youtube downloader",
+    "download youtube videos mp4",
+    "youtube to mp4 converter",
+    "online youtube downloader",
+    "download youtube video online",
+    "high quality youtube downloader",
+    "youtube mp4 download tool",
+    "save youtube videos free",
+    "BoltCreator youtube downloader"
   ],
+
+  alternates: {
+    canonical: "https://boltcreator.online/youtube/video-downloader",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  openGraph: {
+    title: "Free YouTube Video Downloader | BoltCreator",
+    description:
+      "Download YouTube videos quickly in high-quality MP4 format using BoltCreator's free online downloader.",
+    url: "https://boltcreator.online/youtube/video-downloader",
+    siteName: "BoltCreator",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "BoltCreator YouTube Video Downloader",
+      },
+    ],
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Free YouTube Video Downloader | BoltCreator",
+    description:
+      "Save YouTube videos instantly in MP4 format using BoltCreator.",
+    images: ["/og-image.png"],
+  },
 };
 const page = () => {
   return (

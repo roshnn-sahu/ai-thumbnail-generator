@@ -5,19 +5,60 @@ import { Feature1 } from "@/components/feature1";
 import Faq from "@/components/faq";
 import TopicInput from "@/components/youtube/tags-generator/topic-input";
 import { CallToAction } from "@/components/cta";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "YouTube SEO Tools | AI Thumbnail, Tags & Keywords",
+  title: "YouTube Tag Generator | Free AI YouTube Tags Tool | BoltCreator",
+
   description:
-    "All-in-one YouTube SEO toolkit. Generate AI thumbnails, extract tags, find ranking keywords, and grow your channel faster.",
+    "Generate high-ranking YouTube tags instantly with BoltCreator's AI YouTube Tag Generator. Discover viral tags, improve video SEO, increase CTR, and get more views.",
+
   keywords: [
-    "youtube seo tools",
-    "youtube tag extractor",
-    "youtube keyword generator",
-    "ai thumbnail maker for youtube",
-    "youtube growth tools",
+    "youtube tag generator",
+    "ai youtube tag generator",
+    "free youtube tags generator",
+    "best tags for youtube videos",
+    "youtube seo tags",
+    "viral youtube tags",
+    "youtube tags finder",
+    "youtube video tags tool",
+    "increase youtube views",
+    "BoltCreator youtube tag generator"
   ],
+
+  alternates: {
+    canonical: "https://boltcreator.online/youtube/tag-generator",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  openGraph: {
+    title: "YouTube Tag Generator | BoltCreator AI SEO Tool",
+    description:
+      "Generate SEO-optimized YouTube tags instantly and boost your video rankings with BoltCreator.",
+    url: "https://boltcreator.online/youtube/tag-generator",
+    siteName: "BoltCreator",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "BoltCreator YouTube Tag Generator",
+      },
+    ],
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "YouTube Tag Generator | BoltCreator",
+    description:
+      "Generate viral YouTube tags instantly with BoltCreator AI.",
+    images: ["/og-image.png"],
+  },
 };
 const page = () => {
   return (

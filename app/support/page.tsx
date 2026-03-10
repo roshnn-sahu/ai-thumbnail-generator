@@ -7,14 +7,54 @@ import { Label } from "@/components/ui/label";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Support | Help Center for AI Creator Tools",
+  title: "Support Center | BoltCreator AI Creator Tools Help",
+
   description:
-    "Get help with AI thumbnail generation, YouTube tag extraction, keyword tools, and account issues.",
+    "Get help with BoltCreator AI tools including the AI thumbnail generator, YouTube tag generator, keyword tools, and account support.",
+
   keywords: [
-    "ai thumbnail support",
-    "youtube tag tool help",
-    "creator support center",
+    "BoltCreator support",
+    "AI thumbnail generator support",
+    "YouTube tag generator help",
+    "YouTube SEO tools support",
+    "creator tools help center",
+    "AI tools support",
+    "BoltCreator help center"
   ],
+
+  alternates: {
+    canonical: "https://boltcreator.online/support",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  openGraph: {
+    title: "BoltCreator Support Center",
+    description:
+      "Find help and support for BoltCreator AI thumbnail generator, tag extractor, and SEO tools.",
+    url: "https://boltcreator.online/support",
+    siteName: "BoltCreator",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "BoltCreator Support Center",
+      },
+    ],
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "BoltCreator Support Center",
+    description:
+      "Get help with BoltCreator AI tools and creator dashboard features.",
+    images: ["/og-image.png"],
+  },
 };
 export default function SupportPage() {
   return (

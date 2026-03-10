@@ -8,14 +8,58 @@ import { CallToAction } from "@/components/cta";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Instagram Tools | AI Caption & Hashtag Generator",
+  title: "Instagram Hashtag Generator | AI Viral Tags for Reels | BoltCreator",
+
   description:
-    "Generate Instagram captions, hashtags, and growth ideas using AI. Boost engagement and visibility instantly.",
+    "Generate trending Instagram hashtags for Reels, posts, and stories using BoltCreator's AI hashtag generator. Increase reach, engagement, and followers instantly.",
+
   keywords: [
     "instagram hashtag generator",
-    "ai instagram captions",
+    "ai hashtag generator for instagram",
+    "best hashtags for instagram reels",
+    "viral instagram hashtags",
+    "instagram hashtag research tool",
+    "trending instagram hashtags",
     "instagram growth tools",
+    "instagram seo tool",
+    "generate instagram hashtags",
+    "instagram hashtag finder",
+    "BoltCreator instagram hashtag generator"
   ],
+
+  alternates: {
+    canonical: "https://boltcreator.online/instagram/hashtag-generator",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  openGraph: {
+    title: "Instagram Hashtag Generator | BoltCreator AI Tool",
+    description:
+      "Find viral Instagram hashtags for Reels and posts using BoltCreator AI hashtag generator.",
+    url: "https://boltcreator.online/instagram/hashtag-generator",
+    siteName: "BoltCreator",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "BoltCreator Instagram Hashtag Generator",
+      },
+    ],
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Instagram Hashtag Generator | BoltCreator",
+    description:
+      "Generate viral Instagram hashtags instantly with BoltCreator AI hashtag generator.",
+    images: ["/og-image.png"],
+  },
 };
 const page = () => {
   return (

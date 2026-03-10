@@ -2,14 +2,44 @@ import React from "react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Cookies Policy | AI Thumbnail Generator",
+  title: "Cookies Policy | BoltCreator",
+
   description:
-    "Read our cookies policy to understand how we use cookies and tracking technologies to improve your experience.",
+    "Read the BoltCreator cookies policy to learn how we use cookies and tracking technologies to improve user experience, analytics, and website functionality.",
+
   keywords: [
+    "BoltCreator cookies policy",
     "cookies policy",
     "website cookies policy",
-    "ai tool cookies usage",
+    "AI tool cookies usage",
+    "cookie usage policy",
+    "BoltCreator privacy cookies"
   ],
+
+  alternates: {
+    canonical: "https://boltcreator.online/cookies-policy",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  openGraph: {
+    title: "Cookies Policy | BoltCreator",
+    description:
+      "Learn how BoltCreator uses cookies and tracking technologies to enhance user experience and website performance.",
+    url: "https://boltcreator.online/cookies-policy",
+    siteName: "BoltCreator",
+    type: "article",
+  },
+
+  twitter: {
+    card: "summary",
+    title: "Cookies Policy | BoltCreator",
+    description:
+      "Understand how BoltCreator uses cookies and tracking technologies.",
+  },
 };
 const page = () => {
   return (

@@ -11,6 +11,10 @@ export const metadata: Metadata = {
     "ai thumbnail account",
     "youtube seo profile",
   ],
+robots: {
+    index: false,
+    follow: false,
+  },
 };
 const page = () => {
   return (

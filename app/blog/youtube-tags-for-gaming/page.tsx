@@ -1,17 +1,58 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Best YouTube Tags for Gaming (2026) – Copy & Paste",
+  title: "Best YouTube Tags for Gaming (2026) – Copy & Paste Tags | BoltCreator",
+
   description:
-    "Find the best YouTube tags for gaming videos to increase views and rank higher in search results.",
+    "Discover the best YouTube tags for gaming videos in 2026. Copy and paste high-ranking gaming tags to boost views, improve YouTube SEO, and grow your gaming channel faster.",
+
   keywords: [
     "youtube tags for gaming",
-    "gaming youtube tags",
+    "best gaming tags youtube",
+    "gaming youtube seo tags",
     "best tags for gaming videos",
-    "gaming seo youtube",
+    "gaming youtube keywords",
+    "youtube tags for gaming videos copy paste",
+    "viral gaming tags youtube",
+    "gaming channel growth tags",
+    "youtube seo for gaming videos",
+    "BoltCreator gaming tags list"
   ],
-};
 
+  alternates: {
+    canonical: "https://boltcreator.online/blog/youtube-tags-for-gaming",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  openGraph: {
+    title: "Best YouTube Tags for Gaming (2026) – Copy & Paste",
+    description:
+      "Use these high-ranking gaming tags to improve your YouTube video SEO and get more views.",
+    url: "https://boltcreator.online/blog/youtube-tags-for-gaming",
+    siteName: "BoltCreator",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Best YouTube Tags for Gaming",
+      },
+    ],
+    type: "article",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Best YouTube Tags for Gaming (2026)",
+    description:
+      "Copy and paste the best gaming YouTube tags to grow your channel faster.",
+    images: ["/og-image.png"],
+  },
+};
 export default function Page() {
   return (
     <div className="max-w-4xl mx-auto px-6 py-12">

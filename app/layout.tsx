@@ -25,14 +25,29 @@ export const metadata: Metadata = {
     "Free AI tools for creators. Generate YouTube thumbnails, tags, and keywords instantly to boost views, SEO rankings, and channel growth.",
 
   keywords: [
-    "youtube thumbnail generator",
-    "ai thumbnail generator",
-    "youtube tag generator",
-    "youtube keyword generator",
-    "free youtube seo tools",
-    "youtube growth tools",
+    "AI Thumbnail Generator",
+    "YouTube Thumbnail Generator",
+    "Free AI Thumbnail Maker",
+    "AI YouTube Thumbnail Maker",
+    "YouTube SEO Tools",
+    "YouTube Tag Generator",
+    "YouTube Keyword Tool",
+    "YouTube Tags Extractor",
+    "YouTube Thumbnail Creator AI",
+    "AI Thumbnail Maker for YouTube",
+    "Generate YouTube Thumbnail with AI",
+    "YouTube Tag Extractor Tool",
+    "YouTube Keyword Research Tool",
+    "AI Tools for YouTube Creators",
+    "Best AI Thumbnail Generator",
+    "YouTube SEO Keyword Generator",
+    "Free AI Thumbnail Generator for YouTube",
+    "AI Thumbnail Generator Without Watermark",
+    "Best AI Thumbnail Maker for YouTube Creators",
+    "Generate YouTube Tags Automatically",
+    "YouTube SEO Tools for Beginners",
+    "AI Tool for YouTube Thumbnails and Tags",
   ],
-
   alternates: {
     canonical: "https://boltcreator.online",
   },
@@ -40,6 +55,12 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 
   icons: {
@@ -77,7 +98,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "BoltCreator – AI YouTube Tools",
     description: "Generate thumbnails, tags, and keywords instantly using AI.",
-    images: ["/favicon/web-app-manifest-512x512.png"],
+    images: ["/logo.png"],
   },
 
   verification: {
@@ -92,17 +113,19 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <meta name="google-adsense-account" content="ca-pub-6832790493898716"/>
-    
+        <meta name="google-adsense-account" content="ca-pub-6832790493898716" />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "WebSite",
+              "@type": "Organization",
               name: "BoltCreator",
               url: "https://boltcreator.online",
               logo: "https://boltcreator.online/logo.png",
+              applicationCategory: "AI Tool",
+              operatingSystem: "Web",
               potentialAction: {
                 "@type": "SearchAction",
                 target: "https://boltcreator.online/?q={search_term_string}",
@@ -111,6 +134,7 @@ export default function RootLayout({
             }),
           }}
         />
+ 
       </head>
       <body className={`font-sans antialiased `}>
         <Script

@@ -5,19 +5,60 @@ import { Feature43 } from "@/components/feature43";
 import HeroSection from "@/components/hero-section";
 import HeroGridPattern from "@/components/mui/HeroGridPattern";
 import ExtractForm from "@/components/youtube/tags-extractor/extract-form";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "YouTube SEO Tools | AI Thumbnail, Tags & Keywords",
+  title: "YouTube Tag Extractor | Extract Video Tags | BoltCreator",
+
   description:
-    "All-in-one YouTube SEO toolkit. Generate AI thumbnails, extract tags, find ranking keywords, and grow your channel faster.",
+    "Extract tags from any YouTube video instantly using BoltCreator's YouTube Tag Extractor. Analyze competitor tags, discover SEO strategies, and boost your video rankings.",
+
   keywords: [
-    "youtube seo tools",
     "youtube tag extractor",
-    "youtube keyword generator",
-    "ai thumbnail maker for youtube",
-    "youtube growth tools",
+    "extract tags from youtube video",
+    "youtube tag finder",
+    "youtube tag generator",
+    "competitor youtube tags",
+    "copy youtube tags",
+    "how to see youtube tags",
+    "youtube seo tags",
+    "youtube metadata extractor",
+    "BoltCreator youtube tag extractor"
   ],
+
+  alternates: {
+    canonical: "https://boltcreator.online/youtube/tag-extractor",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  openGraph: {
+    title: "YouTube Tag Extractor | BoltCreator",
+    description:
+      "Extract tags from any YouTube video and analyze competitor SEO strategies with BoltCreator.",
+    url: "https://boltcreator.online/youtube/tag-extractor",
+    siteName: "BoltCreator",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "BoltCreator YouTube Tag Extractor",
+      },
+    ],
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "YouTube Tag Extractor | BoltCreator",
+    description:
+      "Discover tags used by top YouTube videos and improve your video SEO.",
+    images: ["/og-image.png"],
+  },
 };
 const page = () => {
   return (
@@ -35,7 +76,19 @@ const page = () => {
           </HeroGridPattern>
         </section>
         <div className="max-w-6xl mx-auto">
-          <Feature1 />
+          <Feature1
+            title="AI-Powered Thumbnail Generation"
+            imageSrc="/feature-img.png"
+            imageAlt="AI Thumbnail Generator"
+            buttonPrimary={{
+              text: "Generate Thumbnail",
+              href: "/youtube/ai-thumbnail-generator",
+            }}
+            buttonSecondary={{
+              text: "Learn More",
+              href: "/about",
+            }}
+          />
           <Faq
             items={[
               {
