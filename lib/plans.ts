@@ -83,7 +83,7 @@ export const onlinePlan = [
   },
   {
     id: "pro",
-    monthlyPlanId: "plan_SPs00Xh2kyEAJ6",
+    monthlyPlanId: "plan_SP4bUHqL0ug9NF",
     yearlyPlanId: "plan_SP4bUyJvcgRsBE",
     name: "Pro",
     description: "Perfect for growing creators",

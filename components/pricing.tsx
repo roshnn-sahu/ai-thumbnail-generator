@@ -78,7 +78,7 @@ export function Pricing({ className }: { className?: string }) {
     setSelectedPlanDetails(plan);
     setCheckoutModalOpen(true);
   };
-//HANDLE SUBSCRIPTION
+  //HANDLE SUBSCRIPTION
   const onCheckout = async (e?: any) => {
     if (e) e.preventDefault();
 
@@ -128,7 +128,7 @@ export function Pricing({ className }: { className?: string }) {
         },
 
         handler: function (response: any) {
-                   window.location.href = "/subscription/success";
+          window.location.href = "/subscription/success";
         },
 
         modal: {
@@ -211,9 +211,7 @@ export function Pricing({ className }: { className?: string }) {
                 </p>
 
                 <div className="mt-4 flex items-end gap-1">
-                  <span className="text-4xl font-bold">
-                 { "₹" +price}
-                  </span>
+                  <span className="text-4xl font-bold">{"₹" + price}</span>
                   <span className="text-muted-foreground">
                     {yearly ? "/yr" : "/mo"}
                   </span>
@@ -234,8 +232,14 @@ export function Pricing({ className }: { className?: string }) {
 
               <CardFooter className="mt-auto">
                 <Button
-                  className={cn("w-full cursor-pointer", isCurrentPlan && "bg-muted text-muted-foreground cursor-default hover:bg-muted border border-2")}
-                  onClick={() => !isCurrentPlan && handlePlanAction(plan, planId)}
+                  className={cn(
+                    "w-full cursor-pointer",
+                    isCurrentPlan &&
+                      "bg-muted text-muted-foreground cursor-default hover:bg-muted border border-2",
+                  )}
+                  onClick={() =>
+                    !isCurrentPlan && handlePlanAction(plan, planId)
+                  }
                   disabled={isCurrentPlan}
                 >
                   {isCurrentPlan ? "Current Plan" : plan.buttonText}
