@@ -6,6 +6,7 @@ import Faq from "@/components/faq";
 import TopicInput from "@/components/youtube/tags-generator/topic-input";
 import { CallToAction } from "@/components/cta";
 import type { Metadata } from "next";
+import AdBanner from "@/components/AdBanner";
 
 export const metadata: Metadata = {
   title: "YouTube Tag Generator | Free AI YouTube Tags Tool | BoltCreator",
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     "youtube tags finder",
     "youtube video tags tool",
     "increase youtube views",
-    "BoltCreator youtube tag generator"
+    "BoltCreator youtube tag generator",
   ],
 
   alternates: {
@@ -55,8 +56,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "YouTube Tag Generator | BoltCreator",
-    description:
-      "Generate viral YouTube tags instantly with BoltCreator AI.",
+    description: "Generate viral YouTube tags instantly with BoltCreator AI.",
     images: ["/og-image.png"],
   },
 };
@@ -72,6 +72,7 @@ const page = () => {
           />
 
           <TopicInput />
+          <AdBanner dataAdSlot="4869342668" />
           <Feature43 />
         </HeroGridPattern>
         <Feature1

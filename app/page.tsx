@@ -18,6 +18,7 @@ import HeroAbout from "@/components/hero-about";
 import TrustBadge from "@/components/trust-badge";
 import { BRAND_NAME } from "@/constants/brand";
 import ImageMarquee from "@/components/image-marquee";
+import AdBanner from "@/components/AdBanner";
 
 export default function Home() {
   const testimonials = [
@@ -112,6 +113,7 @@ export default function Home() {
         <HeroAbout />
       </HeroGridPattern>
       <HowItWorks />
+      <AdBanner dataAdSlot="4869342668" />
       <GridFeatureCards />
       <Pricing />
       <div className="container z-10 mx-auto">
