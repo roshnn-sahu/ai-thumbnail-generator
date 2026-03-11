@@ -28,6 +28,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { useRouter } from "next/navigation";
+import BillingHistory from "./billing-history";
 
 interface UserData {
   plan: "free" | "pro" | "creator";
@@ -128,6 +129,8 @@ const PlanDetails = ({ className }: { className?: string }) => {
   };
 
   return (
+    <>
+   
     <Card className={cn("w-full max-w-2xl mb-3", className)}>
       <CardHeader>
         <CardTitle>Your Plan</CardTitle>
@@ -220,6 +223,9 @@ const PlanDetails = ({ className }: { className?: string }) => {
         </div>
       </CardContent>
     </Card>
+    <BillingHistory/>
+     </>
+
   );
 };
 
