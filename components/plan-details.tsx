@@ -151,16 +151,22 @@ const PlanDetails = ({ className }: { className?: string }) => {
             <p className="text-sm text-muted-foreground">
               {getStatusMessage()}
             </p>
-            <p className="text-sm text-muted-foreground">{<p className="text-sm text-muted-foreground">
-  {planExpireDate
-    ? `Expires on ${new Date(planExpireDate).toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-      })}`
-    : ""}
-</p>
-}</p>
+            <p className="text-sm text-muted-foreground">
+              {
+                <p className="text-sm text-muted-foreground">
+                  {planExpireDate
+                    ? `Expires on ${new Date(planExpireDate).toLocaleDateString(
+                        "en-US",
+                        {
+                          year: "numeric",
+                          month: "short",
+                          day: "numeric",
+                        },
+                      )}`
+                    : ""}
+                </p>
+              }
+            </p>
           </div>
 
           {plan === "free" && (
