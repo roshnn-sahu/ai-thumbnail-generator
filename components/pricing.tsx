@@ -106,8 +106,6 @@ export function Pricing({ className }: { className?: string }) {
 
       const data = await response.json();
 
-      console.log("Subscription Response:", data);
-
       if (!data.success || !data.subscription?.id) {
         console.error("Failed to start payment");
         return;
@@ -130,8 +128,7 @@ export function Pricing({ className }: { className?: string }) {
         },
 
         handler: function (response: any) {
-          console.log("Payment Success:", response);
-          window.location.href = "/subscription/success";
+                   window.location.href = "/subscription/success";
         },
 
         modal: {

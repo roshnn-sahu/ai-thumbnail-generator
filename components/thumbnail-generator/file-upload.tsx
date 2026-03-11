@@ -126,7 +126,7 @@ export const FileUpload = ({
         const token = await getToken();
         if (!token) return;
         const res = await getUser(token);
-        console.log("Successfully loaded user plan:", res.plan);
+   
         setPlan(res.plan);
       } catch (error) {
         console.error("Error loading user plan:", error);
