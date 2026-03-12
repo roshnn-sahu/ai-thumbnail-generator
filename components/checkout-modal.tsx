@@ -67,7 +67,7 @@ export default function CheckoutModal({
               <div className="flex items-baseline gap-2">
                 <span className="text-2xl font-bold">₹{price}</span>
                 <span className="text-neutral-500 line-through text-lg">
-                  ${originalPrice}
+                 ₹{originalPrice}
                 </span>
               </div>
             </div>

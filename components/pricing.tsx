@@ -21,6 +21,8 @@ import CheckoutModal from "./checkout-modal";
 import Heading from "./heading";
 import SubHeading from "./sub-heading";
 import { getUser } from "@/services/userApi";
+import { useToast } from "@/hooks/use-toast";
+
 
 import { offlinePlan, onlinePlan } from "@/lib/plans";
 
@@ -41,6 +43,8 @@ export function Pricing({ className }: { className?: string }) {
   const [isLoading, setIsLoading] = useState(false);
 
   const { isSignedIn, user } = useUser();
+  const { toast } = useToast();
+
   const { getToken } = useAuth();
   const router = useRouter();
 
@@ -107,14 +111,24 @@ export function Pricing({ className }: { className?: string }) {
       const data = await response.json();
 
       if (!data.success || !data.subscription?.id) {
-        console.error("Failed to start payment");
+        toast({
+          title: "Error",
+          description: "Failed to start payment. Please try again.",
+          variant: "destructive",
+        });
         return;
       }
 
+
       if (!(window as any).Razorpay) {
-        console.error("Razorpay SDK not loaded");
+        toast({
+          title: "Error",
+          description: "Payment gateway is not available. Please refresh the page.",
+          variant: "destructive",
+        });
         return;
       }
+
 
       const options = {
         key: process.env.NEXT_PUBLIC_RAZORPAY_API_KEY,
@@ -152,8 +166,13 @@ export function Pricing({ className }: { className?: string }) {
       setCheckoutModalOpen(false);
     } catch (error) {
       console.error("Checkout Error:", error);
-      alert("Something went wrong");
+      toast({
+        title: "Something went wrong",
+        description: "An unexpected error occurred during checkout.",
+        variant: "destructive",
+      });
     } finally {
+
       setIsLoading(false);
     }
   };

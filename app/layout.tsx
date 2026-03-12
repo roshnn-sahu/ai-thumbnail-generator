@@ -105,6 +105,8 @@ export const metadata: Metadata = {
     google: "ECiuKUHEyE6Of3GwDwaDmaE4WfKr5gZrPQ-U7_Xcmo8",
   },
 };
+import ConditionalWrapper from "@/layout/ConditionalWrapper";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -137,7 +139,7 @@ export default function RootLayout({
                 "@type": "SearchAction",
                 target: "https://boltcreator.online/?q={search_term_string}",
                 "query-input": "required name=search_term_string",
-              },
+                },
             }),
           }}
         />
@@ -149,10 +151,10 @@ export default function RootLayout({
         />
         <ClerkProvider>
           <SmoothScrollProvider>
-            <Navbar />
-            {children}
+            <ConditionalWrapper>
+              {children}
+            </ConditionalWrapper>
             <Toaster />
-            <Footer />
             <Analytics />
           </SmoothScrollProvider>
         </ClerkProvider>

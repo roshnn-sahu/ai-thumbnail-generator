@@ -88,7 +88,7 @@ const SettingsProfile = ({ className }: SettingsProfileProps) => {
   // Limits based on plan (placeholders for now)
   const limits = {
     free: { today: 3, monthly: 30 },
-    pro: { today: 10, monthly: 300 },
+    pro: { today: 10, monthly: 500 },
     creator: { today: "Unlimited", monthly: "Unlimited" },
   };
 

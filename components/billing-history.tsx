@@ -18,7 +18,7 @@ interface Payment {
   _id: string;
   plan: string;
   status: string;
-  razorpayPaymentId: string;
+  razorpaySubscriptionId: string;
   createdAt: string;
 }
 
@@ -85,9 +85,9 @@ const BillingHistory = () => {
                 className="flex items-center justify-between border rounded-lg p-4"
               >
                 <div>
-                  <p className="text-sm font-medium">{payment.plan} access</p>
+                  <p className="text-sm font-medium capitalize">{payment.plan} access</p>
 
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-xs text-muted-foreground ">
                     {new Date(payment.createdAt).toLocaleDateString()}
                   </p>
                 </div>
@@ -96,7 +96,7 @@ const BillingHistory = () => {
                   <p className="text-sm capitalize">{payment.status}</p>
 
                   <p className="text-xs text-muted-foreground">
-                    {payment.razorpayPaymentId}
+                    {payment.razorpaySubscriptionId}
                   </p>
                 </div>
               </div>

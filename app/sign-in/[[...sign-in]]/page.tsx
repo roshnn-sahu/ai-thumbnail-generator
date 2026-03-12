@@ -12,5 +12,12 @@ export const metadata: Metadata = {
   ],
 };
 export default function Page() {
-  return <SignIn />;
+
+  return (
+    <section className="px-5 py-12 w-full">
+      <div className="max-w-6xl mx-auto flex items-center justify-center">
+        <SignIn />
+      </div>
+    </section>
+  );
 }
