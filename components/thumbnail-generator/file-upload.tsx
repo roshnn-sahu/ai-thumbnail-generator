@@ -126,8 +126,7 @@ export const FileUpload = ({
         const token = await getToken();
         if (!token) return;
         const res = await getUser(token);
-   
-        setPlan(res.plan);
+        setPlan(res.user.plan);
       } catch (error) {
         console.error("Error loading user plan:", error);
       }
@@ -137,6 +136,7 @@ export const FileUpload = ({
       loadUser();
     }
   }, [isSignedIn, getToken]);
+
   return (
     <div className="w-full  px-5" {...getRootProps()}>
       <motion.div
