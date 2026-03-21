@@ -24,8 +24,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/instagram/tags-generator", priority: 0.8 },
 
     // Blog pages
-    { path: "/youtube-tags-for-gaming", priority: 0.7 },
-    { path: "/youtube-thumbnail-size", priority: 0.7 },
+    { path: "/blog/youtube-tags-for-gaming", priority: 0.7 },
+    { path: "/blog/youtube-thumbnail-size", priority: 0.7 },
   ];
 
   return routes.map((route) => ({
