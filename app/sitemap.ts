@@ -17,10 +17,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/youtube/video-downloader", priority: 0.8 },
     { path: "/youtube/tags-generator", priority: 0.9 },
     { path: "/youtube/tags-extractor", priority: 0.9 },
-    { path: "/youtube/keyword-generator", priority: 0.9 },
+    { path: "/youtube/keywords-generator", priority: 0.9 },
 
     // Instagram tools
-    { path: "/instagram/keyword-generator", priority: 0.8 },
+    { path: "/instagram/keywords-generator", priority: 0.8 },
     { path: "/instagram/tags-generator", priority: 0.8 },
 
     // Blog pages
