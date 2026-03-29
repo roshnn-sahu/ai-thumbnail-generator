@@ -13,7 +13,7 @@ const TabsLayout = () => {
   return (
     <Tabs
       orientation="vertical"
-      className="flex w-full max-w-6xl flex-col md:flex-row gap-0 py-4 md:py-8 px-4 min-h-screen"
+      className="flex w-full max-w-6xl flex-col md:flex-row gap-0 py-4 md:py-8 min-h-screen"
       defaultValue="profile"
     >
       <h2 className="mb-4 md:mb-6 px-2 md:px-4 text-xl font-bold tracking-tight block md:hidden">

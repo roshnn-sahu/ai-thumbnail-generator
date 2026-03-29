@@ -113,7 +113,7 @@ export default function Home() {
         <HeroAbout />
       </HeroGridPattern>
       <HowItWorks />
-      <AdBanner dataAdSlot="4869342668" />
+    
       <GridFeatureCards />
       <Pricing />
       <div className="container z-10 mx-auto">
