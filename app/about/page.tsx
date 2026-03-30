@@ -1,5 +1,6 @@
 import { CallToAction } from "@/components/cta";
 import HeroSection from "@/components/hero-section";
+import HeroGridPattern from "@/components/mui/HeroGridPattern";
 import Stats from "@/components/stats";
 import { BRAND_NAME } from "@/constants/brand";
 import Link from "next/link";
@@ -7,15 +8,18 @@ import Link from "next/link";
 export default function page() {
   return (
     <main className="min-h-screen bg-background flex flex-col">
+      <HeroGridPattern>
       <div className="max-w-6xl mx-auto">
         {/* Hero */}
         <HeroSection
-          badgeTitle={`About ${BRAND_NAME} →`}
-          title="Empowering Creators with AI-Powered Growth Tools"
-          subTitle={`We built ${BRAND_NAME} to help content creators generate better thumbnails, discover powerful keywords, and grow faster on YouTube and Instagram.`}
+        
+        badgeTitle={`About ${BRAND_NAME} →`}
+        title="Empowering Creators with AI-Powered Growth Tools"
+        subTitle={`We built ${BRAND_NAME} to help content creators generate better thumbnails, discover powerful keywords, and grow faster on YouTube and Instagram.`}
         />
       </div>
       <Stats />
+        </HeroGridPattern>
       {/* Mission Section */}
       <section className="max-w-6xl mx-auto px-6 py-20 text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Mission</h2>
