@@ -11,7 +11,7 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section className="py-14 border-y bg-muted/40 relative z-10">
+    <section className="py-14 border-y bg-muted/40 relative z-10 mask-x-from-85%">
       <div className="container grid grid-cols-2 md:grid-cols-4 gap-8 text-center max-w-6xl mx-auto">
         {stats.map((item, i) => (
           <motion.div
