@@ -11,6 +11,7 @@ import {
   X,
   Tag,
   Video,
+  Text
 } from "lucide-react";
 
 import { RiMenu3Line } from "@remixicon/react";
@@ -87,6 +88,18 @@ const toolsMenuData = [
       },
     ],
   },
+  {
+    platform: "Other",
+
+    tools: [
+      {
+        icon: Text,
+        title: "Image to Prompt",
+        description: "Generate prompts from images",
+        href: "/image-to-prompt",
+      },
+    ],
+  },
 ];
 
 import { useAuth, useUser } from "@clerk/nextjs";
@@ -112,7 +125,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className="border-b border-border bg-background sticky top-0 z-50">
+      <nav className="border-b border-border bg-background sticky top-0 z-50 relative">
         <div className="max-w-6xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -134,7 +147,7 @@ function Navbar() {
           <div className="hidden md:flex items-center gap-8">
             {/* Tools Dropdown */}
             <motion.div
-              className="relative"
+              className=""
               onClick={() => setIsToolsOpen(!isToolsOpen)}
               onMouseEnter={() => setIsToolsOpen(true)}
               initial={{ opacity: 0, y: -10 }}
@@ -154,10 +167,10 @@ function Navbar() {
                   animate={{ opacity: 1, y: 0, scale: 1, x: "-50%" }}
                   exit={{ opacity: 0, y: -10, scale: 0.95, x: "-50%" }}
                   transition={{ duration: 0.2, ease: "easeOut" }}
-                  className="absolute top-full left-1/2 mt-2 w-[calc(100vw-2rem)] md:w-[600px] max-w-[max-content] md:max-w-none bg-white border border-border rounded-lg shadow-lg p-6 z-50"
+                  className="absolute top-full left-1/2 mt-2 w-[calc(100vw-2rem)] max-w-max bg-white border border-border rounded-lg shadow-lg p-6 z-50"
                   onMouseLeave={() => setIsToolsOpen(false)}
                 >
-                  <div className="grid grid-cols-2 gap-6">
+                  <div className="grid grid-cols-3 gap-6">
                     {toolsMenuData.map((section, sectionIndex) => {
                       return (
                         <motion.div
