@@ -11,7 +11,7 @@ import {
   X,
   Tag,
   Video,
-  Text
+  Text,
 } from "lucide-react";
 
 import { RiMenu3Line } from "@remixicon/react";
@@ -96,7 +96,7 @@ const toolsMenuData = [
         icon: Text,
         title: "Image to Prompt",
         description: "Generate prompts from images",
-        href: "/image-to-prompt",
+        href: "other-tools/image-to-prompt",
       },
     ],
   },
