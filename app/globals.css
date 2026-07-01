@@ -577,7 +577,6 @@ html.lenis body {
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
 }
-<<<<<<< Updated upstream
 
 .▭ {
     direction: ltr;
@@ -589,8 +588,8 @@ html.lenis body {
     width: 300px !important;
     font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     z-index: 2147483647;
-=======
-.inset-shadow{
-  box-shadow: inset  0 0 12px 6px var(--color-neutral-300);
->>>>>>> Stashed changes
+}
+
+.inset-shadow {
+  box-shadow: inset 0 0 12px 6px var(--color-neutral-300);
 }

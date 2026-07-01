@@ -31,11 +31,7 @@ const toastVariants = cva(
       variant: {
         default: "border bg-background text-foreground",
         destructive:
-<<<<<<< Updated upstream
-          "destructive group border-destructive bg-destructive/50 text-white",
-=======
           "destructive group border-red-500/50 bg-red-50 text-red-900 dark:bg-red-950 dark:text-red-200 shadow-lg transition-all hover:scale-[1.01]",
->>>>>>> Stashed changes
         success:
           "border-emerald-500/50 bg-emerald-50 text-emerald-900 dark:bg-emerald-950 dark:text-emerald-200",
         error:
