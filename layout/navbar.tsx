@@ -89,7 +89,6 @@ const toolsMenuData = [
     ],
   },
   {
-<<<<<<< Updated upstream
     platform: "Other",
 
     tools: [
@@ -99,18 +98,6 @@ const toolsMenuData = [
         description: "Generate prompts from images",
         href: "other-tools/image-to-prompt",
       },
-=======
-    platform: "Other Tools",
-
-    tools: [
-      {
-        icon: Hash,
-        title: "Image To Prompt",
-        description: "Convert image to prompt",
-        href: "/other-tools/image-to-prompt",
-      },
- 
->>>>>>> Stashed changes
     ],
   },
 ];
