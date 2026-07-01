@@ -375,7 +375,7 @@ const FileUploadOptions = ({
                 placeholder="Write better prompt for better results"
                 id="prompt"
                 name="prompt"
-                className="w-full h-32 p-3 rounded-lg border border-border bg-white dark:bg-neutral-800 text-sm focus:ring-2 focus:ring-card-foreground outline-none resize-none transition-shadow hover:shadow-md"
+                className="w-full h-32 p-3 rounded-lg border border-border  bg-white dark:bg-neutral-800 text-sm focus:ring-2 focus:ring-card-foreground outline-none resize-none transition-shadow hover:shadow-md"
                 required
               />
             </div>
