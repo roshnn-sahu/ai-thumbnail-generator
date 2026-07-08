@@ -96,7 +96,7 @@ const toolsMenuData = [
         icon: Text,
         title: "Image to Prompt",
         description: "Generate prompts from images",
-        href: "other-tools/image-to-prompt",
+        href: "/other-tools/image-to-prompt",
       },
     ],
   },
