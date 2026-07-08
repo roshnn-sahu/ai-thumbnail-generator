@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   IconArrowsShuffle,
+  IconCheck,
   IconCopy,
   IconUpload,
   IconX,
@@ -145,23 +146,24 @@ export const FileUpload = ({
       }
     } catch (error: any) {
       console.error("Generate error:", error);
-      
+
       // If payment/credit error (403 Forbidden)
       if (error.response?.status === 403) {
         setUpgradeModalOpen(true);
         toast({
           title: "Limit Reached",
           description:
-            error.response.data?.message || "You have used your free credit for this tool. Please upgrade to continue.",
+            error.response.data?.message ||
+            "You have used your free credit for this tool. Please upgrade to continue.",
           variant: "destructive",
         });
       } else {
         toast({
           title: "Error",
           description:
-            error.response?.data?.message || 
+            error.response?.data?.message ||
             error.response?.data?.error ||
-            error.message || 
+            error.message ||
             "Failed to generate prompt. Please try again.",
           variant: "destructive",
         });
@@ -378,7 +380,8 @@ export const FileUpload = ({
                 />
 
                 <Button onClick={handleCopy} disabled={!generatedPrompt}>
-                  {copied ? "Copied!" : "Copy"} <IconCopy />
+                  {copied ? "Copied!" : "Copy"}
+                  {copied ? <IconCheck /> : <IconCopy />}
                 </Button>
               </div>
             </motion.div>
