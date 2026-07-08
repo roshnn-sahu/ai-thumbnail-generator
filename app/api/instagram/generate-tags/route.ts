@@ -1,9 +1,10 @@
 import { NextResponse } from "next/server";
 import axios from "axios";
+
 export async function POST(req: Request) {
   const { topic } = await req.json();
   const year = new Date().getFullYear();
-
+  const LANG = "English";
   const prompt = `
 You are an Instagram growth expert and social media SEO strategist.
 
@@ -32,7 +33,7 @@ STRICT RULES:
 - Output must be space-separated in one single line
 
 Topic: ${topic}
-Language: {LANG}
+Language: ${LANG}
 Style: viral + discoverability + growth
 Platform: Instagram
 Year: ${year}
@@ -41,7 +42,7 @@ Year: ${year}
   const response = await axios.post(
     "https://openrouter.ai/api/v1/chat/completions",
     {
-      model: "stepfun/step-3.5-flash:free",
+      model: "openrouter/free",
       messages: [{ role: "user", content: prompt }],
     },
     {

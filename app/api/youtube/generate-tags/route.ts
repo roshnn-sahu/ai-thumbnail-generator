@@ -17,7 +17,7 @@ Language: English
   const response = await axios.post(
     "https://openrouter.ai/api/v1/chat/completions",
     {
-      model: "stepfun/step-3.5-flash:free",
+      model: "openrouter/free",
       messages: [{ role: "user", content: prompt }],
     },
     {
