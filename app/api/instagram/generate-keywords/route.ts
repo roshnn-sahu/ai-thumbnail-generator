@@ -35,7 +35,7 @@ Year: ${year}
     const response = await axios.post(
       "https://openrouter.ai/api/v1/chat/completions",
       {
-        model: "arcee-ai/trinity-large-preview:free",
+       model: "openrouter/free",
         messages: [{ role: "user", content: prompt }],
       },
       {
