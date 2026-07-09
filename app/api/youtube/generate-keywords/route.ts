@@ -7,7 +7,6 @@ export async function POST(req: Request) {
     const year = new Date().getFullYear();
 
     const prompt = `You are an expert YouTube and SEO keyword research specialist.
-
 TASK:
 Generate high-search, SEO-optimized keywords based on the topic.
 
@@ -40,7 +39,7 @@ Intent: search traffic growth
     const response = await axios.post(
       "https://openrouter.ai/api/v1/chat/completions",
       {
-       model: "openrouter/free",
+        model: "openrouter/free",
         messages: [{ role: "user", content: prompt }],
       },
       {
@@ -48,7 +47,7 @@ Intent: search traffic growth
           Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
           "Content-Type": "application/json",
         },
-        timeout: 10000, 
+        timeout: 10000,
       },
     );
 
